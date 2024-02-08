@@ -1,0 +1,55 @@
+---
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title='Kevin Lanvin'>
+  <Header />
+  <main></main>
+</Layout>
+
+<style is:global>
+  @font-face {
+    font-family: "Poppins";
+    src: url("/fonts/Poppins-Bold.ttf");
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Poppins";
+    src: url("/fonts/Poppins-ExtraLight.ttf");
+    font-weight: lighter;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Poppins";
+    src: url("/fonts/Poppins-Italic.ttf");
+    font-weight: normal;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: "Poppins";
+    src: url("/fonts/Poppins-Regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  body {
+    background: url("/images/background.jpg");
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0 12%;
+    font-family: 'Poppins';
+  }
+
+  a {
+    cursor: pointer;
+  }
+</style>
