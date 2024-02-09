@@ -1,11 +1,16 @@
 ---
+import Cube from "../components/Cube.astro";
+import CubeSkew from "../components/CubeSkew.astro";
 import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title='Kevin Lanvin'>
   <Header />
-  <main></main>
+  <main>
+    <Cube />
+    <CubeSkew />
+  </main>
 </Layout>
 
 <style is:global>
