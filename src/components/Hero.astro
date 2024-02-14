@@ -1,0 +1,77 @@
+---
+
+---
+
+<section id='hero'></section>
+
+<style lang='scss'>
+  #hero {
+    padding: 5em 25%;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    :global(canvas:nth-child(12), canvas:nth-child(28)) {
+      min-width: 3em;
+    }
+    :global(canvas:nth-child(16), canvas:nth-child(26)) {
+      flex-basis: 100%;
+    }
+  }
+  h1 {
+    color: white;
+    margin: auto;
+    text-align: center;
+    font-size: 6em;
+  }
+</style>
+
+<script is:inline src='/scripts/blotter.min.js'></script>
+<script is:inline src='/scripts/fliesMaterial.js'></script>
+<script>
+  const texts = "Développeur web Freelance à Lille.".split("");
+  const blotterTexts = texts.map(
+    (text) =>
+      new Blotter.Text(text, {
+        family: "Poppins",
+        size: 100,
+        fill: "white",
+      })
+  );
+
+  const materials = blotterTexts.map((t) => {
+    const material = new Blotter.FliesMaterial();
+    material.uniforms.uPointCellWidth.value = 0.015 + 0.005 * Math.random();
+    material.uniforms.uPointRadius.value = 0.8 + 0.4 * Math.random();
+    material.uniforms.uSpeed.value = 10;
+    return material;
+  });
+
+  const blotters = blotterTexts.map(
+    (text, index) =>
+      new Blotter(materials[index], {
+        texts: text,
+      })
+  );
+
+  const scopes = blotters.map((blotter, i) => blotter.forText(blotterTexts[i]));
+  const hero = document.getElementById("hero");
+
+  scopes.forEach((scope) => scope.appendTo(hero));
+
+  hero.childNodes.forEach((node, index) =>
+    node.addEventListener("mouseover", () => {
+      materials[index].uniforms.uSpeed.value = 4;
+      materials[index].uniforms.uPointCellWidth.value = 0.015;
+      materials[index].uniforms.uPointRadius.value = 20;
+    })
+  );
+  hero.childNodes.forEach((node, index) =>
+    node.addEventListener("mouseout", () => {
+      materials[index].uniforms.uSpeed.value = 10;
+      materials[index].uniforms.uPointCellWidth.value =
+        0.015 + 0.005 * Math.random();
+      materials[index].uniforms.uPointRadius.value = 0.8 + 0.4 * Math.random();
+    })
+  );
+</script>

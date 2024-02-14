@@ -1,15 +1,13 @@
 ---
-import Cube from "../components/Cube.astro";
-import CubeSkew from "../components/CubeSkew.astro";
 import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title='Kevin Lanvin'>
   <Header />
   <main>
-    <Cube />
-    <CubeSkew />
+    <Hero />
   </main>
 </Layout>
 
@@ -43,15 +41,21 @@ import Layout from "../layouts/Layout.astro";
   }
 
   body {
-    background: url("/images/background.jpg");
-    background-size: cover;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    padding: 0 12%;
     font-family: 'Poppins';
+    padding: 0;
+    margin: 0;
+  }
+  
+  main {
+    background: url("/images/bg.jpg");
+    background-size: cover;
+    min-height: 100vh;
+    padding-top: 10em;
   }
 
   a {
