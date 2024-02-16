@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
+import WebsiteCreation from "../components/WebsiteCreation.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -8,6 +9,7 @@ import Layout from "../layouts/Layout.astro";
   <Header />
   <main>
     <Hero />
+    <WebsiteCreation />
   </main>
 </Layout>
 
@@ -41,20 +43,17 @@ import Layout from "../layouts/Layout.astro";
   }
 
   body {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     font-family: 'Poppins';
     padding: 0;
     margin: 0;
+    overflow-x: hidden;
   }
   
   main {
     background: url("/images/bg.webp");
     background-color: #000;
-    background-size: cover;
+    background-size: 100%;
+    background-repeat: no-repeat;
     min-height: 100vh;
     padding-top: 165px;
   }
