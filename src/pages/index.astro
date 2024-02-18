@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
+import LastWork from "../components/LastWork.astro";
 import WebsiteCreation from "../components/WebsiteCreation.astro";
 import Layout from "../layouts/Layout.astro";
 ---
@@ -10,6 +11,7 @@ import Layout from "../layouts/Layout.astro";
   <main>
     <Hero />
     <WebsiteCreation />
+    <LastWork />
   </main>
 </Layout>
 
@@ -43,12 +45,12 @@ import Layout from "../layouts/Layout.astro";
   }
 
   body {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     padding: 0;
     margin: 0;
     overflow-x: hidden;
   }
-  
+
   main {
     background: url("/images/bg.webp");
     background-color: #000;

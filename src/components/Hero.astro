@@ -18,14 +18,10 @@
   const hero = document.getElementById("hero");
   const title = document.getElementById("title");
   hero.addEventListener("mousemove", (event) => {
-    let xOffset = event.offsetX - title.offsetLeft;
-    xOffset = Math.max(0, xOffset);
-    xOffset = Math.min(title.offsetWidth, xOffset);
-    let yOffset = event.offsetY - title.offsetTop;
-    yOffset = Math.max(0, yOffset);
-    yOffset = Math.min(title.offsetHeight, yOffset);
+    let xOffset = event.clientX - title.offsetLeft;
+    xOffset = Math.max(100, xOffset);
+    xOffset = Math.min(title.offsetWidth - 100, xOffset);
     title.style.setProperty("--translateX", `${xOffset}px`);
-    title.style.setProperty("--translateY", `${yOffset}px`);
   });
 </script>
 
@@ -46,9 +42,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      animation:
-        fog1movement 10s linear infinite forwards,
-        fog1opacity 20s linear infinite alternate;
+      animation: fog1movement 10s linear infinite forwards;
     }
     &::before {
       content: "";
@@ -59,9 +53,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      animation:
-        fog1movement 17s linear infinite forwards,
-        fog1opacity 15s linear infinite alternate;
+      animation: fog1movement 17s linear infinite forwards;
     }
   }
   #title {
@@ -73,24 +65,27 @@
       width: 1010px;
       height: 283px;
       margin: 0;
+      &:hover {
+        &::after {
+          transform: scale(10);
+        }
+      }
       &::after {
         content: "";
         position: absolute;
         top: 0;
         left: 0;
         width: 2400px;
-        height: 2400px;
-        background: radial-gradient(
-          circle at 50% 50%,
-          white,
-          white 15%,
+        height: 600px;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.1),
           rgba(255, 255, 255, 0.1) 25%,
+          white 50%,
+          rgba(255, 255, 255, 0.1) 75%,
           rgba(255, 255, 255, 0.1)
         );
-        transform: translate(
-          calc(-50% + var(--translateX)),
-          calc(-50% + var(--translateY))
-        );
+        transform: translateX(calc(-50% + var(--translateX)));
         transform-origin: center center;
       }
       &::before {
@@ -100,14 +95,7 @@
         left: 0;
         width: 1010px;
         height: 566px;
-        background: linear-gradient(
-          0deg,
-          #eee,
-          rgba(238, 238, 238, 0.6) 75%,
-          rgba(238, 238, 238, 0.6)
-        );
-        transform-origin: center center;
-        animation: float 2s infinite alternate forwards ease-in-out;
+        background-color: rgba(210, 210, 210, 0.5);
       }
     }
     width: 1010px;
@@ -115,7 +103,6 @@
     position: relative;
     display: block;
     --translateX: "0px";
-    --translateY: "0px";
   }
 
   @keyframes rotate {
@@ -136,45 +123,9 @@
     }
   }
 
-  @keyframes fog1opacity {
-    0% {
-      opacity: 0.5;
-    }
-    10% {
-      opacity: 0.8;
-    }
-    20% {
-      opacity: 0.7;
-    }
-    30% {
-      opacity: 0.6;
-    }
-    40% {
-      opacity: 0.4;
-    }
-    50% {
-      opacity: 0.5;
-    }
-    60% {
-      opacity: 0.7;
-    }
-    70% {
-      opacity: 0.9;
-    }
-    80% {
-      opacity: 0.9;
-    }
-    90% {
-      opacity: 0.7;
-    }
-    100% {
-      opacity: 0.6;
-    }
-  }
-
   @keyframes fog1movement {
     0% {
-      transform: translateX(0%);
+      transform: translateX(0);
     }
     100% {
       transform: translateX(-1000px);
@@ -220,7 +171,7 @@
       text-shadow: 0px 4px 10px #000000;
     }
     &::after {
-      content: url('/images/avatarArrow.svg');
+      content: url("/images/avatarArrow.svg");
       position: absolute;
       bottom: 60%;
       left: 33%;
@@ -232,7 +183,7 @@
       transform: translateY(20%);
     }
     to {
-      transform: translateY(25%);
+      transform: translateY(35%);
     }
   }
 </style>
