@@ -1,0 +1,41 @@
+<footer>
+  <div class='links'>
+    <a href='#'>Mentions Légales</a>
+    <a href='#'>LinkedIn</a>
+  </div>
+  <span class="design">Website designed by <strong>MGDG</strong></span>
+</footer>
+
+<style lang='scss'>
+  footer {
+    width: 76%;
+    position: absolute;
+    z-index: 50;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    border-top: 1px solid white;
+    padding: 5rem 0;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+  }
+  .links {
+    display: flex;
+    gap: 5rem;
+    a {
+      color: white;
+    }
+  }
+  .design {
+    font-size: 1.25rem;
+    position: relative;
+    transform: rotate(-2.5deg);
+    &::after {
+      content: url("/images/designArrow.svg");
+      position: absolute;
+      top: 50%;
+      right: 50%;
+    }
+  }
+</style>

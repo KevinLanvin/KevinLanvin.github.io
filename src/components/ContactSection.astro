@@ -1,0 +1,116 @@
+---
+import BorderedButton from "./BorderedButton.astro";
+---
+
+<section class='contactSection'>
+  <div class='fog'></div>
+  <h2>
+    Et si on discutait de <strong>vos projets</strong><br /><em>ensemble ?</em>
+  </h2>
+  <BorderedButton>
+    <svg
+      width='52'
+      height='38'
+      viewBox='0 0 52 38'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+    >
+      <path
+        d='M2.12256 18.5715L49.842 18.5715M49.842 18.5715L34.2505 35.8047M49.842 18.5715L34.2505 1.83063'
+        stroke='white'
+        stroke-width='3'
+        stroke-linecap='round'></path>
+    </svg>
+  </BorderedButton>
+  <div class='shadow'></div>
+</section>
+
+<style lang='scss'>
+  .contactSection {
+    background: url("/images/ecosse-background.jpg");
+    background-size: cover;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5rem;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: url("/images/train.png");
+      background-size: cover;
+      z-index: 1;
+    }
+    h2 {
+      color: white;
+      font-size: 5rem;
+      line-height: 7rem;
+      font-weight: normal;
+      z-index: 2;
+      strong {
+        font-weight: normal;
+        font-style: italic;
+      }
+      em {
+        font-size: 10rem;
+        font-weight: bold;
+      }
+    }
+    .shadow {
+      width: 200vw;
+      height: 100vh;
+      z-index: 1;
+      position: absolute;
+      transform: translateX(-50%);
+      background: radial-gradient(
+        ellipse at bottom,
+        #000000 0%,
+        #000000f0 20%,
+        #00000070 50%,
+        #00000050 60%,
+        transparent 100%
+      );
+      bottom: 0;
+      left: 50%;
+    }
+    .fog {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      &::after {
+        content: "";
+        background-image: url("/images/fog1large.png");
+        background-repeat: repeat-x;
+        background-position-y: bottom;
+        width: 5000px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        animation: fog1movement 10s linear infinite reverse;
+      }
+      &::before {
+        content: "";
+        background-image: url("/images/fog1large.png");
+        background-repeat: repeat-x;
+        background-position-y: bottom;
+        width: 5000px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        animation: fog1movement 20s linear infinite reverse;
+      }
+    }
+  }
+</style>

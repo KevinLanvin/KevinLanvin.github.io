@@ -1,7 +1,11 @@
 ---
+import ContactSection from "../components/ContactSection.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import LastWork from "../components/LastWork.astro";
+import Partners from "../components/Partners.astro";
+import SimpleSection from "../components/SimpleSection.astro";
+import Technologies from "../components/Technologies.astro";
 import WebsiteCreation from "../components/WebsiteCreation.astro";
 import Layout from "../layouts/Layout.astro";
 ---
@@ -12,37 +16,14 @@ import Layout from "../layouts/Layout.astro";
     <Hero />
     <WebsiteCreation />
     <LastWork />
+    <SimpleSection />
+    <Technologies />
+    <Partners />
+    <ContactSection />
   </main>
 </Layout>
 
 <style is:global>
-  @font-face {
-    font-family: "Poppins";
-    src: url("/fonts/Poppins-Bold.ttf");
-    font-weight: bold;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: "Poppins";
-    src: url("/fonts/Poppins-ExtraLight.ttf");
-    font-weight: lighter;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: "Poppins";
-    src: url("/fonts/Poppins-Italic.ttf");
-    font-weight: normal;
-    font-style: italic;
-  }
-
-  @font-face {
-    font-family: "Poppins";
-    src: url("/fonts/Poppins-Regular.ttf");
-    font-weight: normal;
-    font-style: normal;
-  }
 
   body {
     font-family: "Poppins";
@@ -52,12 +33,6 @@ import Layout from "../layouts/Layout.astro";
   }
 
   main {
-    background: url("/images/bg.webp");
-    background-color: #000;
-    background-size: 100%;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-    padding-top: 165px;
   }
 
   a {

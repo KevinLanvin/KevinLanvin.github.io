@@ -1,4 +1,5 @@
 ---
+import BorderedButton from "./BorderedButton.astro";
 import SquareHammer from "./SquareHammer.astro";
 ---
 
@@ -11,33 +12,30 @@ import SquareHammer from "./SquareHammer.astro";
   <SquareHammer class='squareHammer' />
   <svg
     class='circle'
-    viewBox='0 0 865 1223'
+    viewBox='0 0 800 800'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <rect
-      x='-356.5'
-      y='1.5'
-      width='1220'
-      height='1220'
-      rx='610'
-      stroke='white'
-      stroke-width='3'
-      stroke-linejoin='round'
-      stroke-dasharray='12 12'></rect>
+    <defs>
+      <radialGradient id="circleGradient" cx="0" cy="50%" r="25%">
+        <stop offset="0%" stop-color="#ffffff"></stop>
+        <stop offset="100%" stop-color="#ffffff00"></stop>
+      </radialGradient>
+    </defs>
+      <circle cx="400" cy="400" r="396" stroke-width="4" stroke="url(#circleGradient)" />
   </svg>
-  <button class='services'
+  <BorderedButton addedClasses="services" color="#4f4f4f"
     >Découvrir mes services
-    <span class='border'></span><span class='border'></span><span class='border'
-    ></span>
-  </button>
+  </BorderedButton>
 </section>
 
 <style lang='scss'>
   .websiteCreation {
-    background: linear-gradient(180deg, #ced9ec 0%, #cdd6e8 100%);
+    background-color: #ccd6e8;
+    box-shadow: 0 150px 150px 150px #cdd6e8, 0 -150px 150px 150px #ccd6e8;
     position: relative;
-    height: 125rem;
+    height: 50rem;
+    z-index: 2;
     h2 {
       color: rgba(255, 255, 255, 0.4);
       font-weight: bold;
@@ -52,7 +50,7 @@ import SquareHammer from "./SquareHammer.astro";
       color: #4f4f4f;
       font-size: 2rem;
       position: absolute;
-      top: 30rem;
+      top: 40rem;
       right: 12%;
       width: 40rem;
       text-align: center;
@@ -60,51 +58,43 @@ import SquareHammer from "./SquareHammer.astro";
     :global(.squareHammer) {
       position: absolute;
       right: 60%;
-      bottom: 16rem;
+      top: 40rem;
       z-index: 2;
     }
     .circle {
       width: 80rem;
       height: 80rem;
       position: absolute;
-      left: -20rem;
-      bottom: -10rem;
+      right: 60%;
+      top: 50rem;
       z-index: 1;
+      animation: rotateCircle 4s linear infinite;
     }
-    .services {
+    :global(.services) {
       position: absolute;
-      bottom: 20rem;
-      right: 30%;
+      top: 90rem;
+      right: 25%;
       font-size: 1.25rem;
-      border: none;
-      background-color: transparent;
       font-weight: bold;
-      transform: rotate(-2deg);
       color: #4f4f4f;
       cursor: pointer;
-      padding: 1em;
       &::after {
         content: url("/images/servicesArrow.svg");
         position: absolute;
         bottom: 100%;
         right: 65%;
       }
-      .border {
-        position: absolute;
-        border: 1px solid #4f4f4f;
-        border-radius: 4em;
-        width: 100%;
-        height: 100%;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        &:first-of-type {
-          transform: translate(calc(-50% - 7px), calc(-50% - 7px));
-        }
-        &:last-of-type {
-          transform: translate(calc(-50% + 7px), calc(-50% + 7px));
-        }
-      }
+    }
+  }
+  @keyframes rotateCircle {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(360deg);
+    } 
+    100% {
+      transform: rotate(360deg);
     }
   }
 </style>

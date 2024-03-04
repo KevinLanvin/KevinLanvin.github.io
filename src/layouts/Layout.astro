@@ -4,6 +4,7 @@ interface Props {
 }
 
 const { title } = Astro.props;
+import Footer from "../components/Footer.astro";
 ---
 
 <!doctype html>
@@ -18,10 +19,39 @@ const { title } = Astro.props;
 	</head>
 	<body>
 		<slot />
+		<Footer></Footer>
 	</body>
 </html>
 
 <style is:global>
+  @font-face {
+    font-family: "Poppins";
+    src: url("/fonts/Poppins-Bold.ttf");
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Poppins";
+    src: url("/fonts/Poppins-ExtraLight.ttf");
+    font-weight: lighter;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Poppins";
+    src: url("/fonts/Poppins-Italic.ttf");
+    font-weight: normal;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: "Poppins";
+    src: url("/fonts/Poppins-Regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+  }
+
 	:root {
 		--accent: 136, 58, 234;
 		--accent-light: 224, 204, 250;
@@ -35,21 +65,15 @@ const { title } = Astro.props;
 	}
 	* {
 		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+    text-decoration: none;
 	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
+	button {
+		border: none;
+		background-color: transparent;
 	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+	body {
+		position: relative;
 	}
 </style>

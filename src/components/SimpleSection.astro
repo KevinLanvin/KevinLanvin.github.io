@@ -1,0 +1,90 @@
+<section class='simpleSection'>
+  <div class='incomingArrow'></div>
+  <div class='border-container'>
+    <p>
+      Phrase sur la notion de fullstack (donc en vue de rejoindre une équipe)
+    </p>
+  </div>
+</section>
+
+<style lang='scss'>
+  .simpleSection {
+    background-color: #0e0e0e;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10rem calc(12% - 10px);
+    box-shadow: 0px -100px 100px 50px #0e0e0e;
+    .incomingArrow {
+      // clip-path: path(
+      //   "M218.056 33.6939C218.056 33.6939 188.372 70.9359 121.03 69.1662C53.688 67.3965 2.60409 1.68309 2.60409 1.68309M2.60409 1.68309L10.1769 35.6506M2.60409 1.68309L39.7532 2.23682"
+      // );
+      width: 300px;
+      height: 300px;
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      &::before {
+        content: "";
+        width: 300px;
+        height: 300px;
+        background: conic-gradient(
+          from 90deg at 100% 50%,
+          #ffffff00 49%,
+          #ffffff 50%,
+          #ffffff00 53%
+        );
+        position: absolute;
+      }
+    }
+    .border-container {
+      padding: 5px;
+      overflow: hidden;
+      position: relative;
+      border-radius: 5rem;
+      &::after {
+        content: "";
+        background: conic-gradient(
+          from 90deg at 50% 50%,
+          transparent 0%,
+          transparent 20%,
+          white 25%,
+          transparent 26%,
+          transparent 70%,
+          white 75%,
+          transparent 76%,
+          transparent
+        );
+        width: 150%;
+        padding-top: 150%;
+        position: absolute;
+        z-index: -1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 5rem;
+        animation: rotateBorder 2s linear infinite;
+      }
+    }
+    p {
+      color: white;
+      font-size: 3rem;
+      text-align: center;
+      padding: 10rem;
+      border-radius: 5rem;
+      position: relative;
+      background-color: #0e0e0e;
+    }
+  }
+  @keyframes rotateBorder {
+    from {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotate(270deg);
+    }
+  }
+</style>
