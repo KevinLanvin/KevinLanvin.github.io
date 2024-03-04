@@ -1,0 +1,67 @@
+---
+import ProjectCard from "../components/ProjectCard.astro";
+---
+
+<main>
+  <div class='scene'>
+    <ProjectCard className='scrollableCard'>Card 1</ProjectCard>
+    <ProjectCard className='scrollableCard'>Card 2</ProjectCard>
+    <ProjectCard className='scrollableCard'>Card 3</ProjectCard>
+    <ProjectCard className='scrollableCard'>Card 4</ProjectCard>
+  </div>
+</main>
+
+<script>
+  document.addEventListener("scroll", () => {
+    const sceneElement = document.querySelector(".scene") as HTMLElement;
+    if (!!sceneElement)
+      sceneElement.style.transform = `translateZ(${window.scrollY}px)`;
+  });
+</script>
+
+<style lang='scss'>
+  :root {
+    --gap: 400;
+    --nbElements: 4;
+  }
+  :global(body) {
+    height: calc(100vh + var(--gap) * (var(--nbElements) - 1) * 1px);
+  }
+  main {
+    perspective: 200px;
+    perspective-origin: 50% calc(50% - 300px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('/images/bg-purple.jpg');
+    background-size: cover;
+  }
+  .scene {
+    transform-style: preserve-3d;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+  }
+  :global(.scrollableCard) {
+    position: absolute;
+    width: 30%;
+    height: 300px;
+    top: 20%;
+    background-color: #ffffffcc;
+    &:nth-child(2n) {
+      left: 10%;
+    }
+    &:nth-child(2n + 1) {
+      right: 10%;
+    }
+    @for $i from 0 through 25 {
+      &:nth-child(#{$i}) {
+        transform: translateZ(calc(var(--gap) * (#{$i} - 1) * -1px));
+      }
+    }
+  }
+</style>

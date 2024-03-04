@@ -1,0 +1,21 @@
+---
+const { className } = Astro.props;
+---
+
+<div class=`projectCard ${className}`>
+  <slot />
+</div>
+
+<style lang='scss'>
+  .projectCard {
+    background: linear-gradient(
+      225deg,
+      rgba(255, 255, 255, 0.7) 1.22%,
+      rgba(255, 255, 255, 0.3) 100%
+    );
+    border: 2px solid white;
+    border-radius: 2rem;
+    padding: 2rem;
+    backdrop-filter: blur(5px);
+  }
+</style>
