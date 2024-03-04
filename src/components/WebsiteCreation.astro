@@ -24,9 +24,9 @@ import SquareHammer from "./SquareHammer.astro";
     </defs>
       <circle cx="400" cy="400" r="396" stroke-width="4" stroke="url(#circleGradient)" />
   </svg>
-  <BorderedButton addedClasses="services" color="#4f4f4f"
+  <button class="services"
     >Découvrir mes services
-  </BorderedButton>
+  </button>
 </section>
 
 <style lang='scss'>
@@ -70,13 +70,18 @@ import SquareHammer from "./SquareHammer.astro";
       z-index: 1;
       animation: rotateCircle 4s linear infinite;
     }
-    :global(.services) {
+    .services {
       position: absolute;
       top: 90rem;
       right: 25%;
       font-size: 1.25rem;
       font-weight: bold;
       color: #4f4f4f;
+      background: #4F4F4F0A;
+      border: solid 2px #4f4f4f;
+      border-radius: 5rem;
+      padding: 1rem;
+      backdrop-filter: blur(4px);
       cursor: pointer;
       &::after {
         content: url("/images/servicesArrow.svg");

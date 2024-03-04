@@ -1,47 +1,50 @@
 ---
-const { addedClasses, color = "white" } = Astro.props;
+const { addedClasses = "", color = "white" } = Astro.props;
 ---
 
 <button class=`borderedButton ${addedClasses}`>
   <slot />
-  <span class='border' style=`--color: ${color}`></span><span
-    class='border'
-    style=`--color: ${color}`></span><span
-    class='border'
-    style=`--color: ${color}`></span>
 </button>
 
 <style lang='scss'>
   .borderedButton {
-    font-size: 1.25rem;
-    font-weight: bold;
     color: white;
-    z-index: 2;
-    cursor: pointer;
-    padding: 1em 2em;
-    position: relative;
-    .border {
+    position: relative; /* or absolute */
+    background: #FFFFFF0A;
+    border: 1px solid white;
+    border-radius: 5rem;
+    padding: 2rem;
+    backdrop-filter: blur(5px);
+    white-space: nowrap;
+    width: max-content;
+    &::before {
+      content: "";
       position: absolute;
-      border: 1px solid var(--color);
-      border-radius: 4em;
-      width: 100%;
-      height: 100%;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(-3deg);
-      transition: transform 0.2s ease-in-out;
-      &:first-of-type {
-        transform: translate(calc(-50% - 7px), calc(-50% - 7px)) rotate(-3deg);
-      }
-      &:last-of-type {
-        transform: translate(calc(-50% + 7px), calc(-50% + 7px)) rotate(-3deg);
-      }
+      top: 0;
+      left: 2.5rem;
+      width: calc(50% - 2.5rem);
+      height: 10px;
+      background: radial-gradient(farthest-side, #ffffff, #ffffff00);
+      transform: translate(0, -55%);
+      transition: transform 0.2s;
     }
-  }
-  .borderedButton:hover {
-    .border:last-of-type,
-    .border:first-of-type {
-      transform: translate(-50%, -50%) rotate(-3deg);
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 2.5rem;
+      width: calc(50% - 2.5rem);
+      height: 10px;
+      background: radial-gradient(farthest-side, #ffffff, #ffffff00);
+      transform: translate(0, 55%);
+      transition: transform 0.2s;
     }
-  }
+    &:hover {
+      &::before {
+        transform: translate(100%, -55%);
+      }
+      &::after {
+        transform: translate(-100%, 55%);
+      }
+    }  }
 </style>

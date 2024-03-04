@@ -14,7 +14,7 @@ import Logo from "./Logo.astro";
     <a href='/portfolio'>Voir mes réalisations</a>
     <a href='/qui-je-suis'>Savoir qui je suis</a>
   </nav>
-  <BorderedButton
+  <BorderedButton addedClasses="headerButton"
     >Me contacter
   </BorderedButton>
 </header>
@@ -53,5 +53,8 @@ import Logo from "./Logo.astro";
       text-decoration: none;
       padding: 1em;
     }
+  }
+  :global(.headerButton) {
+    font-size: 1.5rem;
   }
 </style>
