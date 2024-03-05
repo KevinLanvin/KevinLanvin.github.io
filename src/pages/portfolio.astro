@@ -14,8 +14,19 @@ import ProjectCard from "../components/ProjectCard.astro";
 <script>
   document.addEventListener("scroll", () => {
     const sceneElement = document.querySelector(".scene") as HTMLElement;
-    if (!!sceneElement)
+    if (!!sceneElement) {
       sceneElement.style.transform = `translateZ(${window.scrollY}px)`;
+    }
+  });
+  document.addEventListener("scrollend", () => {
+    console.log(Math.floor(window.scrollY / 400));
+    if (window.scrollY % 400 === 0) return;
+    const sceneElement = document.querySelector(".scene") as HTMLElement;
+    sceneElement.style.transition = 'transform 0.3s ease-in-out';
+    window.scrollTo(0, (Math.floor(window.scrollY / 400) + 1) * 400);
+    setTimeout(() => {
+      sceneElement.style.transition = 'none';
+    }, 300);
   });
 </script>
 
@@ -26,16 +37,17 @@ import ProjectCard from "../components/ProjectCard.astro";
   }
   :global(body) {
     height: calc(100vh + var(--gap) * (var(--nbElements) - 1) * 1px);
+    scroll-behavior: smooth;
   }
   main {
     perspective: 200px;
-    perspective-origin: 50% calc(50% - 300px);
+    perspective-origin: 70% 50%;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: url('/images/bg-purple.jpg');
+    background: url("/images/stars.jpeg");
     background-size: cover;
   }
   .scene {
@@ -45,22 +57,20 @@ import ProjectCard from "../components/ProjectCard.astro";
     left: 0;
     width: 100%;
     height: 100vh;
+    scroll-snap-type: mandatory;
   }
   :global(.scrollableCard) {
     position: absolute;
     width: 30%;
     height: 300px;
-    top: 20%;
+    top: 50%;
     background-color: #ffffffcc;
-    &:nth-child(2n) {
-      left: 10%;
-    }
-    &:nth-child(2n + 1) {
-      right: 10%;
-    }
+    left: 40%;
     @for $i from 0 through 25 {
       &:nth-child(#{$i}) {
-        transform: translateZ(calc(var(--gap) * (#{$i} - 1) * -1px));
+        transform: translateZ(calc(var(--gap) * (#{$i} - 1) * -1px))
+          translateX(-50%)
+          translateY(-50%);
       }
     }
   }
