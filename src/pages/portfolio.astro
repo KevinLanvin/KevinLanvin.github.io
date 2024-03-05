@@ -4,10 +4,22 @@ import ProjectCard from "../components/ProjectCard.astro";
 
 <main>
   <div class='scene'>
-    <ProjectCard className='scrollableCard'>Card 1</ProjectCard>
-    <ProjectCard className='scrollableCard'>Card 2</ProjectCard>
-    <ProjectCard className='scrollableCard'>Card 3</ProjectCard>
-    <ProjectCard className='scrollableCard'>Card 4</ProjectCard>
+    <ProjectCard className='scrollableCard'>
+      <h2>Card 1</h2>
+      <p slot='description'>Description 1</p>
+    </ProjectCard>
+    <ProjectCard className='scrollableCard'>
+      <h2>Card 2</h2>
+      <p slot='description'>Description 2</p>
+    </ProjectCard>
+    <ProjectCard className='scrollableCard'>
+      <h2>Card 3</h2>
+      <p slot='description'>Description 3</p>
+    </ProjectCard>
+    <ProjectCard className='scrollableCard'>
+      <h2>Card 4</h2>
+      <p slot='description'>Description 4</p>
+    </ProjectCard>
   </div>
 </main>
 
@@ -17,15 +29,23 @@ import ProjectCard from "../components/ProjectCard.astro";
     if (!!sceneElement) {
       sceneElement.style.transform = `translateZ(${window.scrollY}px)`;
     }
+    const descriptions = document.querySelectorAll(".description");
+    descriptions.forEach(node => (node as HTMLElement).style.opacity = "0");
   });
   document.addEventListener("scrollend", () => {
-    console.log(Math.floor(window.scrollY / 400));
-    if (window.scrollY % 400 === 0) return;
     const sceneElement = document.querySelector(".scene") as HTMLElement;
-    sceneElement.style.transition = 'transform 0.3s ease-in-out';
-    window.scrollTo(0, (Math.floor(window.scrollY / 400) + 1) * 400);
+    if (window.scrollY % 400 !== 0) {
+      sceneElement.style.transition = "transform 0.3s ease-in-out";
+      const currentProjectCardNumber = Math.floor(window.scrollY / 400) + 1;
+      window.scrollTo(0, currentProjectCardNumber * 400);
+    }
     setTimeout(() => {
-      sceneElement.style.transition = 'none';
+      sceneElement.style.transition = "none";
+      const displayedCardNumber = Math.floor(window.scrollY / 400) + 1;
+      const currentProjectCardDescription = document.querySelector(
+        `.scene > .projectCard:nth-child(${displayedCardNumber}) > .description`
+      ) as HTMLElement;
+      currentProjectCardDescription.style.opacity = "1";
     }, 300);
   });
 </script>
@@ -68,10 +88,15 @@ import ProjectCard from "../components/ProjectCard.astro";
     left: 40%;
     @for $i from 0 through 25 {
       &:nth-child(#{$i}) {
-        transform: translateZ(calc(var(--gap) * (#{$i} - 1) * -1px))
-          translateX(-50%)
-          translateY(-50%);
+        transform: translate3d(
+          -50%,
+          -50%,
+          calc(var(--gap) * (#{$i} - 1) * -1px)
+        );
       }
+    }
+    &:nth-child(1) :global(.description) {
+      opacity: 1;
     }
   }
 </style>

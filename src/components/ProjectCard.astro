@@ -4,6 +4,9 @@ const { className } = Astro.props;
 
 <div class=`projectCard ${className}`>
   <slot />
+  <div class="description">
+    <slot name="description" />
+  </div>
 </div>
 
 <style lang='scss'>
@@ -17,5 +20,12 @@ const { className } = Astro.props;
     border-radius: 2rem;
     padding: 2rem;
     backdrop-filter: blur(5px);
+  }
+  .description {
+    position: absolute;
+    color: white;
+    top: 100%;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
   }
 </style>
