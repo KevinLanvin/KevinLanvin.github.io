@@ -1,36 +1,69 @@
 <section class='simpleSection'>
-  <div class='incomingArrow'></div>
-  <div class='border-container'>
-    <p>
-      Phrase sur la notion de fullstack (donc en vue de rejoindre une équipe)
-    </p>
+  <div class="sectionContent">
+    <div class='incomingArrow'></div>
+    <div class='border-container'>
+      <div class="borderLeft"></div>
+      <div class="borderRight"></div>
+      <p>
+        Phrase sur la notion de fullstack (donc en vue de rejoindre une équipe)
+      </p>
+    </div>
+    <div class='leavingArrow'></div>
   </div>
 </section>
 
 <style lang='scss'>
   .simpleSection {
     background-color: #0e0e0e;
-    position: relative;
-    z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: stretch;
+    justify-content: center;
     padding: 10rem calc(12% - 10px);
     box-shadow: 0px -100px 100px 50px #0e0e0e;
+    min-height: 100vh;
+    position: relative;
+    .sectionContent {
+      position: relative;
+    }
     .incomingArrow {
-      // clip-path: path(
-      //   "M218.056 33.6939C218.056 33.6939 188.372 70.9359 121.03 69.1662C53.688 67.3965 2.60409 1.68309 2.60409 1.68309M2.60409 1.68309L10.1769 35.6506M2.60409 1.68309L39.7532 2.23682"
-      // );
-      width: 300px;
-      height: 300px;
+      clip-path: path("M202.5 222.5V0.5H205.5V222.5C205.5 238.24 192.74 251 177 251H28.5C14.4167 251 3 262.417 3 276.5V477H0V276.5C0 260.76 12.7599 248 28.5 248H177C191.083 248 202.5 236.583 202.5 222.5Z");
+      width: 205px;
+      height: 475px;
       position: absolute;
       bottom: 100%;
       left: 50%;
-      transform: translateX(-50%);
+      z-index: 1;
       &::before {
         content: "";
-        width: 300px;
-        height: 300px;
+        width: 200%;
+        height: 200%;
+        background: conic-gradient(
+          from 90deg at 100% 100%,
+          #ffffff00 49%,
+          #ffffff 50%,
+          #ffffff00 53%
+        );
+        position: absolute;
+        right: -50%;
+        bottom: 0;
+        transform-origin: 100% 100%;
+        animation: rotateArrow 6s linear infinite;
+      }
+    }
+    .leavingArrow {
+      clip-path: path("M0 0H5L2.50024 350L0 0Z");
+      width: 5px;
+      height: 350px;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      &::before {
+        content: "";
+        width: 600px;
+        height: 600px;
         background: conic-gradient(
           from 90deg at 100% 50%,
           #ffffff00 49%,
@@ -38,35 +71,72 @@
           #ffffff00 53%
         );
         position: absolute;
+        right: -200px;
+        top: O;
+        transform: translateY(-50%);
+        transform-origin: 100% 50%;
+        animation: rotateLeavingArrow 6s linear infinite;
       }
     }
     .border-container {
       padding: 5px;
       overflow: hidden;
       position: relative;
+      z-index: 1;
       border-radius: 5rem;
-      &::after {
-        content: "";
-        background: conic-gradient(
-          from 90deg at 50% 50%,
-          transparent 0%,
-          transparent 20%,
-          white 25%,
-          transparent 26%,
-          transparent 70%,
-          white 75%,
-          transparent 76%,
-          transparent
-        );
-        width: 150%;
-        padding-top: 150%;
+      .borderLeft {
         position: absolute;
-        z-index: -1;
-        top: 50%;
+        width: 50%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        overflow: hidden;
+        &::before {
+          content: "";
+          background: conic-gradient(
+            from -90deg at 50% 50%,
+            transparent 0%,
+            transparent 24%,
+            white 25%,
+            transparent 30%,
+            transparent
+          );
+          width: 300%;
+          padding-top: 300%;
+          position: absolute;
+          z-index: -1;
+          top: 50%;
+          right: 0;
+          animation: rotateBorderLeft 6s linear infinite;
+          transform: translate(50%, -50%);
+        }
+      }
+      .borderRight {
+        position: absolute;
+        width: 50%;
+        height: 100%;
         left: 50%;
-        transform: translate(-50%, -50%);
-        border-radius: 5rem;
-        animation: rotateBorder 2s linear infinite;
+        top: 0%;
+        overflow: hidden;
+        &::after {
+          content: "";
+          background: conic-gradient(
+            from 90deg at 50% 50%,
+            transparent 0%,
+            transparent 70%,
+            white 75%,
+            transparent 76%,
+            transparent
+          );
+          width: 300%;
+          padding-top: 300%;
+          position: absolute;
+          z-index: -1;
+          top: 50%;
+          left: 0;
+          animation: rotateBorderRight 6s linear infinite;
+          transform: translate(-50%, -50%);
+        }
       }
     }
     p {
@@ -79,12 +149,76 @@
       background-color: #0e0e0e;
     }
   }
-  @keyframes rotateBorder {
-    from {
-      transform: translate(-50%, -50%) rotate(90deg);
+
+  @keyframes rotateBorderRight {
+    0% {
+      transform: translate(-50%, -50%) rotate(-5deg);
     }
-    to {
-      transform: translate(-50%, -50%) rotate(270deg);
+    18% {
+      transform: translate(-50%, -50%) rotate(-5deg);
+    }
+    20% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    60% {
+      transform: translate(-50%, -50%) rotate(180deg);
+    }
+    62% {
+      transform: translate(-50%, -50%) rotate(200deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(200deg);
+    }
+  }
+
+  @keyframes rotateBorderLeft {
+    0% {
+      transform: translate(50%, -50%) rotate(5deg);
+    }
+    18% {
+      transform: translate(50%, -50%) rotate(5deg);
+    }
+    20% {
+      transform: translate(50%, -50%) rotate(0deg);
+    }
+    60% {
+      transform: translate(50%, -50%) rotate(-180deg);
+    }
+    62% {
+      transform: translate(50%, -50%) rotate(-200deg);
+    }
+    100% {
+      transform: translate(50%, -50%) rotate(-200deg);
+    }
+  }
+
+  @keyframes rotateArrow {
+    0% {
+      transform: rotate(100deg);
+    }
+    20% {
+      transform: rotate(0deg);
+    }
+    30% {
+      transform: rotate(-20deg);
+    }
+    100% {
+      transform: rotate(-20deg);
+    }
+  }
+
+  @keyframes rotateLeavingArrow {
+    0% {
+      transform: translateY(-50%) rotate(90deg);
+    }
+    60% {
+      transform: translateY(-50%) rotate(0deg);
+    }
+    80% {
+      transform: translateY(-50%) rotate(-100deg);
+    }
+    100% {
+      transform: translateY(-50%) rotate(-100deg);
     }
   }
 </style>
