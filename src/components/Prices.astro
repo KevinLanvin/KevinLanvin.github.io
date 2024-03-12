@@ -1,0 +1,189 @@
+---
+import BorderedButton from "./BorderedButton.astro";
+---
+
+<section class='prices'>
+  <h2>Tarifs</h2>
+  <h3 class='subtitle'>Mes services</h3>
+  <div class='priceCard'>
+    <div class='header'>
+      <h3>Développement de site web statique</h3>
+      <span class='price'>A partir de 2000€</span>
+    </div>
+    <hr />
+    <ul class='content'>
+      <li>Sur mesure</li>
+      <li>Nombre de pages fixe</li>
+      <li>Optimisé et performant</li>
+      <li>Eco-conçu</li>
+    </ul>
+  </div>
+  <div class='priceCard'>
+    <div class='header'>
+      <h3>Page builder (option)</h3>
+      <span class='price'>+ 2000€ minimum</span>
+    </div>
+    <hr />
+    <p class='content'>Concevez vous-mêmes vos pages ...</p>
+  </div>
+  <div class='priceCard'>
+    <div class='header'>
+      <h3>Animations (option)</h3>
+      <span class='price'>sur devis</span>
+    </div>
+    <hr />
+    <p class='content'>
+      Ajouter de la vie à votre site avec des animations performantes et
+      impactantes
+    </p>
+  </div>
+  <h3 class='subtitle'>Mes partenaires</h3>
+  <p class='description'>
+    Je travaille avec des freelances graphistes qui permettront de réaliser
+    votre projet de site web de bout en bout.
+  </p>
+  <div class='priceCard'>
+    <div class='header'>
+      <h3>Identité visuelle</h3>
+      <span class='price'>A partir de 600€</span>
+    </div>
+    <hr />
+    <ul class='content'>
+      <li>Identité visuelle</li>
+      <li>Logotype</li>
+      <li>Design système</li>
+      <li>Charte graphique</li>
+      <li>
+        Je travaille en partenariat avec des freelances graphistes qui
+        réaliseront ces prestations
+      </li>
+    </ul>
+  </div>
+  <div class='priceCard'>
+    <div class='header'>
+      <h3>Maquettes UI/UX (option)</h3>
+      <span class='price'>A partir de 2000€</span>
+    </div>
+    <hr />
+    <ul class='content'>
+      <li>Maquettes</li>
+      <li>Wireframes</li>
+      <li>Tests utilisateurs</li>
+      <li>Kit UI / Design system</li>
+    </ul>
+  </div>
+  <div class="buttonContainer">
+    <BorderedButton addedClasses="pricesContactButton">Contactez-moi !</BorderedButton>
+  </div>
+  <svg
+    class='circle'
+    viewBox='0 0 800 800'
+    fill='none'
+    xmlns='http://www.w3.org/2000/svg'
+  >
+    <defs>
+      <radialGradient id="circleGradient" cx="0" cy="50%" r="25%">
+        <stop offset="0%" stop-color="#ffffff"></stop>
+        <stop offset="100%" stop-color="#ffffff00"></stop>
+      </radialGradient>
+    </defs>
+      <circle cx="400" cy="400" r="396" stroke-width="4" stroke="url(#circleGradient)" />
+  </svg>
+</section>
+
+<style lang='scss'>
+  .prices {
+    background: url("/images/jungle2.jpg");
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    padding: 0 12%;
+    padding-top: 20rem;
+    h2 {
+      color: rgba(255, 255, 255, 0.4);
+      font-weight: bold;
+      font-size: 11rem;
+      line-height: 0.9;
+      z-index: 2;
+      margin-left: -15.79%;
+      margin-bottom: 10rem;
+    }
+    .subtitle {
+      color: white;
+      text-align: center;
+      font-size: 2rem;
+      text-shadow:
+        0px 0px 20px #000000,
+        0px 0px 0.2em #000000;
+      margin-top: 5rem;
+    }
+    .description {
+      color: white;
+      width: max(80%, 1000px);
+      align-self: center;
+      text-shadow:
+        0px 0px 20px #000000,
+        0px 0px 0.2em #000000;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .priceCard {
+      align-self: center;
+      width: max(80%, 1000px);
+      backdrop-filter: blur(10px);
+      background: linear-gradient(
+        225deg,
+        rgba(255, 255, 255, 0.3) 1.22%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      padding: 3rem;
+      border-radius: 1rem;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      border: 1px solid #ffffff80;
+      .header {
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.5rem;
+      }
+      .price {
+        font-weight: bold;
+      }
+      hr {
+        border-top: 1px solid #fff;
+      }
+      ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+    }
+    .buttonContainer {
+      align-self: center;
+      margin-top: 10rem;
+      position: relative;
+      &::before {
+        content: url("/images/arrow-prices.svg");
+        position: absolute;
+        right: 100%;
+        bottom: 50%;
+      }
+    }
+    .circle {
+      width: 80rem;
+      height: 80rem;
+      position: absolute;
+      right: 60%;
+      top: 50rem;
+      z-index: 1;
+      animation: rotateCircle 4s linear infinite;
+    }
+  }
+</style>
