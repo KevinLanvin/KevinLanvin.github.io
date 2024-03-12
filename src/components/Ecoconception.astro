@@ -1,0 +1,78 @@
+<section class='ecoconception'>
+  <h2>Eco-conception</h2>
+  <div class='content'>
+    <h3>Ce que l'eco-conception n'est pas</h3>
+    <ul>
+      <li>Du gros caca</li>
+      <li>Du gros caca</li>
+      <li>Du gros caca</li>
+      <li>Du gros caca</li>
+      <li>Du gros caca</li>
+      <li>Du gros caca</li>
+      <li>Du gros caca</li>
+      <li>Du gros caca</li>
+    </ul>
+  </div>
+  <img src="/images/peacock.jpg" alt="Peacock" class="peacock">
+</section>
+
+<style lang='scss'>
+  .ecoconception {
+    min-height: 100vh;
+    background: #011120;
+    position: relative;
+    padding: 0 12%;
+    padding-bottom: 191px;
+    padding-top: 10rem;
+    &::before {
+      content: "";
+      position: absolute;
+      background: linear-gradient(
+        180deg,
+        rgba(103, 137, 99, 0) 0%,
+        rgba(70, 112, 74, 0.267402) 10.38%,
+        rgba(31, 69, 41, 0.71) 22.25%,
+        #114028 38.84%,
+        #00121c 97.79%,
+        rgba(0, 18, 34, 0) 143.9%
+      );
+      height: 100vh;
+      width: 100vw;
+      left: 0;
+      bottom: 80%;
+    }
+    h2 {
+      color: rgba(255, 255, 255, 0.4);
+      font-weight: bold;
+      font-size: 11rem;
+      line-height: 0.9;
+      z-index: 2;
+      margin-left: -15.79%;
+      margin-bottom: 10rem;
+      position: relative;
+    }
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      color: white;
+      width: 50%;
+      h3 {
+        color: white;
+        font-size: 2rem;
+        text-shadow:
+          0px 0px 20px #000000,
+          0px 0px 0.2em #000000;
+      }
+      ul {
+        list-style-type: none;
+      }
+    }
+    .peacock {
+      position: absolute;
+      bottom: 191px;
+      right: 0;
+      width: 40%;
+    }
+  }
+</style>

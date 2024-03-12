@@ -72,8 +72,10 @@ import BorderedButton from "./BorderedButton.astro";
       <li>Kit UI / Design system</li>
     </ul>
   </div>
-  <div class="buttonContainer">
-    <BorderedButton addedClasses="pricesContactButton">Contactez-moi !</BorderedButton>
+  <div class='buttonContainer'>
+    <BorderedButton addedClasses='pricesContactButton'>
+      Contactez-moi !
+    </BorderedButton>
   </div>
   <svg
     class='circle'
@@ -82,12 +84,17 @@ import BorderedButton from "./BorderedButton.astro";
     xmlns='http://www.w3.org/2000/svg'
   >
     <defs>
-      <radialGradient id="circleGradient" cx="0" cy="50%" r="25%">
-        <stop offset="0%" stop-color="#ffffff"></stop>
-        <stop offset="100%" stop-color="#ffffff00"></stop>
+      <radialGradient id='circleGradient' cx='0' cy='50%' r='25%'>
+        <stop offset='0%' stop-color='#ffffff'></stop>
+        <stop offset='100%' stop-color='#ffffff00'></stop>
       </radialGradient>
     </defs>
-      <circle cx="400" cy="400" r="396" stroke-width="4" stroke="url(#circleGradient)" />
+    <circle
+      cx='400'
+      cy='400'
+      r='396'
+      stroke-width='4'
+      stroke='url(#circleGradient)'></circle>
   </svg>
 </section>
 
@@ -104,6 +111,7 @@ import BorderedButton from "./BorderedButton.astro";
     padding: 0 12%;
     padding-top: 20rem;
     h2 {
+      position: relative;
       color: rgba(255, 255, 255, 0.4);
       font-weight: bold;
       font-size: 11rem;
@@ -147,6 +155,7 @@ import BorderedButton from "./BorderedButton.astro";
       flex-direction: column;
       gap: 2rem;
       border: 1px solid #ffffff80;
+      z-index: 2;
       .header {
         display: flex;
         justify-content: space-between;
@@ -169,6 +178,7 @@ import BorderedButton from "./BorderedButton.astro";
       align-self: center;
       margin-top: 10rem;
       position: relative;
+      z-index: 2;
       &::before {
         content: url("/images/arrow-prices.svg");
         position: absolute;
@@ -177,13 +187,24 @@ import BorderedButton from "./BorderedButton.astro";
       }
     }
     .circle {
-      width: 80rem;
-      height: 80rem;
+      width: 60rem;
+      height: 60rem;
       position: absolute;
-      right: 60%;
-      top: 50rem;
+      right: 0;
+      bottom: 20rem;
       z-index: 1;
-      animation: rotateCircle 4s linear infinite;
+      animation: rotatePricesCircle 4s linear infinite;
+    }
+    @keyframes rotatePricesCircle {
+      0% {
+        transform: translateX(70%) rotate(180deg);
+      }
+      33% {
+        transform: translateX(70%) rotate(540deg);
+      }
+      100% {
+        transform: translateX(70%) rotate(540deg);
+      }
     }
   }
 </style>
