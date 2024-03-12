@@ -1,11 +1,41 @@
 ---
+
 ---
 
-<section class="website">
-  <h2>Ce que je<br>propose</h2>
+<section class='website'>
+  <h2>Ce que je<br />propose</h2>
+  <div class='services'>
+    <div class='service'>
+      <h3>Sites clé en main et faciles</h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </p>
+    </div>
+    <div class='service'>
+      <h3>Sites clé en main et faciles</h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </p>
+    </div>
+    <div class='service'>
+      <h3>Sites clé en main et faciles</h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </p>
+    </div>
+  </div>
 </section>
 
-<style lang="scss">
+<style lang='scss'>
   .website {
     background: url("/images/frog.jpg");
     background-size: cover;
@@ -13,6 +43,7 @@
     min-height: 100vh;
     position: relative;
     display: flex;
+    gap: 10rem;
     flex-direction: column;
     padding: 0 12%;
     &::before {
@@ -22,7 +53,13 @@
       height: 100%;
       top: -50%;
       left: 0;
-      background: linear-gradient(180deg, rgba(1, 23, 23, 0) 1%, #052a2a 34%, #4F5E36 73%, rgba(113, 136, 71, 0) 100%);
+      background: linear-gradient(
+        180deg,
+        rgba(1, 23, 23, 0) 1%,
+        #052a2a 34%,
+        #4f5e36 73%,
+        rgba(113, 136, 71, 0) 100%
+      );
     }
     h2 {
       color: rgba(255, 255, 255, 0.4);
@@ -32,6 +69,42 @@
       text-align: right;
       z-index: 2;
       margin-right: -15.79%;
+    }
+    .services {
+      display: flex;
+      flex-direction: column;
+      gap: 15rem;
+      .service {
+        z-index: 2;
+        max-width: 40rem;
+        color: white;
+        position: relative;
+        &:nth-of-type(1)::before {
+          content: url("/images/arrow-service-1.svg");
+          position: absolute;
+          top: 90%;
+          left: 120%;
+        }
+        &:nth-of-type(2) {
+          align-self: flex-end;
+          text-align: end;
+          &::before {
+            content: url("/images/arrow-service-2.svg");
+            position: absolute;
+            top: 40%;
+            right: 160%;
+          }
+        }
+        &:nth-of-type(3)::before {
+          content: url("/images/arrow-service-3.svg");
+          position: absolute;
+          bottom: 60%;
+          left: 140%;
+        }
+        p {
+          line-height: 3rem;
+        }
+      }
     }
   }
 </style>
