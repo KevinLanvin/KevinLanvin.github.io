@@ -104,4 +104,17 @@ import BorderedButton from "./BorderedButton.astro";
   :global(.contactButton) {
     z-index: 2;
   }
+
+  @media screen and (max-width: 600px) {
+    .contactSection {
+      padding: 0 1rem;
+      h2 {
+        font-size: 2rem;
+        line-height: 3rem;
+        em {
+          font-size: 3rem;
+        }
+      }
+    }
+  }
 </style>
