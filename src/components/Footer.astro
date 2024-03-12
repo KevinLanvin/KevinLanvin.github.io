@@ -1,9 +1,13 @@
 <footer>
   <div class='links'>
     <a href='#'>Mentions Légales</a>
-    <a href='#'>LinkedIn</a>
+    <a target='blank' href='www.linkedin.com/in/kevin-lanvin-0208281b5'>LinkedIn</a>
   </div>
-  <span class="design">Website designed by <strong>MGDG</strong></span>
+  <span class='design'
+    >Website designed by <a target='blank' href='https://www.malt.fr/profile/mgdg'
+      ><strong>MGDG</strong></a
+    ></span
+  >
 </footer>
 
 <style lang='scss'>
@@ -31,6 +35,10 @@
     font-size: 1.25rem;
     position: relative;
     transform: rotate(-2.5deg);
+    a {
+      color: white;
+      text-decoration: underline;
+    }
     &::after {
       content: url("/images/designArrow.svg");
       position: absolute;

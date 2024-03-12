@@ -1,27 +1,56 @@
 ---
 import ProjectCard from "../components/ProjectCard.astro";
+import PortfolioLayout from "../layouts/PortfolioLayout.astro";
 ---
 
-<main>
-  <div class='scene'>
-    <ProjectCard className='scrollableCard'>
-      <h2>Card 1</h2>
-      <p slot='description'>Description 1</p>
-    </ProjectCard>
-    <ProjectCard className='scrollableCard'>
-      <h2>Card 2</h2>
-      <p slot='description'>Description 2</p>
-    </ProjectCard>
-    <ProjectCard className='scrollableCard'>
-      <h2>Card 3</h2>
-      <p slot='description'>Description 3</p>
-    </ProjectCard>
-    <ProjectCard className='scrollableCard'>
-      <h2>Card 4</h2>
-      <p slot='description'>Description 4</p>
-    </ProjectCard>
-  </div>
-</main>
+<PortfolioLayout title='Portfolio'>
+  <main>
+    <h1>Projets</h1>
+    <div class='scene'>
+      <ProjectCard className='scrollableCard'>
+        <h2>Card 1</h2>
+        <p slot='description'>Description 1</p>
+      </ProjectCard>
+      <ProjectCard className='scrollableCard'>
+        <h2>Card 2</h2>
+        <p slot='description'>Description 2</p>
+      </ProjectCard>
+      <ProjectCard className='scrollableCard'>
+        <h2>Card 3</h2>
+        <p slot='description'>Description 3</p>
+      </ProjectCard>
+      <ProjectCard className='scrollableCard'>
+        <h2>Card 4</h2>
+        <p slot='description'>Description 4</p>
+      </ProjectCard>
+    </div>
+    <div class='star1'></div>
+    <div class='star2'></div>
+    <div class='star3'></div>
+    <div class='star4'></div>
+    <div class='star5 glowingStar'></div>
+    <div class='star6 glowingStar'></div>
+    <div class='star7 glowingStar'></div>
+    <div class='star8 glowingStar'></div>
+    <div class='star9 glowingStar'></div>
+    <div class='star10 glowingStar'></div>
+    <div class='star11 glowingStar'></div>
+    <div class='star12 glowingStar'></div>
+    <div class='star13 glowingStar'></div>
+    <div class='star14 glowingStar'></div>
+    <div class='star15 glowingStar'></div>
+    <div class='star16 glowingStar'></div>
+    <div class='star17 glowingStar'></div>
+    <div class='star18 glowingStar'></div>
+    <div class='star19 glowingStar'></div>
+    <div class='star20 glowingStar'></div>
+    <div class='star21 glowingStar'></div>
+    <div class='star22 glowingStar'></div>
+    <div class='star23 glowingStar'></div>
+    <div class='star24 glowingStar'></div>
+    <div class='star25 glowingStar'></div>
+  </main>
+</PortfolioLayout>
 
 <script>
   document.addEventListener("scroll", () => {
@@ -30,7 +59,7 @@ import ProjectCard from "../components/ProjectCard.astro";
       sceneElement.style.transform = `translateZ(${window.scrollY}px)`;
     }
     const descriptions = document.querySelectorAll(".description");
-    descriptions.forEach(node => (node as HTMLElement).style.opacity = "0");
+    descriptions.forEach((node) => ((node as HTMLElement).style.opacity = "0"));
   });
   document.addEventListener("scrollend", () => {
     const sceneElement = document.querySelector(".scene") as HTMLElement;
@@ -69,6 +98,333 @@ import ProjectCard from "../components/ProjectCard.astro";
     height: 100vh;
     background: url("/images/stars.jpeg");
     background-size: cover;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      background: radial-gradient(closest-side, #0e0e0e00, #0e0e0e);
+    }
+    h1 {
+      color: rgba(255, 255, 255, 0.4);
+      font-weight: bold;
+      font-size: 11rem;
+      line-height: 0.9;
+      z-index: 20;
+      position: absolute;
+      top: 15rem;
+      right: 0;
+    }
+    .star1 {
+      position: absolute;
+      top: 50rem;
+      left: -5rem;
+      width: 200px;
+      height: 3px;
+      border-radius: 5px;
+      background: linear-gradient(to right, #ffffff00, #ffffff);
+      animation: star1 linear 17s infinite;
+    }
+    .star2 {
+      position: absolute;
+      top: 30%;
+      right: 15%;
+      width: 236px;
+      height: 157px;
+      clip-path: path(
+        "M1.83213 3.22495C1.01357 3.35238 0.453284 4.11926 0.580709 4.93783C0.708134 5.7564 1.47501 6.31668 2.29358 6.18925L1.83213 3.22495ZM233.897 155.914C235.324 155.451 235.324 155.45 235.323 155.448C235.322 155.446 235.322 155.443 235.321 155.44C235.318 155.434 235.316 155.425 235.312 155.413C235.304 155.39 235.293 155.356 235.278 155.311C235.248 155.222 235.204 155.091 235.146 154.919C235.029 154.575 234.853 154.069 234.618 153.412C234.146 152.097 233.434 150.179 232.468 147.75C230.534 142.894 227.58 135.996 223.49 127.807C215.312 111.435 202.582 89.877 184.373 69.1602C147.926 27.6949 89.488 -10.4203 1.83213 3.22495L2.29358 6.18925C88.6807 -7.25848 146.16 30.2295 182.119 71.1407C200.113 91.6121 212.709 112.936 220.806 129.148C224.853 137.251 227.774 144.071 229.68 148.86C230.634 151.254 231.333 153.14 231.794 154.424C232.024 155.066 232.194 155.557 232.306 155.887C232.362 156.051 232.404 156.175 232.431 156.257C232.445 156.298 232.455 156.329 232.461 156.349C232.465 156.359 232.467 156.366 232.468 156.37C232.469 156.373 232.47 156.374 232.47 156.375C232.47 156.376 232.47 156.376 233.897 155.914Z"
+      );
+      &::after {
+        content: "";
+        width: 200%;
+        height: 200%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: conic-gradient(
+          from -90deg at 0% 50%,
+          #ffffff00 49%,
+          #ffffff 50%,
+          #ffffff00 53%
+        );
+        transform-origin: center left;
+        animation: star2 22s linear infinite;
+      }
+    }
+    .star3 {
+      position: absolute;
+      top: 100%;
+      left: 65%;
+      width: 2px;
+      height: 200px;
+      border-radius: 5px;
+      background: linear-gradient(to top, #ffffff00, #ffffff);
+      animation: star3 linear 19s infinite;
+    }
+    .star4 {
+      position: absolute;
+      background-image: url("images/star.svg");
+      top: -10%;
+      left: 30%;
+      width: 300px;
+      height: 300px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      transform-origin: bottom left;
+      animation: star4 linear 23s infinite;
+      display: none;
+    }
+    .star5 {
+      top: 60%;
+      left: 60%;
+      animation: star6 linear 2s infinite;
+    }
+    .star6 {
+      top: 40%;
+      left: 15%;
+      animation: star5 linear 2s 0.125s infinite;
+    }
+    .star7 {
+      top: 30%;
+      left: 75%;
+      animation: star5 linear 2s 0.25s infinite;
+    }
+    .star8 {
+      top: 75%;
+      left: 18%;
+      animation: star5 linear 2s 0.375s infinite;
+    }
+    .star9 {
+      top: 37%;
+      left: 42%;
+      animation: star5 linear 3s 0.5s infinite;
+    }
+    .star10 {
+      top: 72%;
+      left: 58%;
+      animation: star5 linear 2s .625s infinite;
+    }
+    .star11 {
+      top: 75%;
+      left: 34%;
+      animation: star5 linear 3s .75s infinite;
+    }
+    .star12 {
+      top: 27%;
+      left: 32%;
+      animation: star5 linear 2s .875s infinite;
+    }
+    .star13 {
+      top: 44%;
+      left: 79%;
+      animation: star5 linear 2s 1s infinite;
+    }
+    .star14 {
+      top: 26%;
+      left: 38%;
+      animation: star5 linear 3s 1.125s infinite;
+    }
+    .star15 {
+      top: 56%;
+      left: 22%;
+      animation: star5 linear 2s 1.25s infinite;
+    }
+    .star16 {
+      top: 21%;
+      left: 63%;
+      animation: star5 linear 3s 1.375s infinite;
+    }
+    .star17 {
+      top: 48%;
+      left: 69%;
+      animation: star5 linear 2s 1.5s infinite;
+    }
+    .star18 {
+      top: 38%;
+      left: 60%;
+      animation: star5 linear 2s 1.625s infinite;
+    }
+    .star19 {
+      top: 77%;
+      left: 74%;
+      animation: star5 linear 3s 1.75s infinite;
+    }
+    .star20 {
+      top: 38%;
+      left: 44%;
+      animation: star5 linear 2s 4.25s infinite;
+    }
+    .star21 {
+      top: 39%;
+      left: 70%;
+      animation: star6 linear 3s .75s infinite;
+    }
+    .star22 {
+      top: 66%;
+      left: 80%;
+      animation: star5 linear 2s 1.75s infinite;
+    }
+    .star23 {
+      top: 20%;
+      left: 26%;
+      animation: star5 linear 3s 1.875s infinite;
+    }
+    .star24 {
+      top: 22%;
+      left: 68%;
+      animation: star5 linear 2s infinite;
+    }
+    .star25 {
+      top: 80%;
+      left: 40%;
+      animation: star5 linear 3s 0.125s infinite;
+    }
+    .glowingStar {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      border-radius: 2px;
+      background-color: #fff;
+      z-index: 10;
+      &:nth-of-type(3n) {
+        width: 3px;
+        height: 3px;
+      }
+      &:nth-of-type(6n + 1) {
+        width: 5px;
+        height: 5px;
+      }
+    }
+    @keyframes star1 {
+      0% {
+        transform: rotate(15deg) translateX(0);
+        opacity: 0;
+      }
+      25% {
+        transform: rotate(15deg) translateX(0);
+        opacity: 0;
+      }
+      26% {
+        opacity: 1;
+      }
+      33% {
+        opacity: 1;
+      }
+      35% {
+        opacity: 0;
+      }
+      40% {
+        transform: rotate(15deg) translateX(100vw);
+        opacity: 0;
+      }
+      100% {
+        transform: rotate(15deg) translateX(100vw);
+        opacity: 0;
+      }
+    }
+    @keyframes star2 {
+      0% {
+        transform: rotate(15deg);
+      }
+      6% {
+        transform: rotate(15deg);
+        opacity: 1;
+      }
+      10% {
+        opacity: 1;
+      }
+      12% {
+        transform: rotate(-120deg);
+        opacity: 0;
+      }
+      100% {
+        transform: rotate(-120deg);
+        opacity: 0;
+      }
+    }
+    @keyframes star3 {
+      0% {
+        transform: rotate(10deg) translateY(0);
+        opacity: 0;
+      }
+      65% {
+        transform: rotate(10deg) translateY(0);
+        opacity: 0;
+      }
+      70% {
+        opacity: 1;
+      }
+      75% {
+        opacity: 1;
+      }
+      77% {
+        opacity: 0;
+      }
+      80% {
+        transform: rotate(10deg) translateY(-100vh);
+        opacity: 0;
+      }
+      100% {
+        transform: rotate(10deg) translateY(-100vh);
+        opacity: 0;
+      }
+    }
+    @keyframes star4 {
+      0% {
+        transform: rotate(0deg);
+      }
+      50% {
+        transform: rotate(0deg);
+      }
+      54% {
+        opacity: 0;
+      }
+      55% {
+        opacity: 1;
+      }
+      56% {
+        opacity: 0;
+      }
+      60% {
+        transform: rotate(-360deg);
+      }
+      100% {
+        transform: rotate(-360deg);
+      }
+    }
+    @keyframes star5 {
+      0% {
+        opacity: 0.5;
+        transform: scale(1);
+      }
+      10% {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+      20% {
+        opacity: 0.5;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.5;
+        transform: scale(1);
+      }
+      60% {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+      70% {
+        opacity: 0.5;
+        transform: scale(1);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
   }
   .scene {
     transform-style: preserve-3d;
@@ -78,6 +434,7 @@ import ProjectCard from "../components/ProjectCard.astro";
     width: 100%;
     height: 100vh;
     scroll-snap-type: mandatory;
+    z-index: 50;
   }
   :global(.scrollableCard) {
     position: absolute;
