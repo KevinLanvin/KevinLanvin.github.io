@@ -1,5 +1,4 @@
 ---
-import BorderedButton from "./BorderedButton.astro";
 import SquareHammer from "./SquareHammer.astro";
 ---
 
@@ -17,22 +16,27 @@ import SquareHammer from "./SquareHammer.astro";
     xmlns='http://www.w3.org/2000/svg'
   >
     <defs>
-      <radialGradient id="circleGradient" cx="0" cy="50%" r="25%">
-        <stop offset="0%" stop-color="#ffffff"></stop>
-        <stop offset="100%" stop-color="#ffffff00"></stop>
+      <radialGradient id='circleGradient' cx='0' cy='50%' r='25%'>
+        <stop offset='0%' stop-color='#ffffff'></stop>
+        <stop offset='100%' stop-color='#ffffff00'></stop>
       </radialGradient>
     </defs>
-      <circle cx="400" cy="400" r="396" stroke-width="4" stroke="url(#circleGradient)" />
+    <circle
+      cx='400'
+      cy='400'
+      r='396'
+      stroke-width='4'
+      stroke='url(#circleGradient)'></circle>
   </svg>
-  <button class="services"
-    >Découvrir mes services
-  </button>
+  <button class='services'>Découvrir mes services </button>
 </section>
 
 <style lang='scss'>
   .websiteCreation {
     background-color: #ccd6e8;
-    box-shadow: 0 150px 150px 150px #cdd6e8, 0 -150px 150px 150px #ccd6e8;
+    box-shadow:
+      0 150px 150px 150px #cdd6e8,
+      0 -150px 150px 150px #ccd6e8;
     position: relative;
     height: 100vh;
     z-index: 2;
@@ -77,14 +81,19 @@ import SquareHammer from "./SquareHammer.astro";
       font-size: 1.25rem;
       font-weight: bold;
       color: #4f4f4f;
-      background: #4F4F4F0A;
+      background: #4f4f4f0a;
       border: solid 2px #4f4f4f;
       border-radius: 5rem;
       padding: 1rem;
       backdrop-filter: blur(4px);
       cursor: pointer;
       &::after {
-        content: url("/images/servicesArrow.svg");
+        content: "";
+        background: url("/images/servicesArrow.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 400px;
+        height: 200px;
         position: absolute;
         bottom: 100%;
         right: 65%;
@@ -97,9 +106,50 @@ import SquareHammer from "./SquareHammer.astro";
     }
     50% {
       transform: rotate(360deg);
-    } 
+    }
     100% {
       transform: rotate(360deg);
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .websiteCreation {
+      display: flex;
+      flex-direction: column;
+      padding-top: 15rem;
+      h2 {
+        font-size: 3rem;
+        max-width: 80vw;
+        margin-top: 5rem;
+      }
+      p {
+        position: static;
+        padding: 0 1rem;
+        font-size: 1.125rem;
+        width: 100%;
+      }
+      :global(.squareHammer) {
+        position: absolute;
+        left: -20%;
+        top: 25rem;
+        z-index: 2;
+      }
+      .circle {
+        width: 20rem;
+        height: 20rem;
+        top: 35rem;
+      }
+      .services {
+        font-size: 1rem;
+        right: 10%;
+        &::after {
+          width: 150px;
+          height: 75px;
+          right: 40%;
+          transform-origin: bottom right;
+          transform: rotate(25deg);
+        }
+      }
     }
   }
 </style>

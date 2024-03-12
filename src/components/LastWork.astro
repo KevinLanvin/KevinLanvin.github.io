@@ -60,4 +60,35 @@ import BorderedButton from "./BorderedButton.astro";
       padding-top: 5rem;
     }
   }
+
+  @media screen and (max-width: 600px) {
+    .lastWork {
+      padding: 0 1rem;
+      padding-top: 10rem;
+      h2 {
+        font-size: 3rem;
+        margin-right: -1rem;
+      }
+      .lastWorkGrid {
+        grid-template-columns: 1fr;
+        margin: 0;
+      }
+      .gridText {
+        width: 100%;
+        margin: 0;
+        gap: 2rem;
+        p {
+          width: 100%;
+          font-size: 1rem;
+        }
+      }
+      .gridImage {
+        width: 100%;
+        img {
+          object-fit: contain;
+          width: 100%;
+        }
+      }
+    }
+  }
 </style>
