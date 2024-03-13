@@ -125,17 +125,18 @@ import BorderedButton from "./BorderedButton.astro";
       text-align: center;
       font-size: 2rem;
       text-shadow:
-        0px 0px 20px #000000,
-        0px 0px 0.2em #000000;
+        0px 0px 20px #000000aa,
+        0px 0px 0.2em #000000aa;
       margin-top: 5rem;
+      z-index: 2;
     }
     .description {
       color: white;
       width: max(80%, 1000px);
       align-self: center;
       text-shadow:
-        0px 0px 20px #000000,
-        0px 0px 0.2em #000000;
+        0px 0px 20px #000000aa,
+        0px 0px 0.2em #000000aa;
       margin-bottom: 2rem;
       text-align: center;
     }
@@ -180,7 +181,12 @@ import BorderedButton from "./BorderedButton.astro";
       position: relative;
       z-index: 2;
       &::before {
-        content: url("/images/arrow-prices.svg");
+        content: "";
+        background: url("/images/arrow-prices.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 203px;
+        height: 204px;
         position: absolute;
         right: 100%;
         bottom: 50%;
@@ -204,6 +210,45 @@ import BorderedButton from "./BorderedButton.astro";
       }
       100% {
         transform: translateX(70%) rotate(540deg);
+      }
+    }
+
+  }
+  @media screen and (max-width: 600px) {
+    .prices {
+      margin: 0;
+      padding: 0 1rem;
+      padding-top: 10rem;
+      h2 {
+        font-size: 3rem;
+        margin: 0;
+        margin-left: -1rem;
+        margin-bottom: 0;
+      }
+      .subtitle {
+        font-size: 1.5rem;
+        margin-top: 5rem;
+      }
+      .description {
+        width: calc(100% - 2rem);
+        margin-bottom: 0;
+      }
+      .priceCard {
+        width: calc(100% - 2rem);
+        padding: 1rem;
+        .header {
+          font-size: 1rem;
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+      .buttonContainer::before {
+        width: 10rem;
+        height: 10rem;
+        top: unset;
+        bottom: calc(100% + 1rem);
+        left: unset;
+        right: 20%;
       }
     }
   }

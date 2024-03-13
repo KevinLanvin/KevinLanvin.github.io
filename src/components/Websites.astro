@@ -1,7 +1,3 @@
----
-
----
-
 <section class='website'>
   <h2>Ce que je<br />propose</h2>
   <div class='services'>
@@ -39,6 +35,7 @@
   .website {
     background: url("/images/frog.jpg");
     background-size: cover;
+    background-position: center;
     width: 100%;
     min-height: 100vh;
     position: relative;
@@ -51,25 +48,31 @@
       content: "";
       position: absolute;
       width: 100vw;
-      height: 100%;
-      top: -50%;
+      height: 100vh;
+      top: -50vh;
       left: 0;
       background: linear-gradient(
         180deg,
-        rgba(1, 23, 23, 0) 1%,
-        #052a2a 34%,
-        #4f5e36 73%,
-        rgba(113, 136, 71, 0) 100%
+        #052a2a00 0%,
+        #052a2a 35%,
+        #4f5e36 75%,
+        #4f5e3600 100%
       );
     }
     &::after {
       content: "";
       position: absolute;
       width: 100vw;
-      height: 100%;
-      top: 50%;
+      height: 100vh;
+      top: calc(100% - 50vh);
       left: 0;
-      background: linear-gradient(180deg, rgba(134, 132, 68, 0) 8.38%, #788142 34.95%, #436137 56.94%, rgba(30, 75, 51, 0) 100%);
+      background: linear-gradient(
+        180deg,
+        #78814200 0%,
+        #788142 35%,
+        #436137 70%,
+        #43613700 100%
+      );
       z-index: 1;
     }
     h2 {
@@ -90,8 +93,16 @@
         max-width: 40rem;
         color: white;
         position: relative;
+        text-shadow:
+          0px 0px 2em #000000,
+          0px 0px 0.2em #000000;
         &:nth-of-type(1)::before {
-          content: url("/images/arrow-service-1.svg");
+          content: "";
+          background: url("/images/arrow-service-1.svg");
+          background-size: contain;
+          background-repeat: no-repeat;
+          width: 202px;
+          height: 167px;
           position: absolute;
           top: 30%;
           left: 45vw;
@@ -100,20 +111,67 @@
           align-self: flex-end;
           text-align: end;
           &::before {
-            content: url("/images/arrow-service-2.svg");
+            content: "";
+            background: url("/images/arrow-service-2.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 106px;
+            height: 217px;
             position: absolute;
             top: 40%;
             right: 55vw;
           }
         }
         &:nth-of-type(3)::before {
-          content: url("/images/arrow-service-3.svg");
+          content: "";
+          background: url("/images/arrow-service-3.svg");
+          background-size: contain;
+          background-repeat: no-repeat;
+          width: 224px;
+          height: 191px;
           position: absolute;
           bottom: 20%;
           left: 50vw;
         }
         p {
           line-height: 3rem;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .website {
+      padding: 0 1rem;
+      padding-top: 8rem;
+      gap: 5rem;
+      h2 {
+        font-size: 3rem;
+        margin-right: -1rem;
+      }
+      .services {
+        gap: 10rem;
+        .service {
+          &:nth-of-type(1)::before {
+            top: calc(100% + 2rem);
+            left: 60%;
+            height: 6rem;
+          }
+          &:nth-of-type(2)::before {
+            display: none;
+          }
+          &:nth-of-type(3)::before {
+            top: unset;
+            bottom: calc(100% + 2rem);
+            left: 30%;
+            height: 6rem;
+          }
+          h3 {
+            margin-bottom: 2rem;
+          }
+          p {
+            font-size: 1rem;
+            line-height: 2rem;
+          }
         }
       }
     }
