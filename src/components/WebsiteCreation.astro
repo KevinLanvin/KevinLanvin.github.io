@@ -38,7 +38,7 @@ import SquareHammer from "./SquareHammer.astro";
       0 150px 150px 150px #cdd6e8,
       0 -150px 150px 150px #ccd6e8;
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
     z-index: 2;
     h2 {
       color: rgba(255, 255, 255, 0.4);
@@ -135,19 +135,23 @@ import SquareHammer from "./SquareHammer.astro";
         z-index: 2;
       }
       .circle {
-        width: 20rem;
-        height: 20rem;
-        top: 35rem;
+        width: 30rem;
+        height: 30rem;
+        top: 25rem;
+        right: unset;
+        left: -40%; 
       }
       .services {
         font-size: 1rem;
-        right: 10%;
+        position: static;
+        align-self: center;
+        margin-top: 40rem;
         &::after {
           width: 150px;
           height: 75px;
-          right: 40%;
+          right: 20%;
           transform-origin: bottom right;
-          transform: rotate(25deg);
+          transform: rotate(35deg);
         }
       }
     }

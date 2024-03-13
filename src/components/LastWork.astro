@@ -65,18 +65,25 @@ import BorderedButton from "./BorderedButton.astro";
     .lastWork {
       padding: 0 1rem;
       padding-top: 10rem;
+      gap: 5rem;
       h2 {
         font-size: 3rem;
         margin-right: -1rem;
+        max-width: 80vw;
+        text-align: end;
       }
       .lastWorkGrid {
         grid-template-columns: 1fr;
         margin: 0;
+        margin-bottom: 5rem;
       }
       .gridText {
         width: 100%;
         margin: 0;
         gap: 2rem;
+        order: 2;
+        z-index: 2;
+        align-items: center;
         p {
           width: 100%;
           font-size: 1rem;
@@ -84,6 +91,8 @@ import BorderedButton from "./BorderedButton.astro";
       }
       .gridImage {
         width: 100%;
+        order: 1;
+        padding-top: 0;
         img {
           object-fit: contain;
           width: 100%;
