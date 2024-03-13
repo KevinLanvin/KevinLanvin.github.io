@@ -74,7 +74,8 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
       const currentProjectCardDescription = document.querySelector(
         `.scene > .projectCard:nth-child(${displayedCardNumber}) > .description`
       ) as HTMLElement;
-      currentProjectCardDescription.style.opacity = "1";
+      if (currentProjectCardDescription)
+        currentProjectCardDescription.style.opacity = "1";
     }, 300);
   });
 </script>
@@ -205,17 +206,17 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
     .star10 {
       top: 72%;
       left: 58%;
-      animation: star5 linear 2s .625s infinite;
+      animation: star5 linear 2s 0.625s infinite;
     }
     .star11 {
       top: 75%;
       left: 34%;
-      animation: star5 linear 3s .75s infinite;
+      animation: star5 linear 3s 0.75s infinite;
     }
     .star12 {
       top: 27%;
       left: 32%;
-      animation: star5 linear 2s .875s infinite;
+      animation: star5 linear 2s 0.875s infinite;
     }
     .star13 {
       top: 44%;
@@ -260,7 +261,7 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
     .star21 {
       top: 39%;
       left: 70%;
-      animation: star6 linear 3s .75s infinite;
+      animation: star6 linear 3s 0.75s infinite;
     }
     .star22 {
       top: 66%;
@@ -454,6 +455,43 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
     }
     &:nth-child(1) :global(.description) {
       opacity: 1;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    main {
+      perspective-origin: 50% 20%;
+      &::before {
+        background: radial-gradient(
+          closest-side,
+          #0e0e0e00,
+          #0e0e0e00 50%,
+          #0e0e0e
+        );
+      }
+      h1 {
+        font-size: 3rem;
+        top: 6rem;
+      }
+      .glowingStar {
+        width: 3px;
+        height: 3px;
+        &:nth-of-type(3n) {
+          width: 2px;
+          height: 2px;
+        }
+        &:nth-of-type(6n + 1) {
+          width: 4px;
+          height: 4px;
+        }
+      }
+      :global(.scrollableCard) {
+        position: absolute;
+        width: 300px;
+        height: 150px;
+        top: 15rem;
+        left: 50%;
+      }
     }
   }
 </style>
