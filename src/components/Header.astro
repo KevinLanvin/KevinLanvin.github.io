@@ -22,7 +22,13 @@ import Logo from "./Logo.astro";
       <span class='burgerSlice'></span>
       <span class='burgerSlice'></span>
     </label>
-    <nav class='menuMobile'></nav>
+    <nav class='menuMobile'>
+      <span class='intro'>Vous souhaitez :</span>
+      <a href='/creation-site-web'>Un site web</a>
+      <a href='/services'>Un dev fullstack</a>
+      <a href='/portfolio'>Voir mes réalisations</a>
+      <BorderedButton addedClasses='mobileHeaderButton'>Me contacter</BorderedButton>
+    </nav>
   </div>
 </header>
 
@@ -94,25 +100,26 @@ import Logo from "./Logo.astro";
       .menuMobileButton {
         color: white;
         position: relative;
-        width: 30px;
-        height: 20px;
+        width: calc(2rem + 30px);
+        height: calc(2rem + 20px);
         display: block;
         cursor: pointer;
         label {
           display: block;
           width: 100%;
           height: 100%;
+          padding: 1rem;
         }
         .burgerSlice {
           position: absolute;
-          width: 100%;
+          width: calc(100% - 2rem);
           height: 1px;
           background-color: #fff;
           border-radius: 5px;
           transform-origin: center center;
           transition: transform 0.2s ease-in-out;
           &:nth-child(1) {
-            top: 0;
+            top: 1rem;
           }
           &:nth-child(2) {
             top: 50%;
@@ -123,7 +130,7 @@ import Logo from "./Logo.astro";
             transform: translateY(-50%);
           }
           &:nth-child(4) {
-            bottom: 0;
+            bottom: 1rem;
           }
         }
       }
@@ -131,7 +138,8 @@ import Logo from "./Logo.astro";
         display: none;
       }
       #menuMobileToggle:checked ~ .menuMobile {
-        display: block;
+        transition: transform 0.3 ease-in-out;
+        transform: translateY(0);
       }
       #menuMobileToggle:checked ~ .menuMobileToggleLabel {
         .burgerSlice {
@@ -150,19 +158,34 @@ import Logo from "./Logo.astro";
         }
       }
       .menuMobile {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2rem 1rem;
+        gap: 2rem;
         position: fixed;
         width: 100vw;
         height: calc(100vh - 80px);
         backdrop-filter: blur(10px);
         background: linear-gradient(
           11.71deg,
-          rgba(0, 0, 0, 0.63) 1.22%,
-          rgba(0, 0, 0, 0.07) 92.57%
+          rgba(0, 0, 0, 0.73) 1.22%,
+          rgba(0, 0, 0, 0.37) 92.57%
         );
         top: 80px;
         left: 0;
-        z-index: 500;
+        z-index: -1;
+        transition: transform 0.3s ease-in-out;
+        transform: translateY(-100vh);
+        a {
+          padding: 0.5rem;
+        }
+        .intro {
+          margin-bottom: 3rem;
+        }
+        :global(.mobileHeaderButton) {
+          margin-top: 3rem;
+        } 
       }
     }
   }
