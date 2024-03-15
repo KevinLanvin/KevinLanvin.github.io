@@ -15,12 +15,12 @@
   .squareHammer {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 5rem;
+    gap: 2rem;
     width: min-content;
-    transform: rotate(-45deg);
+    transform: translate(-20%, calc(20% + 5rem)) rotate(-45deg);
     .square {
-      width: 30rem;
-      height: 30rem;
+      width: 25rem;
+      height: 25rem;
       border: 2px solid white;
       background: linear-gradient(
         225deg,
@@ -37,7 +37,7 @@
       .text {
         text-align: center;
         transform: rotate(45deg);
-        font-size: 2rem;
+        font-size: 1.25rem;
         color: #4f4f4f;
       }
     }

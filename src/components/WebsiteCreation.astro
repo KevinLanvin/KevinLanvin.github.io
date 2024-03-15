@@ -8,27 +8,29 @@ import SquareHammer from "./SquareHammer.astro";
     Je réalise des <strong>sites web</strong>
     <em>sur mesure</em>, faciles à prendre en main
   </p>
-  <SquareHammer class='squareHammer' />
-  <svg
-    class='circle'
-    viewBox='0 0 800 800'
-    fill='none'
-    xmlns='http://www.w3.org/2000/svg'
-  >
-    <defs>
-      <radialGradient id='circleGradient' cx='0' cy='50%' r='25%'>
-        <stop offset='0%' stop-color='#ffffff'></stop>
-        <stop offset='100%' stop-color='#ffffff00'></stop>
-      </radialGradient>
-    </defs>
-    <circle
-      cx='400'
-      cy='400'
-      r='396'
-      stroke-width='4'
-      stroke='url(#circleGradient)'></circle>
-  </svg>
-  <button class='services'>Découvrir mes services </button>
+  <div class='bigSquare'>
+    <SquareHammer class='squareHammer' />
+    <svg
+      class='circle'
+      viewBox='0 0 800 800'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+    >
+      <defs>
+        <radialGradient id='circleGradient' cx='0' cy='50%' r='25%'>
+          <stop offset='0%' stop-color='#ffffff'></stop>
+          <stop offset='100%' stop-color='#ffffff00'></stop>
+        </radialGradient>
+      </defs>
+      <circle
+        cx='400'
+        cy='400'
+        r='396'
+        stroke-width='4'
+        stroke='url(#circleGradient)'></circle>
+    </svg>
+    <button class='services'>Découvrir mes services </button>
+  </div>
 </section>
 
 <style lang='scss'>
@@ -38,65 +40,64 @@ import SquareHammer from "./SquareHammer.astro";
       0 150px 150px 150px #cdd6e8,
       0 -150px 150px 150px #ccd6e8;
     position: relative;
-    min-height: 100vh;
     z-index: 2;
     h2 {
       color: rgba(255, 255, 255, 0.4);
       font-weight: bold;
-      font-size: 11rem;
+      font-size: 6rem;
       line-height: 0.9;
       max-width: 60vw;
-      position: absolute;
       top: 0;
       margin: 0;
     }
     p {
       color: #4f4f4f;
-      font-size: 2rem;
+      font-size: 1.25rem;
       position: absolute;
-      top: 40rem;
+      top: 20rem;
       right: 12%;
       width: 40rem;
       text-align: center;
     }
     :global(.squareHammer) {
-      position: absolute;
-      right: 60%;
-      top: 40rem;
       z-index: 2;
     }
-    .circle {
-      width: 80rem;
-      height: 80rem;
-      position: absolute;
-      right: 60%;
-      top: 50rem;
-      z-index: 1;
-      animation: rotateCircle 4s linear infinite;
-    }
-    .services {
-      position: absolute;
-      top: 100%;
-      right: 25%;
-      font-size: 1.25rem;
-      font-weight: bold;
-      color: #4f4f4f;
-      background: #4f4f4f0a;
-      border: solid 2px #4f4f4f;
-      border-radius: 5rem;
-      padding: 1rem;
-      backdrop-filter: blur(4px);
-      cursor: pointer;
-      &::after {
-        content: "";
-        background: url("/images/servicesArrow.svg");
-        background-size: contain;
-        background-repeat: no-repeat;
-        width: 400px;
-        height: 200px;
+    .bigSquare {
+      position: relative;
+      width: fit-content;
+      .circle {
+        width: 60rem;
+        height: 60rem;
         position: absolute;
-        bottom: 100%;
-        right: 65%;
+        left: -20%;
+        top: 50%;
+        z-index: -1;
+        animation: rotateCircle 4s linear infinite;
+      }
+      .services {
+        position: absolute;
+        width: max-content;
+        left: 100%;
+        top: 115%;
+        font-weight: bold;
+        color: #4f4f4f;
+        background: #4f4f4f0a;
+        border: solid 2px #4f4f4f;
+        border-radius: 5rem;
+        padding: 1rem;
+        backdrop-filter: blur(4px);
+        cursor: pointer;
+        &::after {
+          content: "";
+          background: url("/images/servicesArrow.svg");
+          background-size: contain;
+          background-repeat: no-repeat;
+          width: 200px;
+          height: 100px;
+          position: absolute;
+          bottom: 100%;
+          right: 65%;
+        }
       }
     }
   }
@@ -139,7 +140,7 @@ import SquareHammer from "./SquareHammer.astro";
         height: 30rem;
         top: 25rem;
         right: unset;
-        left: -40%; 
+        left: -40%;
       }
       .services {
         font-size: 1rem;
