@@ -48,7 +48,7 @@
         right: -50%;
         bottom: 0;
         transform-origin: 100% 100%;
-        animation: rotateArrow 6s linear infinite;
+        animation: rotateArrow 5s linear infinite;
       }
     }
     .leavingArrow {
@@ -75,7 +75,7 @@
         top: O;
         transform: translateY(-50%);
         transform-origin: 100% 50%;
-        animation: rotateLeavingArrow 6s linear infinite;
+        animation: rotateLeavingArrow 5s linear infinite;
       }
     }
     .border-container {
@@ -107,7 +107,7 @@
           z-index: -1;
           top: 50%;
           right: 0;
-          animation: rotateBorderLeft 6s linear infinite;
+          animation: rotateBorderLeft 5s linear infinite;
           transform: translate(50%, -50%);
         }
       }
@@ -134,7 +134,7 @@
           z-index: -1;
           top: 50%;
           left: 0;
-          animation: rotateBorderRight 6s linear infinite;
+          animation: rotateBorderRight 5s linear infinite;
           transform: translate(-50%, -50%);
         }
       }
@@ -154,16 +154,16 @@
     0% {
       transform: translate(-50%, -50%) rotate(-5deg);
     }
-    18% {
+    31% {
       transform: translate(-50%, -50%) rotate(-5deg);
     }
-    20% {
+    33% {
       transform: translate(-50%, -50%) rotate(0deg);
     }
-    60% {
+    66% {
       transform: translate(-50%, -50%) rotate(180deg);
     }
-    62% {
+    68% {
       transform: translate(-50%, -50%) rotate(200deg);
     }
     100% {
@@ -175,16 +175,16 @@
     0% {
       transform: translate(50%, -50%) rotate(5deg);
     }
-    18% {
+    31% {
       transform: translate(50%, -50%) rotate(5deg);
     }
-    20% {
+    33% {
       transform: translate(50%, -50%) rotate(0deg);
     }
-    60% {
+    66% {
       transform: translate(50%, -50%) rotate(-180deg);
     }
-    62% {
+    68% {
       transform: translate(50%, -50%) rotate(-200deg);
     }
     100% {
@@ -194,12 +194,12 @@
 
   @keyframes rotateArrow {
     0% {
-      transform: rotate(100deg);
+      transform: rotate(90deg);
     }
-    20% {
+    33% {
       transform: rotate(0deg);
     }
-    30% {
+    40% {
       transform: rotate(-20deg);
     }
     100% {
@@ -211,14 +211,11 @@
     0% {
       transform: translateY(-50%) rotate(90deg);
     }
-    60% {
+    66% {
       transform: translateY(-50%) rotate(0deg);
     }
-    80% {
-      transform: translateY(-50%) rotate(-100deg);
-    }
     100% {
-      transform: translateY(-50%) rotate(-100deg);
+      transform: translateY(-50%) rotate(-90deg);
     }
   }
 
