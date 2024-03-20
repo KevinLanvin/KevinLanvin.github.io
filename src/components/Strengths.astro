@@ -1,0 +1,221 @@
+---
+import Eclair from "./Eclair.astro";
+---
+
+<section class='strengths'>
+  <div class="clouds cloud5"></div>
+  <div class="clouds cloud6"></div>
+  <div class="clouds cloud7"></div>
+  <div class="clouds cloud1"></div>
+  <div class="clouds cloud2"></div>
+  <div class="clouds cloud3"></div>
+  <div class="clouds cloud4"></div>
+  <h2>Mes forces</h2>
+  <Eclair />
+  <div class='services'>
+    <div class='service'>
+      <h3>Sites clé en main et faciles</h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </p>
+    </div>
+    <div class='service'>
+      <h3>Sites clé en main et faciles</h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </p>
+    </div>
+    <div class='service'>
+      <h3>Sites clé en main et faciles</h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style lang='scss'>
+  .strengths {
+    background: #141e36;
+    position: relative;
+    padding: 0 12%;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    box-shadow: 0 -2rem 2rem 2rem #141e36;
+    min-height: calc(24vw + 1500px);
+    max-height: calc(24vw + 1500px);
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      aspect-ratio: 1798 / 1007;
+      bottom: 0;
+      left: 0;
+      background-image: url("/images/strengthFooter.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      box-shadow: inset 0 20rem 20rem #141e36;
+    }
+    .clouds {
+      position: absolute;
+      transform: translateY(-50%);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .cloud1 {
+      background-image: url('/images/clouds3.png');
+      width: 50%;
+      aspect-ratio: 2360 / 984;
+      top: 0;
+      left: 0;
+      opacity: 0.6;
+      z-index: 7;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(closest-side, #fff, #ffffff00);
+        animation: flash 10s infinite linear;
+      }
+    }
+    .cloud2 {
+      background-image: url('/images/clouds3.png');
+      width: 120%;
+      aspect-ratio: 2360 / 984;
+      top: -1rem;
+      left: -10%;
+      z-index: 6;
+      opacity: 0.9;
+    }
+    .cloud3 {
+      background-image: url('/images/clouds3.png');
+      width: 40%;
+      aspect-ratio: 2360 / 984;
+      top: -6rem;
+      left: 60%;
+      opacity: 0.5;
+      z-index: 8;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(closest-side, #fff, #ffffff00);
+        animation: flash 10s 0.2s infinite linear;
+      }
+    }
+    .cloud4 {
+      background-image: url('/images/clouds3.png');
+      width: 55%;
+      aspect-ratio: 2360 / 984;
+      top: 4rem;
+      left: 30%;
+      opacity: 0.5;
+      z-index: 9;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(closest-side, #fff, #ffffff00);
+        z-index: -1;
+        animation: flash 10s 0.25s infinite linear;
+      }
+    }
+    .cloud5 {
+      background-image: radial-gradient(closest-side, #fff, #ffffff00);
+      width: 50%;
+      height: 20vw;
+      top: 0;
+      left: -20%;
+      z-index: 5;
+    }
+    .cloud6 {
+      background-image: radial-gradient(closest-side, #fff, #ffffff00);
+      width: 60%;
+      height: 30vw;
+      top: -5rem;
+      left: 20%;
+      z-index: 5;
+    }
+    .cloud7 {
+      background-image: radial-gradient(closest-side, #fff, #ffffff00);
+      width: 40%;
+      height: 30vw;
+      top: -3rem;
+      right: -15%;
+      z-index: 5;
+    }
+    h2 {
+      color: rgba(255, 255, 255, 0.4);
+      font-weight: bold;
+      font-size: 6rem;
+      line-height: 0.9;
+      max-width: 60vw;
+      position: relative;
+      text-align: end;
+      align-self: end;
+      right: -16%;
+      margin-top: 15rem;
+    }
+    .services {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      gap: 10rem;
+      padding-top: 5rem;
+      .service {
+        z-index: 2;
+        max-width: 40rem;
+        color: white;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        text-shadow:
+          0px 0px 2em #000000,
+          0px 0px 0.2em #000000;
+        &:nth-of-type(2) {
+          align-self: flex-end;
+        }
+        p {
+          line-height: 3rem;
+        }
+      }
+    }
+    @keyframes flash {
+      0% {
+        opacity: 0;
+      }
+      2% {
+        opacity: 1;
+      }
+      4% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+  }
+</style>
