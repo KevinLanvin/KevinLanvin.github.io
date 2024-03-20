@@ -1,9 +1,14 @@
+---
+import Aurora from "./Aurora.astro";
+---
+
 <section class='heroFullStack'>
   <h1>
     Des <strong>sites web</strong> pour les <em>grands</em> et les <span
       class='boldIt'>petits projets</span
     >
   </h1>
+  <Aurora />
 </section>
 
 <style lang="scss">
@@ -16,6 +21,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
     h1 {
       color: white;
       font-size: 4rem;
