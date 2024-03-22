@@ -10,17 +10,6 @@
   </div>
 </section>
 
-<script>
-  const hero = document.getElementById("hero");
-  const title = document.getElementById("title");
-  hero.addEventListener("mousemove", (event) => {
-    let xOffset = event.clientX - title.offsetLeft;
-    xOffset = Math.max(100, xOffset);
-    xOffset = Math.min(title.offsetWidth - 100, xOffset);
-    title.style.backgroundPositionX = `${xOffset}px`;
-  });
-</script>
-
 <style lang='scss'>
   #hero {
     padding: 10em 0;
@@ -57,38 +46,6 @@
       top: 0;
       left: 0;
       animation: fog1movement 17s linear infinite forwards;
-    }
-  }
-  #mobileTitle {
-    display: none;
-  }
-  h1 {
-    font-size: 4rem;
-    font-family: Poppins;
-    font-weight: 300;
-    line-height: 1.125em;
-    width: 40rem;
-    margin: 0;
-    color: #ffffff80;
-    background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 0.1) 25%,
-        white 50%,
-        rgba(255, 255, 255, 0.1) 75%,
-        rgba(255, 255, 255, 0.1)
-      )
-      text;
-    text-align: center;
-    strong {
-      font-weight: 900;
-    }
-    em {
-      font-weight: 200;
-    }
-    .boldIt {
-      font-weight: bold;
-      font-style: italic;
     }
   }
 
@@ -186,26 +143,6 @@
       padding: 0 1rem;
       height: calc(100vh - 80px);
       max-height: calc(100vh - 80px);
-      #title {
-        display: block;
-        color: white;
-        font-size: 3rem;
-        font-family: Poppins;
-        font-weight: 300;
-        text-align: center;
-        max-width: 75rem;
-        line-height: 1.125em;
-        text-shadow:
-          0px 0px 20px #000000aa,
-          0px 0px 0.2em #000000aa;
-        strong {
-          font-weight: 900;
-        }
-        em {
-          font-weight: 200;
-          font-style: italic;
-        }
-      }
       .contactWrapper {
         width: 8rem;
         height: 8rem;

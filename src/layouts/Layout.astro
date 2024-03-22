@@ -25,6 +25,17 @@ import Footer from "../components/Footer.astro";
   </body>
 </html>
 
+<script>
+  const hero = document.getElementById("hero");
+  const title = document.getElementById("title");
+  hero.addEventListener("mousemove", (event) => {
+    let xOffset = event.clientX - title.offsetLeft;
+    xOffset = Math.max(100, xOffset);
+    xOffset = Math.min(title.offsetWidth - 100, xOffset);
+    title.style.backgroundPositionX = `${xOffset}px`;
+  });
+</script>
+
 <style is:global>
   @font-face {
     font-family: "Poppins";
@@ -112,17 +123,23 @@ import Footer from "../components/Footer.astro";
   }
 
   h1 {
-    color: white;
     font-size: 4rem;
     font-family: Poppins;
     font-weight: 300;
-    text-align: center;
-    max-width: 60rem;
     line-height: 1.125em;
-    z-index: 2;
-    text-shadow:
-      0px 0px 20px #000000aa,
-      0px 0px 0.2em #000000aa;
+    width: 40rem;
+    margin: 0;
+    color: #ffffff80;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1) 25%,
+        white 50%,
+        rgba(255, 255, 255, 0.1) 75%,
+        rgba(255, 255, 255, 0.1)
+      )
+      text;
+    text-align: center;
     strong {
       font-weight: 900;
     }
@@ -137,5 +154,17 @@ import Footer from "../components/Footer.astro";
 
   a {
     cursor: pointer;
+  }
+
+  @media screen and (max-width: 600px) {
+    h1 {
+      font-size: 3rem;
+      color: white;
+      max-width: 80%;
+      z-index: 10;
+      text-shadow:
+        0px 0px 20px #000000aa,
+        0px 0px 0.2em #000000aa;
+    }
   }
 </style>
