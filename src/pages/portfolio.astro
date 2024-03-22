@@ -53,7 +53,11 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
 </PortfolioLayout>
 
 <script>
-  document.addEventListener("scroll", () => {
+  document.addEventListener('wheel', (event) => {
+    event.preventDefault();
+  })
+  document.addEventListener("scroll", (event) => {
+    event.preventDefault();
     const sceneElement = document.querySelector(".scene") as HTMLElement;
     if (!!sceneElement) {
       sceneElement.style.transform = `translateZ(${window.scrollY}px)`;
@@ -63,14 +67,14 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
   });
   document.addEventListener("scrollend", () => {
     const sceneElement = document.querySelector(".scene") as HTMLElement;
-    if (window.scrollY % 2000 !== 0) {
+    if (window.scrollY % 1000 !== 0) {
       sceneElement.style.transition = "transform 0.3s ease-in-out";
-      const currentProjectCardNumber = Math.floor(window.scrollY / 2000) + 1;
-      window.scrollTo(0, currentProjectCardNumber * 2000);
+      const currentProjectCardNumber = Math.floor(window.scrollY / 1000) + 1;
+      window.scrollTo(0, currentProjectCardNumber * 1000);
     }
     setTimeout(() => {
       sceneElement.style.transition = "none";
-      const displayedCardNumber = Math.floor(window.scrollY / 2000) + 1;
+      const displayedCardNumber = Math.floor(window.scrollY / 1000) + 1;
       const currentProjectCardDescription = document.querySelector(
         `.scene > .projectCard:nth-child(${displayedCardNumber}) > .description`
       ) as HTMLElement;
@@ -82,15 +86,14 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
 
 <style lang='scss'>
   :root {
-    --gap: 2000;
+    --gap: 1000;
     --nbElements: 4;
   }
   :global(body) {
     height: calc(100vh + var(--gap) * (var(--nbElements) - 1) * 1px);
-    scroll-behavior: smooth;
   }
   main {
-    perspective: 2000px;
+    perspective: 1000px;
     perspective-origin: 70% 50%;
     position: fixed;
     top: 0;
