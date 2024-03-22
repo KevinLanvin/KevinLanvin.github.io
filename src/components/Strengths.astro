@@ -3,13 +3,10 @@ import Eclair from "./Eclair.astro";
 ---
 
 <section class='strengths'>
-  <div class="clouds cloud5"></div>
-  <div class="clouds cloud6"></div>
-  <div class="clouds cloud7"></div>
-  <div class="clouds cloud1"></div>
-  <div class="clouds cloud2"></div>
-  <div class="clouds cloud3"></div>
-  <div class="clouds cloud4"></div>
+  <div class='clouds cloud1'></div>
+  <div class='clouds cloud2'></div>
+  <div class='clouds cloud3'></div>
+  <div class='clouds cloud4'></div>
   <h2>Mes forces</h2>
   <Eclair />
   <div class='services'>
@@ -45,41 +42,40 @@ import Eclair from "./Eclair.astro";
 
 <style lang='scss'>
   .strengths {
-    background: #141e36;
+    background: linear-gradient(to bottom, #141e36, #030510);
     position: relative;
-    padding: 0 12%;
+    padding: 15rem 12%;
     display: flex;
     flex-direction: column;
     gap: 5rem;
-    box-shadow: 0 -2rem 2rem 2rem #141e36;
-    min-height: calc(24vw + 1500px);
-    max-height: calc(24vw + 1500px);
+    padding-bottom: 30vw;
     &::after {
       content: "";
       position: absolute;
-      width: 100%;
-      aspect-ratio: 1798 / 1007;
       bottom: 0;
       left: 0;
-      background-image: url("/images/strengthFooter.png");
+      width: 100vw;
+      aspect-ratio: 1800 / 423;
+      background: url("/images/strengthsFooter.svg");
       background-size: cover;
       background-repeat: no-repeat;
-      box-shadow: inset 0 20rem 20rem #141e36;
+      z-index: 200;
     }
     .clouds {
       position: absolute;
-      transform: translateY(-50%);
       background-size: cover;
       background-repeat: no-repeat;
+      transform: translate(0, -50%);
     }
     .cloud1 {
-      background-image: url('/images/clouds3.png');
+      background-image: url("/images/clouds3.png");
       width: 50%;
       aspect-ratio: 2360 / 984;
       top: 0;
       left: 0;
       opacity: 0.6;
       z-index: 7;
+      animation: floatCloud 20s linear infinite;
       &::after {
         content: "";
         position: absolute;
@@ -93,7 +89,7 @@ import Eclair from "./Eclair.astro";
       }
     }
     .cloud2 {
-      background-image: url('/images/clouds3.png');
+      background-image: url("/images/clouds3.png");
       width: 120%;
       aspect-ratio: 2360 / 984;
       top: -1rem;
@@ -102,13 +98,14 @@ import Eclair from "./Eclair.astro";
       opacity: 0.9;
     }
     .cloud3 {
-      background-image: url('/images/clouds3.png');
+      background-image: url("/images/clouds3.png");
       width: 40%;
       aspect-ratio: 2360 / 984;
       top: -6rem;
       left: 60%;
       opacity: 0.5;
       z-index: 8;
+      animation: floatCloud2 22s 3s infinite linear;
       &::after {
         content: "";
         position: absolute;
@@ -122,13 +119,14 @@ import Eclair from "./Eclair.astro";
       }
     }
     .cloud4 {
-      background-image: url('/images/clouds3.png');
+      background-image: url("/images/clouds3.png");
       width: 55%;
       aspect-ratio: 2360 / 984;
       top: 4rem;
       left: 30%;
       opacity: 0.5;
       z-index: 9;
+      animation: floatCloud 18s 2s infinite linear reverse;
       &::after {
         content: "";
         position: absolute;
@@ -142,30 +140,6 @@ import Eclair from "./Eclair.astro";
         animation: flash 10s 0.25s infinite linear;
       }
     }
-    .cloud5 {
-      background-image: radial-gradient(closest-side, #fff, #ffffff00);
-      width: 50%;
-      height: 20vw;
-      top: 0;
-      left: -20%;
-      z-index: 5;
-    }
-    .cloud6 {
-      background-image: radial-gradient(closest-side, #fff, #ffffff00);
-      width: 60%;
-      height: 30vw;
-      top: -5rem;
-      left: 20%;
-      z-index: 5;
-    }
-    .cloud7 {
-      background-image: radial-gradient(closest-side, #fff, #ffffff00);
-      width: 40%;
-      height: 30vw;
-      top: -3rem;
-      right: -15%;
-      z-index: 5;
-    }
     h2 {
       color: rgba(255, 255, 255, 0.4);
       font-weight: bold;
@@ -176,7 +150,6 @@ import Eclair from "./Eclair.astro";
       text-align: end;
       align-self: end;
       right: -16%;
-      margin-top: 15rem;
     }
     .services {
       display: flex;
@@ -213,8 +186,87 @@ import Eclair from "./Eclair.astro";
       4% {
         opacity: 0;
       }
+      22% {
+        opacity: 0;
+      }
+      24% {
+        opacity: 1;
+      }
+      26% {
+        opacity: 0;
+      }
+      73% {
+        opacity: 0;
+      }
+      75% {
+        opacity: 1;
+      }
+      77% {
+        opacity: 0;
+      }
       100% {
         opacity: 0;
+      }
+    }
+    @keyframes floatCloud {
+      0% {
+        transform: translate(0, -50%);
+      }
+      33% {
+        transform: translate(3px, calc(-50% - 5px));
+      }
+      66% {
+        transform: translate(-2px, calc(-50% + 3px));
+      }
+      100% {
+        transform: translate(0, -50%);
+      }
+    }
+    @keyframes floatCloud {
+      0% {
+        transform: translate(0, -50%);
+      }
+      33% {
+        transform: translate(6px, calc(-50% + 10px));
+      }
+      66% {
+        transform: translate(-5px, calc(-50% - 8px));
+      }
+      100% {
+        transform: translate(0, -50%);
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .strengths {
+      gap: 5rem;
+      padding: 0 1rem;
+      h2 {
+        font-size: 3rem;
+        margin-top: 5rem;
+        right: -1rem;
+      }
+      .cloud3 {
+        top: -2rem;
+      }
+      .cloud4 {
+        top: 1rem;
+      }
+      .services {
+        padding-top: 0;
+        padding-bottom: 10rem;
+        gap: 5rem;
+        .service {
+          gap: 1rem;
+          line-height: 1.5em;
+          &:nth-of-type(2) {
+            h3,
+            p {
+              text-align: end;
+            }
+          }
+        }
       }
     }
   }

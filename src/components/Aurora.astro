@@ -1,69 +1,113 @@
-<div class='aurora'>
-  <svg
-    width='1591'
-    height='1212'
-    viewBox='0 0 1591 1212'
-    fill='none'
-    xmlns='http://www.w3.org/2000/svg'
-  >
-    <!-- <g filter='url(#filter0_f_516_663)'> -->
-      <path
-        id='auroraPath'
-        fill='url(#paint0_linear_516_663)'
-        d='M307.932 949.63L96 1116L568.226 951.526C643.28 925.385 689.246 849.682 677.821 771.031C668.746 708.553 695.923 646.339 747.929 610.544L1495.5 96H1301.56C1184.8 96 1070.98 132.627 976.135 200.723L484.259 553.865C420.262 599.812 385.288 676.142 392.277 754.615C398.965 829.703 367.229 903.081 307.932 949.63Z'
-      >
-      </path>
-    </g>
-    <defs>
-      <filter
-        id='filter0_f_516_663'
-        x='0.699997'
-        y='0.699997'
-        width='1590.1'
-        height='1210.6'
-        filterUnits='userSpaceOnUse'
-        color-interpolation-filters='sRGB'
-      >
-        <feFlood flood-opacity='0' result='BackgroundImageFix'></feFlood>
-        <feBlend
-          mode='normal'
-          in='SourceGraphic'
-          in2='BackgroundImageFix'
-          result='shape'></feBlend>
-        <feGaussianBlur
-          stdDeviation='47.65'
-          result='effect1_foregroundBlur_516_663'></feGaussianBlur>
-      </filter>
-      <linearGradient
-        id='paint0_linear_516_663'
-        x1='1118.5'
-        y1='23.5'
-        x2='795.75'
-        y2='1116'
-        gradientUnits='userSpaceOnUse'
-      >
-        <stop stop-color='#060A1900'></stop>
-        <stop offset='1' stop-color='#00BC84'></stop>
-      </linearGradient>
-    </defs>
-  </svg>
-</div>
+<svg viewBox='0 0 1920 782' id='aurora'>
+  <g filter='url(#auroraBlur)'>
+    <path
+      fill='url(#auroraGradient1)'
+      d='M76.4999 -243C380.5 -31.7999 154.833 351 3.9996 516C374 432 599.167 42.3334 665.5 -142C342.5 -263.667 -227.5 -454.2 76.4999 -243Z'
+    ></path>
+    <path
+      fill='url(#auroraGradient2)'
+      d='M1635 202C1635 70.5 1907.5 -90 2030 -111C2066 32.5 1821 121.5 1810.5 224.5C1802.56 302.347 1537 406 1419 465C1470.5 318.5 1635 307.505 1635 202Z'
+    ></path>
+    <path
+      fill='url(#auroraGradient3)'
+      d='M1313 230.5C1300.6 342.9 1199.17 403.333 1150 419.5C1262.33 403.5 1487.3 345.8 1488.5 243C1489.7 140.2 1901.5 -144.5 1889 -212.5C1766.67 -156.167 1325.4 118.1 1313 230.5Z'
+    ></path>
+  </g>
+  <defs>
+    <filter
+      id='auroraBlur'
+      x='-200'
+      y='-200'
+      width='2320'
+      height='994'
+      filterUnits='userSpaceOnUse'
+      color-interpolation-filters='sRGB'
+    >
+      <feFlood flood-opacity='0' result='BackgroundImageFix'></feFlood>
+      <feBlend
+        mode='normal'
+        in='SourceGraphic'
+        in2='BackgroundImageFix'
+        result='shape'></feBlend>
+      <feGaussianBlur stdDeviation='20' result='effect1_foregroundBlur_516_663'
+      ></feGaussianBlur>
+    </filter>
+    <linearGradient id='auroraGradient1' x1='0' y1='0' x2='1' y2='0'>
+      {
+        Array.from({ length: 20 }, (k, v) => v / 20).map((offset) => {
+          return (
+            <stop stop-color='#86ada100' offset={offset}>
+              <animate
+                attributeName='stop-color'
+                dur={`${Math.random() * 2 + 3}s`}
+                values={(() => {
+                  const colors = ["#adede980", "#c2e3e480", "#b6f2ee80", "#ffffff00"];
+                  const shuffledColors = colors.sort(() => Math.random() - 0.5);
+                  shuffledColors.push(shuffledColors[0]);
+                  return shuffledColors.join(";");
+                })()}
+                repeatCount='indefinite'
+              />
+            </stop>
+          );
+        })
+      }
+    </linearGradient>
+    <linearGradient id='auroraGradient2' x1='0' y1='0' x2='1' y2='0'>
+      {
+        Array.from({ length: 20 }, (k, v) => v / 20).map((offset) => {
+          return (
+            <stop stop-color='#86ada100' offset={offset}>
+              <animate
+                attributeName='stop-color'
+                dur={`${Math.random() * 2 + 3}s`}
+                values={(() => {
+                  const colors = ["#adede980", "#c2e3e480", "#b6f2ee80", "#ffffff00"];
+                  const shuffledColors = colors.sort(() => Math.random() - 0.5);
+                  shuffledColors.push(shuffledColors[0]);
+                  return shuffledColors.join(";");
+                })()}
+                repeatCount='indefinite'
+              />
+            </stop>
+          );
+        })
+      }
+    </linearGradient>
+    <linearGradient id='auroraGradient3' x1='0' y1='0' x2='1' y2='0'>
+      {
+        Array.from({ length: 20 }, (k, v) => v / 20).map((offset) => {
+          return (
+            <stop stop-color='#86ada100' offset={offset}>
+              <animate
+                attributeName='stop-color'
+                dur={`${Math.random() * 2 + 3}s`}
+                values={(() => {
+                  const colors = ["#adede980", "#c2e3e480", "#b6f2ee80", "#ffffff00"];
+                  const shuffledColors = colors.sort(() => Math.random() - 0.5);
+                  shuffledColors.push(shuffledColors[0]);
+                  return shuffledColors.join(";");
+                })()}
+                repeatCount='indefinite'
+              />
+            </stop>
+          );
+        })
+      }
+    </linearGradient>
+  </defs>
+</svg>
 
 <style lang='scss'>
-  .aurora {
+  #aurora {
+    width: 100%;
     position: absolute;
-    width: 1591px;
-    height: 1212px;
     top: 0;
     left: 0;
-
-    #auroraPath {
-      transition: 2s;
-      &:hover {
-        d: path(
-          "M245.327 955.807L96 1116L396.826 951.599C484.972 903.427 558.48 832.355 609.593 745.881L663.972 653.882C728.402 544.879 827.989 461.03 946.374 416.109L1790 96H1235.91C1160.74 96 1086.36 111.186 1017.21 140.645L720.732 266.951C566.209 332.782 449.559 464.715 403.154 626.139L373.442 729.494C349.158 813.969 305.261 891.512 245.327 955.807Z"
-        );
-      }
+  }
+  @media screen and (max-width: 600px) {
+    #aurora {
+      top: 5rem;
     }
   }
 </style>
