@@ -26,14 +26,16 @@ import Footer from "../components/Footer.astro";
 </html>
 
 <script>
-  const hero = document.getElementById("hero");
-  const title = document.getElementById("title");
-  hero.addEventListener("mousemove", (event) => {
-    let xOffset = event.clientX - title.offsetLeft;
-    xOffset = Math.max(100, xOffset);
-    xOffset = Math.min(title.offsetWidth - 100, xOffset);
-    title.style.backgroundPositionX = `${xOffset}px`;
-  });
+  if (window.screen.width > 600) {
+    const hero = document.getElementById("hero");
+    const title = document.getElementById("title");
+    hero.addEventListener("mousemove", (event) => {
+      let xOffset = event.clientX - title.offsetLeft;
+      xOffset = Math.max(100, xOffset);
+      xOffset = Math.min(title.offsetWidth - 100, xOffset);
+      title.style.backgroundPositionX = `${xOffset}px`;
+    });
+  }
 </script>
 
 <style is:global>
@@ -129,6 +131,7 @@ import Footer from "../components/Footer.astro";
     line-height: 1.125em;
     width: 40rem;
     margin: 0;
+    padding: 1rem 0;
     color: #ffffff80;
     background: linear-gradient(
         90deg,
