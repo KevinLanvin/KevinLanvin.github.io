@@ -36,13 +36,13 @@ import SquareHammer from "./SquareHammer.astro";
 <style lang='scss'>
   .websiteCreation {
     background-color: #ccd6e8;
-    box-shadow:
-      0 150px 150px 150px #cdd6e8;
+    box-shadow: 0 150px 150px 150px #cdd6e8;
     position: relative;
     display: flex;
     flex-direction: column;
     gap: 10rem;
     padding: 0 12%;
+    z-index: 1;
     h2 {
       color: rgba(255, 255, 255, 0.4);
       font-weight: bold;
@@ -59,29 +59,32 @@ import SquareHammer from "./SquareHammer.astro";
       position: absolute;
       top: 20rem;
       right: 12%;
-      width: 40rem;
-      text-align: center;
+      width: calc(100% - 45rem);
+      text-align: end;
     }
     :global(.squareHammer) {
       z-index: 2;
     }
     .bigSquare {
       position: relative;
-      width: fit-content;
+      width: 45.24rem;
+      height: 45.24rem;
+      left: -16%;
+      transform: translateX(-25%);
       .circle {
-        width: 60rem;
-        height: 60rem;
+        width: 45rem;
+        height: 45rem;
         position: absolute;
-        left: -60%;
-        top: 50%;
+        left: 0;
+        top: 30%;
         z-index: -1;
         animation: rotateCircle 4s linear infinite;
       }
       .services {
         position: absolute;
         width: max-content;
-        left: 150%;
-        top: 115%;
+        left: 100%;
+        top: 85%;
         font-weight: bold;
         color: #4f4f4f;
         background: #4f4f4f0a;
@@ -120,7 +123,7 @@ import SquareHammer from "./SquareHammer.astro";
     .websiteCreation {
       display: flex;
       flex-direction: column;
-      padding-top: 15rem;
+      gap: 2rem;
       padding-bottom: 15rem;
       h2 {
         font-size: 3rem;
@@ -131,20 +134,19 @@ import SquareHammer from "./SquareHammer.astro";
         position: static;
         margin: 2rem 0;
         padding: 0 1rem;
-        font-size: 1.125rem;
         width: 100%;
       }
       :global(.squareHammer) {
         z-index: 2;
       }
       .bigSquare {
+        width: 25rem;
+        height: 25rem;
         .circle {
-          width: 20rem;
-          height: 20rem;
+          width: 25rem;
+          height: 25rem;
         }
         .services {
-          font-size: 1rem;
-          align-self: center;
           top: 150%;
           left: 50%;
           &::after {
