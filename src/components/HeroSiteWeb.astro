@@ -1,3 +1,7 @@
+---
+import Partners from "./Partners.astro";
+---
+
 <section class='heroSiteWeb' id="hero">
   <div class='spacer'></div>
   <h1 id="title">
@@ -5,8 +9,8 @@
       class='boldIt'>petits projets</span
     >
   </h1>
-  <div class='partners'>
-    <img class='partner' src='/images/alacrite.png' alt='Logo Alacrite' />
+  <div class="partnersHero">
+    <Partners inverted />
   </div>
   <div class='fireflies'>
     <div class='fireflyGroup1'>
@@ -39,16 +43,11 @@
     .spacer {
       margin-bottom: auto;
     }
-    .partners {
+    .partnersHero {
       margin-top: auto;
       display: flex;
-      align-items: stretch;
-      justify-content: center;
-      gap: 5rem;
-      z-index: 2;
-      .partner {
-        height: 100px;
-      }
+      z-index: 10;
+      width: 100vw;
     }
     .fireflies {
       position: absolute;

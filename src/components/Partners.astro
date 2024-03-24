@@ -1,32 +1,82 @@
-<section class="partners">
-  <img class="partner" src="/images/inria.png" alt="Logo Inria">
-  <img class="partner" src="/images/adeo.svg" alt="Logo Adeo">
-  <img class="partner" src="/images/labanquise.svg" alt="Logo Labanquise">
-  <img class="partner" src="/images/alacrite.png" alt="Logo Alacrite">
-  <img class="partner" src="/images/dalt.svg" alt="Logo Dalt">
-</section>
+---
+import Dalt from "./PartnerLogos/dalt.astro";
+import Lamie from "./PartnerLogos/lamie.astro";
+import Spreadthelive from "./PartnerLogos/spreadthelive.astro";
+import Labanquise from "./PartnerLogos/labanquise.astro";
+import Inria from "./PartnerLogos/inria.astro";
+import Pauline from "./PartnerLogos/pauline.astro";
+import Adeo from "./PartnerLogos/adeo.astro";
+import Alacrite from "./PartnerLogos/alacrite.astro";
+import DaltWhite from "./PartnerLogos/dalt-white.astro";
+import LamieWhite from "./PartnerLogos/lamie-white.astro";
+import SpreadtheliveWhite from "./PartnerLogos/spreadthelive-white.astro";
+import LabanquiseWhite from "./PartnerLogos/labanquise-white.astro";
+import InriaWhite from "./PartnerLogos/inria-white.astro";
+import PaulineWhite from "./PartnerLogos/pauline-white.astro";
+import AdeoWhite from "./PartnerLogos/adeo-white.astro";
+import AlacriteWhite from "./PartnerLogos/alacrite-white.astro";
+const { inverted = false } = Astro.props;
+---
 
-<style lang="scss">
+<div class='partners'>
+  {
+    inverted ? (
+      <>
+        <DaltWhite />
+        <LamieWhite />
+        <SpreadtheliveWhite />
+        <LabanquiseWhite />
+        <InriaWhite />
+        <PaulineWhite />
+        <AdeoWhite />
+        <AlacriteWhite />
+      </>
+    ) : (
+      <>
+        <Dalt />
+        <Lamie />
+        <Spreadthelive />
+        <Labanquise />
+        <Inria />
+        <Pauline />
+        <Adeo />
+        <Alacrite />
+      </>
+    )
+  }
+</div>
+
+<style lang='scss'>
   .partners {
-    background-color: white;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     align-items: stretch;
     gap: 5rem;
-    padding: 5rem 12%;
-    filter: grayscale(1);
-    .partner {
-      height: 100px;
+    row-gap: 2rem;
+    padding: 3rem 12%;
+    :global(svg) {
+      height: 50px;
     }
   }
   @media screen and (max-width: 600px) {
     .partners {
-      padding: 2rem 1rem;
-      gap: 1rem;
+      padding: 2rem 0 2rem 100vw;
+      gap: 2rem;
       row-gap: 2rem;
-      flex-wrap: wrap;
-      .partner {
-        height: 50px;
+      flex-wrap: nowrap;
+      width: max-content;
+      animation: scrollPartners 30s infinite linear;
+      :global(svg) {
+        height: 30px;
+      }
+    }
+    @keyframes scrollPartners {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-100%);
       }
     }
   }
