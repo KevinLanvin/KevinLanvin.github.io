@@ -15,13 +15,14 @@ const { className, clientName, projectDescription, link, linkLabel } = Astro.pro
 
 <style lang='scss'>
   .projectCard {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
+    display: grid;
+    grid-template-rows: 1fr 15rem;
     gap: 2rem;
     :global(img) {
       object-fit: contain;
+      object-position: left bottom;
+      width: 100%;
+      height: 100%;
     }
   }
   .description {
