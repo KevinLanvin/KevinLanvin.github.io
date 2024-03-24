@@ -7,6 +7,8 @@ import Eclair from "./Eclair.astro";
   <div class='clouds cloud2'></div>
   <div class='clouds cloud3'></div>
   <div class='clouds cloud4'></div>
+  <div class='clouds cloud5'></div>
+  <div class='clouds cloud6'></div>
   <h2>Mes forces</h2>
   <Eclair />
   <div class='services'>
@@ -75,7 +77,6 @@ import Eclair from "./Eclair.astro";
       left: 0;
       opacity: 0.6;
       z-index: 7;
-      animation: floatCloud 20s linear infinite;
       &::after {
         content: "";
         position: absolute;
@@ -90,10 +91,10 @@ import Eclair from "./Eclair.astro";
     }
     .cloud2 {
       background-image: url("/images/clouds3.png");
-      width: 120%;
+      width: 80%;
       aspect-ratio: 2360 / 984;
       top: -1rem;
-      left: -10%;
+      left: -20%;
       z-index: 6;
       opacity: 0.9;
     }
@@ -105,7 +106,6 @@ import Eclair from "./Eclair.astro";
       left: 60%;
       opacity: 0.5;
       z-index: 8;
-      animation: floatCloud2 22s 3s infinite linear;
       &::after {
         content: "";
         position: absolute;
@@ -126,7 +126,6 @@ import Eclair from "./Eclair.astro";
       left: 30%;
       opacity: 0.5;
       z-index: 9;
-      animation: floatCloud 18s 2s infinite linear reverse;
       &::after {
         content: "";
         position: absolute;
@@ -139,6 +138,26 @@ import Eclair from "./Eclair.astro";
         z-index: -1;
         animation: flash 10s 0.25s infinite linear;
       }
+    }
+    .cloud5 {
+      background-image: url("/images/clouds3.png");
+      width: 80%;
+      aspect-ratio: 2360 / 984;
+      top: 1rem;
+      right: -20%;
+      z-index: 6;
+      opacity: 0.9;
+    }
+    .cloud6 {
+      background-image: url("/images/clouds3.png");
+      width: 80%;
+      aspect-ratio: 2360 / 984;
+      top: 0;
+      left: 10%;
+      z-index: 6;
+      opacity: 0.7;
+      transform-origin: center center;
+      transform: translate(0, -50%) rotate(180deg);
     }
     h2 {
       color: rgba(255, 255, 255, 0.4);
@@ -206,34 +225,6 @@ import Eclair from "./Eclair.astro";
       }
       100% {
         opacity: 0;
-      }
-    }
-    @keyframes floatCloud {
-      0% {
-        transform: translate(0, -50%);
-      }
-      33% {
-        transform: translate(3px, calc(-50% - 5px));
-      }
-      66% {
-        transform: translate(-2px, calc(-50% + 3px));
-      }
-      100% {
-        transform: translate(0, -50%);
-      }
-    }
-    @keyframes floatCloud {
-      0% {
-        transform: translate(0, -50%);
-      }
-      33% {
-        transform: translate(6px, calc(-50% + 10px));
-      }
-      66% {
-        transform: translate(-5px, calc(-50% - 8px));
-      }
-      100% {
-        transform: translate(0, -50%);
       }
     }
   }
