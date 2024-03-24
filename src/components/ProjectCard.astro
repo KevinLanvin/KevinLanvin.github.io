@@ -18,7 +18,11 @@ const { className, clientName, projectDescription, link, linkLabel } = Astro.pro
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: start;
     gap: 2rem;
+    :global(img) {
+      object-fit: contain;
+    }
   }
   .description {
     position: relative;
