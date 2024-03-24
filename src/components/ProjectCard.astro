@@ -1,31 +1,59 @@
 ---
-const { className } = Astro.props;
+import BorderedButton from "./BorderedButton.astro";
+
+const { className, clientName, projectDescription, link, linkLabel } = Astro.props;
 ---
 
 <div class=`projectCard ${className}`>
   <slot />
   <div class="description">
-    <slot name="description" />
+    <h2>{clientName}</h2>
+    <p>{projectDescription}</p>
+    {link && <BorderedButton>{linkLabel}</BorderedButton>}
   </div>
 </div>
 
 <style lang='scss'>
   .projectCard {
-    background: linear-gradient(
-      225deg,
-      rgba(255, 255, 255, 0.7) 1.22%,
-      rgba(255, 255, 255, 0.3) 100%
-    );
-    border: 2px solid white;
-    border-radius: 2rem;
-    padding: 2rem;
-    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
   }
   .description {
-    position: absolute;
+    position: relative;
     color: white;
-    top: 100%;
+    left: 25%;
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 10%;
+      height: 100%;
+      right: 105%;
+      background: url("/images/projectDescriptionArrow.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position-x: right;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .projectCard {
+      gap: 1rem;
+    }
+    .description {
+      left: 0;
+      &::before {
+        display: none;
+      }
+      h2 {
+        font-size: 1.25rem;
+      }
+    }
   }
 </style>

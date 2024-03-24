@@ -1,4 +1,5 @@
 ---
+import BorderedButton from "../components/BorderedButton.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import PortfolioLayout from "../layouts/PortfolioLayout.astro";
 ---
@@ -7,22 +8,38 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
   <main>
     <h1>Projets</h1>
     <div class='scene'>
-      <ProjectCard className='scrollableCard'>
-        <h2>Card 1</h2>
-        <p slot='description'>Description 1</p>
+      <ProjectCard
+        className='scrollableCard'
+        clientName='Lamie Mutuelle'
+        projectDescription="Réalisation d'un site vitrine NuxtJS alimenté par le CMS Strapi. Ajout d'un tunnel de commande complexe 100% paramétrable."
+        link='lamie-mutuelle.com'
+        linkLabel='Voir le site'
+      >
+        <img src='/images/project-lamie.png' alt='Lamie' />
       </ProjectCard>
-      <ProjectCard className='scrollableCard'>
-        <h2>Card 2</h2>
-        <p slot='description'>Description 2</p>
+      <ProjectCard
+        className='scrollableCard'
+        clientName='SpreadTheLive'
+        projectDescription="Application mobile de streaming video d'événements sportifs en React"
+      >
+        <img src='/images/project-spreadthelive.png' alt='SpreadTheLive' />
       </ProjectCard>
-      <ProjectCard className='scrollableCard'>
-        <h2>Card 3</h2>
-        <p slot='description'>Description 3</p>
+      <ProjectCard
+        className='scrollableCard'
+        clientName='Pauline Gorlier, Praticienne Bien-Être'
+        projectDescription='Site vitrine alimenté par le CMS git-based Decap.'
+        link='pauline-gorlier.com'
+        linkLabel='Voir le site'
+      >
+        <img src='/images/project-pauline.png' alt='Pauline Gorlier' />
       </ProjectCard>
-      <ProjectCard className='scrollableCard'>
-        <h2>Card 4</h2>
-        <p slot='description'>Description 4</p>
-      </ProjectCard>
+      <div class='scrollableCard contactMe'>
+        <p>
+          Mes projets vous intéressent et vous souhaiteriez que je développe
+          votre site web ?
+        </p>
+        <BorderedButton>Contactez moi !</BorderedButton>
+      </div>
     </div>
     <div class='star1'></div>
     <div class='star2'></div>
@@ -53,9 +70,9 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
 </PortfolioLayout>
 
 <script>
-  document.addEventListener('wheel', (event) => {
+  document.addEventListener("wheel", (event) => {
     event.preventDefault();
-  })
+  });
   document.addEventListener("scroll", (event) => {
     event.preventDefault();
     const sceneElement = document.querySelector(".scene") as HTMLElement;
@@ -94,7 +111,7 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
   }
   main {
     perspective: 1000px;
-    perspective-origin: 70% 50%;
+    perspective-origin: 90% 50%;
     position: fixed;
     top: 0;
     left: 0;
@@ -102,6 +119,7 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
     height: 100vh;
     background: url("/images/stars.jpeg");
     background-size: cover;
+    background-position: center;
     &::before {
       content: "";
       position: absolute;
@@ -115,12 +133,12 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
     h1 {
       color: rgba(255, 255, 255, 0.4);
       font-weight: bold;
-      font-size: 11rem;
       line-height: 0.9;
       z-index: 20;
       position: absolute;
-      top: 15rem;
+      top: 8rem;
       right: 0;
+      font-size: 6rem;
     }
     .star1 {
       position: absolute;
@@ -264,7 +282,7 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
     .star21 {
       top: 39%;
       left: 70%;
-      animation: star6 linear 3s 0.75s infinite;
+      animation: star5 linear 3s 0.75s infinite;
     }
     .star22 {
       top: 66%;
@@ -442,10 +460,8 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
   }
   :global(.scrollableCard) {
     position: absolute;
-    width: 30%;
-    height: 300px;
+    width: 50%;
     top: 50%;
-    background-color: #ffffffcc;
     left: 40%;
     @for $i from 0 through 25 {
       &:nth-child(#{$i}) {
@@ -460,10 +476,30 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
       opacity: 1;
     }
   }
+  .contactMe {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    left: 50%;
+    p {
+      text-shadow:
+        0px 0px 20px #000000,
+        0px 0px 0.2em #000000;
+      color: white;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+    :global(.borderedButton) {
+      font-size: 1.5rem;
+    }  
+  }
 
   @media screen and (max-width: 600px) {
     main {
-      perspective-origin: 50% 20%;
+      perspective-origin: -100% 20%;
       &::before {
         background: radial-gradient(
           closest-side,
@@ -490,11 +526,21 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
       }
       :global(.scrollableCard) {
         position: absolute;
-        width: 300px;
-        height: 150px;
-        top: 15rem;
+        width: calc(100% - 2rem);
+        top: calc(50% + 5rem);
         left: 50%;
+        height: 80vh;
       }
     }
+  .contactMe {
+    width: 80%;
+    top: 50% !important;
+    p {
+      font-size: 1.25rem;
+    }
+    :global(.borderedButton) {
+      font-size: 1.25rem;
+    }  
+  }
   }
 </style>
