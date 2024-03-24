@@ -461,8 +461,9 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
   :global(.scrollableCard) {
     position: absolute;
     width: 50%;
+    height: 75vh;
     top: 50%;
-    left: 40%;
+    left: 37%;
     @for $i from 0 through 25 {
       &:nth-child(#{$i}) {
         transform: translate3d(
@@ -489,12 +490,8 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
         0px 0px 20px #000000,
         0px 0px 0.2em #000000;
       color: white;
-      font-size: 1.5rem;
       text-align: center;
     }
-    :global(.borderedButton) {
-      font-size: 1.5rem;
-    }  
   }
 
   @media screen and (max-width: 600px) {
@@ -532,15 +529,9 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
         height: 80vh;
       }
     }
-  .contactMe {
-    width: 80%;
-    top: 50% !important;
-    p {
-      font-size: 1.25rem;
+    .contactMe {
+      width: 80%;
+      top: 50% !important;
     }
-    :global(.borderedButton) {
-      font-size: 1.25rem;
-    }  
-  }
   }
 </style>
