@@ -1,0 +1,149 @@
+<div class="clouds">
+  <div class='clouds cloud1'></div>
+  <div class='clouds cloud2'></div>
+  <div class='clouds cloud3'></div>
+  <div class='clouds cloud4'></div>
+  <div class='clouds cloud5'></div>
+  <div class='clouds cloud6'></div>
+</div>
+
+<style lang="scss">
+    .clouds {
+      position: absolute;
+      background-size: cover;
+      background-repeat: no-repeat;
+      transform: translate(0, -50%);
+      bottom: 0;
+      width: 100vw;
+    }
+    .cloud1 {
+      background-image: url("/images/clouds3.png");
+      width: 50%;
+      aspect-ratio: 2360 / 984;
+      top: 0;
+      left: 0;
+      opacity: 0.6;
+      z-index: 7;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(closest-side, #fff, #ffffff00);
+        animation: flash 10s infinite linear;
+      }
+    }
+    .cloud2 {
+      background-image: url("/images/clouds3.png");
+      width: 80%;
+      aspect-ratio: 2360 / 984;
+      top: -1rem;
+      left: -20%;
+      z-index: 6;
+      opacity: 0.9;
+    }
+    .cloud3 {
+      background-image: url("/images/clouds3.png");
+      width: 40%;
+      aspect-ratio: 2360 / 984;
+      top: -6rem;
+      left: 60%;
+      opacity: 0.5;
+      z-index: 8;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(closest-side, #fff, #ffffff00);
+        animation: flash 10s 0.2s infinite linear;
+      }
+    }
+    .cloud4 {
+      background-image: url("/images/clouds3.png");
+      width: 55%;
+      aspect-ratio: 2360 / 984;
+      top: 4rem;
+      left: 30%;
+      opacity: 0.5;
+      z-index: 9;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(closest-side, #fff, #ffffff00);
+        z-index: -1;
+        animation: flash 10s 0.25s infinite linear;
+      }
+    }
+    .cloud5 {
+      background-image: url("/images/clouds3.png");
+      width: 80%;
+      aspect-ratio: 2360 / 984;
+      top: 1rem;
+      right: -20%;
+      z-index: 6;
+      opacity: 0.9;
+    }
+    .cloud6 {
+      background-image: url("/images/clouds3.png");
+      width: 80%;
+      aspect-ratio: 2360 / 984;
+      top: 0;
+      left: 10%;
+      z-index: 6;
+      opacity: 0.7;
+      transform-origin: center center;
+      transform: translate(0, -50%) rotate(180deg);
+    }
+    @keyframes flash {
+      0% {
+        opacity: 0;
+      }
+      2% {
+        opacity: 1;
+      }
+      4% {
+        opacity: 0;
+      }
+      22% {
+        opacity: 0;
+      }
+      24% {
+        opacity: 1;
+      }
+      26% {
+        opacity: 0;
+      }
+      73% {
+        opacity: 0;
+      }
+      75% {
+        opacity: 1;
+      }
+      77% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+  @media screen and (max-width: 600px) {
+      .cloud3 {
+        bottom: -2rem;
+      }
+      .cloud4 {
+        bottom: 1rem;
+      }
+  }
+</style>

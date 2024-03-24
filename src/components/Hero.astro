@@ -1,5 +1,5 @@
 <section id='hero'>
-  <h1 id="title">
+  <h1 id='title'>
     Développeur web <em>fullstack</em>, <strong>en freelance</strong> à Lille
   </h1>
   <div class='contactWrapper'>
@@ -8,6 +8,7 @@
     </div>
     <span>Hello, je suis Kévin !</span>
   </div>
+  <div class="nextSectionGradient"></div>
 </section>
 
 <style lang='scss'>
@@ -18,13 +19,14 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    min-height: 100vh;
+    padding-top: 165px;
+    overflow-y: visible;
     background: url("/images/bg.webp");
     background-color: #000;
     background-size: cover;
     background-repeat: no-repeat;
-    min-height: 100vh;
-    padding-top: 165px;
-    overflow-y: visible;
+    z-index: 1;
     &::after {
       content: "";
       background-image: url("/images/fog1large.png");
@@ -46,6 +48,14 @@
       top: 0;
       left: 0;
       animation: fog1movement 17s linear infinite forwards;
+    }
+    .nextSectionGradient {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 150px;
+      background: linear-gradient(to top, #cdd6e8, #cdd6e800);
     }
   }
 
@@ -82,7 +92,7 @@
     right: 20%;
     width: 10rem;
     height: 10rem;
-    z-index: 5;
+    z-index: 2;
     .contactAvatar {
       width: 100%;
       height: 100%;
