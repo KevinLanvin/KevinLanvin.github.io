@@ -2,12 +2,32 @@
   <div class='eclair'>
     <svg height='0' width='0'>
       <defs>
-        <clipPath id='eclairSvg' clipPathUnits="objectBoundingBox" transform="scale(0.0012391573729864, 0.00067204301075269)">
+        <clipPath
+          id='eclairSvg'
+          clipPathUnits='objectBoundingBox'
+          transform='scale(0.0012391573729864, 0.00067204301075269)'
+        >
           <path
             fill-rule='evenodd'
             clip-rule='evenodd'
             d='M755.655 6H812C812.552 6 813 6.44772 813 7C813 7.55228 812.552 8 812 8H756.693L717.407 63.7766H681.532L549.36 230.221L426.848 288.672L390.292 393.417L294.557 423.915H209.25V513.429L139.6 616.088L114.883 804.049L266.691 959.859L208.837 1063.62H167.897V1091.36L139.64 1112.02V1152.46L167.496 1184.36L237.664 1213.23L294.842 1250.39L426.47 1295.15L520.491 1353.17L549.721 1398.37V1452.69L520.588 1493.58C520.268 1494.03 519.643 1494.13 519.194 1493.81C518.744 1493.49 518.639 1492.87 518.96 1492.42L547.721 1452.05V1398.96L519.057 1354.64L425.612 1296.97L293.961 1252.21L236.73 1215.01L166.299 1186.03L137.64 1153.21V1111.01L165.897 1090.35V1061.62H207.663L264.218 960.187L112.773 804.75L137.679 615.358L207.25 512.814V332.963L137.947 206.135L31.2737 169.004L6 144.454V90.3207C6 89.7684 6.44772 89.3207 7 89.3207C7.55228 89.3207 8 89.7684 8 90.3207V143.609L32.3495 167.261L139.332 204.499L209.25 332.453V421.915H294.246L388.733 391.815L425.234 287.226L548.082 228.615L680.567 61.7766H716.37L755.655 6Z'
-            fill='url(#paint0_linear_493_661)'
+            shape-rendering='crispEdges'></path>
+        </clipPath>
+      </defs>
+    </svg>
+  </div>
+  <div class='eclair2'>
+    <svg height='0' width='0'>
+      <defs>
+        <clipPath
+          id='eclair2Svg'
+          clipPathUnits='objectBoundingBox'
+          transform='scale(0.0039370078740157, 0.00067204301075269)'
+        >
+          <path
+            fill-rule='evenodd'
+            clip-rule='evenodd'
+            d='M78.5574 0.33403L80.4425 -0.334106L108.345 78.3916L170.263 126.827L214.064 200.331L197.078 275.269L249.013 344.348L170.046 384.844L80.354 456.597L44.5979 562.872L108.651 665.958L69.3341 741.063L7.43295 813.858L150.391 926.929L170.558 1010.12L127.176 1096.88L214.114 1208.8L185.857 1296.6L126.764 1342.17L80.4565 1420.85L69.4867 1487.66L67.5131 1487.34L78.5434 1420.15L125.236 1340.83L184.143 1295.4L211.886 1209.2L124.824 1097.12L168.442 1009.88L148.609 928.07L4.56689 814.141L67.6658 739.937L106.349 666.042L42.4019 563.128L78.6458 455.403L168.954 383.156L245.987 343.652L194.922 275.731L211.936 200.669L168.737 128.172L106.655 79.6083L78.5574 0.33403Z'
             shape-rendering='crispEdges'></path>
         </clipPath>
       </defs>
@@ -20,6 +40,7 @@
     filter: drop-shadow(0px 0px 5px #fff);
     width: 50%;
     height: 100%;
+    max-width: 819px;
     position: absolute;
     top: 0;
     left: 50%;
@@ -29,7 +50,10 @@
       width: 100%;
       height: 100%;
       clip-path: url(#eclairSvg);
-      position: relative;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
       overflow: hidden;
       &::after {
         content: "";
@@ -38,7 +62,7 @@
           #ffffff,
           #ffffff 33%,
           #ffffff00 66%,
-          #ffffff00 100%,
+          #ffffff00 100%
         );
         position: absolute;
         top: 0;
@@ -48,29 +72,90 @@
         animation: boom 10s infinite linear;
       }
     }
+    .eclair2 {
+      width: 100%;
+      max-width: 254px;
+      height: 100%;
+      clip-path: url(#eclair2Svg);
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      overflow: hidden;
+      &::after {
+        content: "";
+        background: linear-gradient(
+          to bottom,
+          #ffffff,
+          #ffffff 33%,
+          #ffffff00 66%,
+          #ffffff00 100%
+        );
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 300%;
+        animation: boom2 10s infinite linear;
+      }
+    }
     @keyframes boom {
       0% {
         transform: translateY(-66%);
-        opacity: .1;
+        opacity: 0.1;
       }
       2% {
         transform: translateY(0);
-        opacity: .1;
+        opacity: 0.1;
       }
       3% {
-        opacity: .025;
+        opacity: 0.025;
       }
       4% {
-        opacity: .6;
-      } 
+        opacity: 0.6;
+      }
       6% {
-        opacity: .6;
+        opacity: 0.6;
       }
       8% {
         transform: translateY(0);
         opacity: 0;
       }
       12% {
+        transform: translateY(-66%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(-66%);
+      }
+    }
+    @keyframes boom2 {
+      0% {
+        transform: translateY(-66%);
+        opacity: 0.1;
+      }
+      50% {
+        transform: translateY(-66%);
+        opacity: 0.1;
+      }
+      52% {
+        transform: translateY(0);
+        opacity: 0.1;
+      }
+      53% {
+        opacity: 0.025;
+      }
+      54% {
+        opacity: 0.6;
+      }
+      56% {
+        opacity: 0.6;
+      }
+      58% {
+        transform: translateY(0);
+        opacity: 0;
+      }
+      62% {
         transform: translateY(-66%);
         opacity: 0;
       }
