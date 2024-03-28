@@ -41,7 +41,7 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
           Mes projets vous intéressent et vous souhaiteriez que je développe
           votre site web ?
         </p>
-        <BorderedButton>Contactez moi !</BorderedButton>
+        <BorderedButton link="mailto:info.lanvink@gmail.com">Contactez moi !</BorderedButton>
       </div>
     </div>
     <div class='star1'></div>
@@ -87,9 +87,10 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
   });
   document.addEventListener("scrollend", () => {
     const sceneElement = document.querySelector(".scene") as HTMLElement;
-    if (window.scrollY % 1000 !== 0) {
+    if (Math.floor(window.scrollY) % 1000 !== 0) {
       sceneElement.style.transition = "transform 0.3s ease-in-out";
       const currentProjectCardNumber = Math.floor(window.scrollY / 1000) + 1;
+      console.log(currentProjectCardNumber)
       window.scrollTo(0, currentProjectCardNumber * 1000);
     }
     setTimeout(() => {

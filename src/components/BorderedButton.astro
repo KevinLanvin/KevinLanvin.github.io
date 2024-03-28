@@ -1,13 +1,13 @@
 ---
-const { addedClasses = "" } = Astro.props;
+const { addedClasses = "", link = "" } = Astro.props;
 ---
 
 <div class=`buttonContainer ${addedClasses}`>
   <div class='square square1'></div>
   <div class='square square2'></div>
-  <button class='borderedButton'>
+  <a class='borderedButton' href={link}>
     <slot />
-  </button>
+  </a>
 </div>
 
 <style lang='scss'>
@@ -28,7 +28,7 @@ const { addedClasses = "" } = Astro.props;
     width: 100%;
     height: 100%;
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       border: 16px solid transparent;
       border-bottom: 3px solid white;
@@ -78,6 +78,7 @@ const { addedClasses = "" } = Astro.props;
     width: max-content;
     font-weight: bold;
     font-size: 1rem;
+    display: block;
   }
   @media screen and (max-width: 600px) {
     .borderedButton {
