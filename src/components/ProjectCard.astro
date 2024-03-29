@@ -30,7 +30,7 @@ const {
     gap: 2rem;
     .mockup {
       min-height: 0;
-      flex: 1;
+      flex-shrink: 1;
     }
     :global(img) {
       object-fit: contain;
@@ -42,7 +42,7 @@ const {
   .description {
     position: relative;
     color: white;
-    height: 11rem;
+    height: fit-content;
     left: 20%;
     width: 80%;
     opacity: 0;
@@ -71,6 +71,7 @@ const {
     }
     .description {
       left: 0;
+      width: 100%;
       &::before {
         display: none;
       }

@@ -14,34 +14,33 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
         projectDescription="Réalisation d'un site vitrine NuxtJS alimenté par le CMS Strapi. Ajout d'un tunnel de commande complexe 100% paramétrable."
         link='lamie-mutuelle.com'
         linkLabel='Voir le site'
-        mockup="/images/project-lamie.png"
-        mockupName="Lamie Mutuelle"
-      >
-      </ProjectCard>
+        mockup='/images/project-lamie.png'
+        mockupName='Lamie Mutuelle'
+      />
       <ProjectCard
         className='scrollableCard'
         clientName='SpreadTheLive'
         projectDescription="Application mobile de streaming video d'événements sportifs en React"
-        mockup="/images/project-spreadthelive.png"
-        mockupName="SpreadTheLive"
-      >
-      </ProjectCard>
+        mockup='/images/project-spreadthelive.png'
+        mockupName='SpreadTheLive'
+      />
       <ProjectCard
         className='scrollableCard'
         clientName='Pauline Gorlier, Praticienne Bien-Être'
         projectDescription='Site vitrine alimenté par le CMS git-based Decap.'
         link='pauline-gorlier.com'
         linkLabel='Voir le site'
-        mockup="/images/project-pauline.png"
-        mockupName="Pauline Gorlier"
-      >
-      </ProjectCard>
+        mockup='/images/project-pauline.png'
+        mockupName='Pauline Gorlier'
+      />
       <div class='scrollableCard contactMe'>
         <p>
           Mes projets vous intéressent et vous souhaiteriez que je développe
           votre site web ?
         </p>
-        <BorderedButton link="mailto:info.lanvink@gmail.com">Contactez moi !</BorderedButton>
+        <BorderedButton link='mailto:info.lanvink@gmail.com'
+          >Contactez moi !</BorderedButton
+        >
       </div>
     </div>
     <div class='star1'></div>
@@ -90,7 +89,7 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
     if (Math.floor(window.scrollY) % 1000 !== 0) {
       sceneElement.style.transition = "transform 0.3s ease-in-out";
       const currentProjectCardNumber = Math.floor(window.scrollY / 1000) + 1;
-      console.log(currentProjectCardNumber)
+      console.log(currentProjectCardNumber);
       window.scrollTo(0, currentProjectCardNumber * 1000);
     }
     setTimeout(() => {
@@ -465,7 +464,7 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
   :global(.scrollableCard) {
     position: absolute;
     width: 50%;
-    height: calc(100vh - 15rem);
+    max-height: calc(100vh - 15rem);
     top: 50%;
     left: 37%;
     @for $i from 0 through 25 {
@@ -528,9 +527,15 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
       :global(.scrollableCard) {
         position: absolute;
         width: calc(100% - 2rem);
-        top: calc(50% + 5rem);
+        top: 10rem;
         left: 50%;
-        height: 80vh;
+        max-height: calc(80vh - 5rem);
+        height: auto;
+        @for $i from 0 through 25 {
+          &:nth-child(#{$i}) {
+            transform: translate3d(-50%, 0, calc(var(--gap) * (#{$i} - 1) * -1px));
+          }
+        }
       }
     }
     .contactMe {
