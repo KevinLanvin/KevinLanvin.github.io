@@ -3,19 +3,24 @@ import BorderedButton from "./BorderedButton.astro";
 ---
 
 <section class='lastWork'>
-  <h2 class="subtitle">Last work</h2>
+  <h2 class='subtitle'>Last work</h2>
   <div class='lastWorkGrid'>
-    <div class="gridText">
+    <div class='gridText'>
       <p>
         Paragraphe sur la dernière TOP réalisation paragraphe sur la dernière
         TOP réalisation paragraphe sur la dernière TOP réalisation
       </p>
-      <BorderedButton link="portfolio"
+      <BorderedButton link='portfolio'
         >Découvrir mes réalisations
       </BorderedButton>
     </div>
     <div class='gridImage'>
-      <img src='/images/lastWork.webp' alt='Last work' />
+      <img
+        srcset='/images/lastWork-mobile.webp 600w, /images/lastWork.webp 1076w'
+        src='/images/lastWork.webp'
+        alt='Last work'
+        sizes='(max-width: 600px) calc(100vw -2rem), 60vw'
+      />
     </div>
   </div>
 </section>
