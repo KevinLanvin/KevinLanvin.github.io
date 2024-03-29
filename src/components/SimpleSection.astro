@@ -1,9 +1,25 @@
 <section class='simpleSection'>
-  <div class="sectionContent">
-    <div class='incomingArrow'></div>
+  <div class='sectionContent'>
+    <div class='incomingArrow'>
+      <svg height='0' width='0'>
+        <defs>
+          <clipPath
+            id='incomingArrowSvg'
+            clipPathUnits='objectBoundingBox'
+            transform='scale(0.0048076923076923, 0.0015105740181269)'
+          >
+            <path
+              d='M203.5 416.097V0H208.5V416.097C208.5 432.39 195.292 445.597 179 445.597H30C16.469 445.597 5.5 456.566 5.5 470.097V662H0.5V470.097C0.5 453.805 13.7076 440.597 30 440.597H179C192.531 440.597 203.5 429.628 203.5 416.097Z'
+              clip-rule='evenodd'
+              fill-rule='evenodd'
+            ></path>
+          </clipPath>
+        </defs>
+      </svg>
+    </div>
     <div class='border-container'>
-      <div class="borderLeft"></div>
-      <div class="borderRight"></div>
+      <div class='borderLeft'></div>
+      <div class='borderRight'></div>
       <p>
         Phrase sur la notion de fullstack (donc en vue de rejoindre une équipe)
       </p>
@@ -27,17 +43,19 @@
       position: relative;
     }
     .incomingArrow {
-      clip-path: path("M202.5 222.5V0.5H205.5V222.5C205.5 238.24 192.74 251 177 251H28.5C14.4167 251 3 262.417 3 276.5V477H0V276.5C0 260.76 12.7599 248 28.5 248H177C191.083 248 202.5 236.583 202.5 222.5Z");
-      width: 205px;
-      height: 475px;
+      clip-path: url(#incomingArrowSvg);
+      width: 30%;
+      aspect-ratio: 208 / 662;
+      max-width: 208px;
       position: absolute;
       bottom: 100%;
       left: 50%;
       z-index: 1;
-      &::before {
+      overflow: hidden;
+      &::after {
         content: "";
-        width: 200%;
-        height: 200%;
+        width: 662px;
+        height: 662px;
         background: conic-gradient(
           from 90deg at 100% 100%,
           #ffffff00 49%,
@@ -45,7 +63,7 @@
           #ffffff00 53%
         );
         position: absolute;
-        right: -50%;
+        right: -70%;
         bottom: 0;
         transform-origin: 100% 100%;
         animation: rotateArrow 5s linear infinite;
