@@ -3,10 +3,14 @@ import SquareHammer from "./SquareHammer.astro";
 ---
 
 <section class='websiteCreation'>
-  <h2 class="subtitle">Création de sites web</h2>
+  <h2 class='subtitle'>Création de sites web</h2>
   <p>
-    Je réalise des <strong>sites web</strong>
-    <em>sur mesure</em>, faciles à prendre en main
+    Je réalise des <strong>sites web sur mesure</strong>, faciles à prendre en
+    main.<br />Vous pourrez choisir entre <strong>un site statique</strong> pour
+    les petis budgets ou <strong>un site clé en main</strong> qui vous permettra
+    de créer et administrer vous-mêmes votre contenu.<br />Tous mes sites sont <a
+      href='creation-site-web#ecoconception'>éco-conçus</a
+    >, optimisés pour mobiles, accessibles et performants.
   </p>
   <div class='bigSquare'>
     <SquareHammer class='squareHammer' />
@@ -29,7 +33,7 @@ import SquareHammer from "./SquareHammer.astro";
         stroke-width='4'
         stroke='url(#circleGradient)'></circle>
     </svg>
-    <button class='services'>Découvrir mes services </button>
+    <a href='creation-site-web' class='services'>Découvrir mes services </a>
   </div>
 </section>
 
@@ -53,7 +57,7 @@ import SquareHammer from "./SquareHammer.astro";
       top: 20rem;
       right: 12%;
       width: calc(100% - 45rem);
-      text-align: end;
+      max-width: 50rem;
     }
     :global(.squareHammer) {
       z-index: 2;
@@ -85,6 +89,7 @@ import SquareHammer from "./SquareHammer.astro";
         border-radius: 5rem;
         padding: 1rem;
         backdrop-filter: blur(4px);
+        text-decoration: none;
         cursor: pointer;
         &::after {
           content: "";
@@ -117,9 +122,11 @@ import SquareHammer from "./SquareHammer.astro";
       display: flex;
       flex-direction: column;
       gap: 2rem;
+      padding: 0 1rem;
       padding-bottom: 15rem;
       h2 {
         margin-top: 5rem;
+        margin-left: -1rem;
       }
       p {
         position: static;

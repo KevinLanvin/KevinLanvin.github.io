@@ -42,8 +42,8 @@ import BorderedButton from "./BorderedButton.astro";
     }
     h2 {
       color: white;
-      font-size: 4rem;
-      line-height: 6rem;
+      font-size: 3rem;
+      line-height: 4rem;
       font-weight: normal;
       z-index: 2;
       strong {
@@ -51,7 +51,7 @@ import BorderedButton from "./BorderedButton.astro";
         font-style: italic;
       }
       em {
-        font-size: 6rem;
+        font-size: 4rem;
         font-weight: bold;
       }
     }
@@ -111,12 +111,12 @@ import BorderedButton from "./BorderedButton.astro";
   @media screen and (max-width: 600px) {
     .contactSection {
       padding: 0 1rem;
-      padding-top: 10rem;
       gap: 2rem;
-      justify-content: flex-start;
       background: url("/images/ecosse-background-mobile.webp");
+      background-size: cover;
       &::before {
         background: url("/images/train-mobile.webp");
+        background-size: cover;
       }
       h2 {
         font-size: 2rem;
