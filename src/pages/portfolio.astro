@@ -533,7 +533,11 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
         height: auto;
         @for $i from 0 through 25 {
           &:nth-child(#{$i}) {
-            transform: translate3d(-50%, 0, calc(var(--gap) * (#{$i} - 1) * -1px));
+            transform: translate3d(
+              -50%,
+              0,
+              calc(var(--gap) * (#{$i} - 1) * -1px)
+            );
           }
         }
       }

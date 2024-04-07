@@ -33,6 +33,7 @@ import Footer from "../components/Footer.astro";
       let xOffset = event.clientX - title.offsetLeft;
       xOffset = Math.max(100, xOffset);
       xOffset = Math.min(title.offsetWidth - 100, xOffset);
+      xOffset += title.offsetWidth / 2;
       title.style.backgroundPositionX = `${xOffset}px`;
     });
   }
