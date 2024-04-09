@@ -15,11 +15,13 @@ import InriaWhite from "./PartnerLogos/inria-white.astro";
 import PaulineWhite from "./PartnerLogos/pauline-white.astro";
 import AdeoWhite from "./PartnerLogos/adeo-white.astro";
 import AlacriteWhite from "./PartnerLogos/alacrite-white.astro";
-const { inverted = false } = Astro.props;
+const { inverted = false, title = true } = Astro.props;
 ---
 
-<div class='partners'>
-  {
+<section class="partnersSection">
+  <h2>Ils m'ont fait confiance</h2>
+  <div class='partners'>
+    {
     inverted ? (
       <>
         <DaltWhite />
@@ -41,12 +43,24 @@ const { inverted = false } = Astro.props;
         <Pauline />
         <Adeo />
         <Alacrite />
-      </>
-    )
-  }
+        </>
+        )
+      }
 </div>
+</section>
 
 <style lang='scss'>
+  .partnersSection {
+    padding: 5rem 12%;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+  }
+  h2 {
+    text-align: center;
+    color: #4f4f4f;
+    font-size: 2rem;
+  }
   .partners {
     display: flex;
     justify-content: center;
@@ -54,19 +68,25 @@ const { inverted = false } = Astro.props;
     align-items: stretch;
     gap: 5rem;
     row-gap: 2rem;
-    padding: 3rem 12%;
     :global(svg) {
       height: 50px;
     }
   }
   @media screen and (max-width: 600px) {
+    .partnersSection {
+      padding: 2rem 1rem;
+      gap: 2rem;
+    }
+    h2 {
+      font-size: 1.25rem;
+    }
     .partners {
-      padding: 2rem 0 2rem 100vw;
+      padding-left: 100vw;
       gap: 2rem;
       row-gap: 2rem;
       flex-wrap: nowrap;
       width: max-content;
-      animation: scrollPartners 30s infinite linear;
+      animation: scrollPartners 20s infinite linear;
       :global(svg) {
         height: 30px;
       }

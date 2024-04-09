@@ -6,7 +6,11 @@ import BorderedButton from "./BorderedButton.astro";
   <h2 class='subtitle'>Dernière réalisation</h2>
   <div class='lastWorkContent'>
     <div class='gridText'>
-      <p>Refonte d'un site vitrine clé en main en partenariat avec l'agence lilloise Dalt.</p>
+      <h3>Découvrez ma dernière contribution</h3>
+      <p>
+        Refonte d'un site vitrine clé en main en partenariat avec l'agence
+        lilloise Dalt.
+      </p>
       <ul>
         <li>Refonte de l'identité visuelle</li>
         <li>Amélioration de l'expérience utilisateur</li>
@@ -19,8 +23,8 @@ import BorderedButton from "./BorderedButton.astro";
     </div>
     <div class='gridImage'>
       <img
-        width="1076"
-        height="980"
+        width='1076'
+        height='980'
         src='/images/project-lamie.png'
         alt='Last work'
         sizes='(max-width: 600px) calc(100vw -2rem), 60vw'
@@ -43,6 +47,13 @@ import BorderedButton from "./BorderedButton.astro";
       align-self: flex-end;
       z-index: 12;
       text-align: right;
+    }
+    h3 {
+      color: white;
+      font-size: 2rem;
+      text-shadow:
+        0px 0px 20px #000000,
+        0px 0px 0.2em #000000;
     }
     .gridText {
       display: flex;
