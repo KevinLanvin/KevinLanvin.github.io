@@ -76,17 +76,16 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
 </PortfolioLayout>
 
 <script>
-  const scrollableElement = document.querySelector('.scrollContainer');
-  scrollableElement?.addEventListener("scroll", (event) => {
+  document.addEventListener("scroll", (event) => {
     const sceneElement = document.querySelector(".scene") as HTMLElement;
     if (!!sceneElement) {
-      sceneElement.style.transform = `translateZ(${scrollableElement.scrollTop}px)`;
+      sceneElement.style.transform = `translateZ(${window.scrollY}px)`;
     }
     const descriptions = document.querySelectorAll(".description");
     descriptions.forEach((node) => ((node as HTMLElement).style.opacity = "0"));
   });
-  scrollableElement.addEventListener("scrollend", () => {
-    const displayedCardNumber = Math.floor(scrollableElement.scrollTop / 1000) + 1;
+  document.addEventListener("scrollend", () => {
+    const displayedCardNumber = Math.floor(window.scrollY / 1000) + 1;
     const currentProjectCardDescription = document.querySelector(
       `.scene > .projectCard:nth-child(${displayedCardNumber}) > .description`
     ) as HTMLElement;
@@ -100,9 +99,9 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
     --gap: 1000;
     --nbElements: 4;
   }
-  // :global(.scrollContainer) {
-  //   height: calc(var(--gap) * (var(--nbElements) - 1) * 1px);
-  // }
+  :global(.scrollContainer) {
+    height: calc(100vh + var(--gap) * (var(--nbElements) - 1) * 1px);
+  }
   main {
     perspective: 1000px;
     perspective-origin: 70% 50%;

@@ -20,9 +20,7 @@ import Footer from "../components/Footer.astro";
   </head>
   <body>
     <Header />
-    <div class="scrollContainer">
-      <slot />
-    </div>
+    <slot />
     <Footer />
   </body>
 </html>
@@ -99,6 +97,10 @@ import Footer from "../components/Footer.astro";
     background-color: transparent;
   }
 
+  html {
+    scroll-snap-type: y mandatory;
+  }
+
   body {
     position: relative;
     font-family: "Poppins";
@@ -108,13 +110,8 @@ import Footer from "../components/Footer.astro";
     width: 100vw;
     scroll-snap-type: y mandatory;
   }
+
   a {
     cursor: pointer;
-  }
-  .scrollContainer {
-    width: 100vw;
-    height: 100vh;
-    scroll-snap-type: y mandatory;
-    overflow: auto;
   }
 </style>
