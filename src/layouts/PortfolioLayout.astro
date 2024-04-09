@@ -20,7 +20,9 @@ import Footer from "../components/Footer.astro";
   </head>
   <body>
     <Header />
-    <slot />
+    <div class="scrollContainer">
+      <slot />
+    </div>
     <Footer />
   </body>
 </html>
@@ -104,8 +106,15 @@ import Footer from "../components/Footer.astro";
     margin: 0;
     overflow-x: hidden;
     width: 100vw;
+    scroll-snap-type: y mandatory;
   }
   a {
     cursor: pointer;
+  }
+  .scrollContainer {
+    width: 100vw;
+    height: 100vh;
+    scroll-snap-type: y mandatory;
+    overflow: auto;
   }
 </style>

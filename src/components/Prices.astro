@@ -3,8 +3,8 @@ import BorderedButton from "./BorderedButton.astro";
 ---
 
 <section class='prices'>
-  <h2 class="subtitle">Tarifs</h2>
-  <h3 class='cardsTitle'>Mes services</h3>
+  <h2 class="subtitle">Services web</h2>
+  <h3 class='cardsTitle'>Mes services web</h3>
   <div class='priceCard'>
     <div class='header'>
       <h3>Développement de site web statique</h3>
@@ -170,20 +170,8 @@ import BorderedButton from "./BorderedButton.astro";
     }
     .buttonContainer {
       align-self: center;
-      margin-top: 10rem;
       position: relative;
       z-index: 2;
-      &::before {
-        content: "";
-        background: url("/images/arrow-prices.svg");
-        background-size: contain;
-        background-repeat: no-repeat;
-        width: 203px;
-        height: 204px;
-        position: absolute;
-        right: 100%;
-        bottom: 50%;
-      }
     }
     .circle {
       width: 60rem;

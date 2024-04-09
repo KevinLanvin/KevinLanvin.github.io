@@ -3,14 +3,13 @@ import Partners from "./Partners.astro";
 ---
 
 <section class='heroSiteWeb' id="hero">
-  <div class='spacer'></div>
   <h1 id="title">
     Des <strong>sites web</strong> pour les <em>grands</em> et les <span
       class='boldIt'>petits projets</span
     >
   </h1>
   <div class="partnersHero">
-    <Partners inverted />
+    <Partners inverted title={ false } />
   </div>
   <div class='fireflies'>
     <div class='fireflyGroup1'>
@@ -40,14 +39,12 @@ import Partners from "./Partners.astro";
     align-items: center;
     padding: 5rem 12%;
     position: relative;
-    .spacer {
-      margin-bottom: auto;
-    }
     .partnersHero {
-      margin-top: auto;
+      position: absolute;
       display: flex;
       z-index: 10;
       width: 100vw;
+      bottom: 0;
     }
     .fireflies {
       position: absolute;

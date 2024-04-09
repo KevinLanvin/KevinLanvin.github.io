@@ -5,6 +5,10 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
 ---
 
 <PortfolioLayout title='Portfolio'>
+  <div class='scrollSnap'></div>
+  <div class='scrollSnap'></div>
+  <div class='scrollSnap'></div>
+  <div class='scrollSnap'></div>
   <main>
     <h1>Projets</h1>
     <div class='scene'>
@@ -72,35 +76,22 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
 </PortfolioLayout>
 
 <script>
-  document.addEventListener("wheel", (event) => {
-    event.preventDefault();
-  });
-  document.addEventListener("scroll", (event) => {
-    event.preventDefault();
+  const scrollableElement = document.querySelector('.scrollContainer');
+  scrollableElement?.addEventListener("scroll", (event) => {
     const sceneElement = document.querySelector(".scene") as HTMLElement;
     if (!!sceneElement) {
-      sceneElement.style.transform = `translateZ(${window.scrollY}px)`;
+      sceneElement.style.transform = `translateZ(${scrollableElement.scrollTop}px)`;
     }
     const descriptions = document.querySelectorAll(".description");
     descriptions.forEach((node) => ((node as HTMLElement).style.opacity = "0"));
   });
-  document.addEventListener("scrollend", () => {
-    const sceneElement = document.querySelector(".scene") as HTMLElement;
-    if (Math.floor(window.scrollY) % 1000 !== 0) {
-      sceneElement.style.transition = "transform 0.3s ease-in-out";
-      const currentProjectCardNumber = Math.floor(window.scrollY / 1000) + 1;
-      console.log(currentProjectCardNumber);
-      window.scrollTo(0, currentProjectCardNumber * 1000);
-    }
-    setTimeout(() => {
-      sceneElement.style.transition = "none";
-      const displayedCardNumber = Math.floor(window.scrollY / 1000) + 1;
-      const currentProjectCardDescription = document.querySelector(
-        `.scene > .projectCard:nth-child(${displayedCardNumber}) > .description`
-      ) as HTMLElement;
-      if (currentProjectCardDescription)
-        currentProjectCardDescription.style.opacity = "1";
-    }, 300);
+  scrollableElement.addEventListener("scrollend", () => {
+    const displayedCardNumber = Math.floor(scrollableElement.scrollTop / 1000) + 1;
+    const currentProjectCardDescription = document.querySelector(
+      `.scene > .projectCard:nth-child(${displayedCardNumber}) > .description`
+    ) as HTMLElement;
+    if (currentProjectCardDescription)
+      currentProjectCardDescription.style.opacity = "1";
   });
 </script>
 
@@ -109,9 +100,9 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
     --gap: 1000;
     --nbElements: 4;
   }
-  :global(body) {
-    height: calc(100vh + var(--gap) * (var(--nbElements) - 1) * 1px);
-  }
+  // :global(.scrollContainer) {
+  //   height: calc(var(--gap) * (var(--nbElements) - 1) * 1px);
+  // }
   main {
     perspective: 1000px;
     perspective-origin: 70% 50%;
@@ -458,7 +449,6 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
     left: 0;
     width: 100%;
     height: 100vh;
-    scroll-snap-type: mandatory;
     z-index: 50;
   }
   :global(.scrollableCard) {
@@ -479,6 +469,15 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
     &:nth-child(1) :global(.description) {
       opacity: 1;
     }
+  }
+  .scrollSnap {
+    width: 100%;
+    height: calc(var(--gap) * 1px);
+    // background: linear-gradient(#f00, #00f);
+    scroll-snap-stop: always;
+    scroll-snap-align: start;
+    position: relative;
+    z-index: 2000;
   }
   .contactMe {
     width: 50%;
