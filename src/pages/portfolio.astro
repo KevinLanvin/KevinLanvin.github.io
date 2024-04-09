@@ -79,7 +79,7 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
   document.addEventListener("scroll", (event) => {
     const sceneElement = document.querySelector(".scene") as HTMLElement;
     if (!!sceneElement) {
-      sceneElement.style.transform = `translateZ(${window.scrollY}px)`;
+      sceneElement.style.transform = `translateZ(${Math.min(3000, window.scrollY)}px)`;
     }
     const descriptions = document.querySelectorAll(".description");
     descriptions.forEach((node) => ((node as HTMLElement).style.opacity = "0"));
@@ -99,8 +99,8 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
     --gap: 1000;
     --nbElements: 4;
   }
-  :global(.scrollContainer) {
-    height: calc(100vh + var(--gap) * (var(--nbElements) - 1) * 1px);
+  :global(body) {
+    height: calc(var(--gap) * (var(--nbElements)) * 1px);
   }
   main {
     perspective: 1000px;
@@ -108,7 +108,7 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     background: url("/images/stars.webp"), black;
     background-size: cover;
@@ -457,11 +457,11 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
     top: 50%;
     left: 37%;
     @for $i from 0 through 25 {
-      &:nth-child(#{$i}) {
+      &:nth-child(#{$i + 1}) {
         transform: translate3d(
           -50%,
           -50%,
-          calc(var(--gap) * (#{$i} - 1) * -1px)
+          calc(var(--gap) * #{$i} * -1px)
         );
       }
     }
@@ -472,7 +472,6 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
   .scrollSnap {
     width: 100%;
     height: calc(var(--gap) * 1px);
-    scroll-snap-stop: always;
     scroll-snap-align: start;
     position: relative;
   }

@@ -31,18 +31,20 @@ const {
     .mockup {
       min-height: 0;
       flex-shrink: 1;
+      display: flex;
     }
     :global(img) {
       object-fit: contain;
       object-position: left bottom;
-      width: 100%;
-      height: 100%;
+      width: auto;
+      height: auto;
     }
   }
   .description {
     position: relative;
     color: white;
     height: fit-content;
+    min-height: 12rem;
     left: 20%;
     width: 80%;
     opacity: 0;
