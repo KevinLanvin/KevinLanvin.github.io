@@ -459,11 +459,7 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
     left: 37%;
     @for $i from 0 through 25 {
       &:nth-child(#{$i + 1}) {
-        transform: translate3d(
-          -50%,
-          -50%,
-          calc(var(--gap) * #{$i} * -1px)
-        );
+        transform: translate3d(-50%, -50%, calc(var(--gap) * #{$i} * -1px));
       }
     }
     &:nth-child(1) :global(.description) {
@@ -489,9 +485,7 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
       font-size: 2rem;
     }
     p {
-      text-shadow:
-        0px 0px 20px #000000,
-        0px 0px 0.2em #000000;
+      text-shadow: 0px 0px 50px #000000;
       color: white;
       text-align: center;
     }
