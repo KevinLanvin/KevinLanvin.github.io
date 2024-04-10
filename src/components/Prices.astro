@@ -3,7 +3,7 @@ import BorderedButton from "./BorderedButton.astro";
 ---
 
 <section class='prices'>
-  <h2 class="subtitle">Services web</h2>
+  <h2 class='subtitle'>Services web</h2>
   <h3 class='cardsTitle'>Mes services web</h3>
   <div class='priceCard'>
     <div class='header'>
@@ -17,25 +17,35 @@ import BorderedButton from "./BorderedButton.astro";
       <li>Optimisé et performant</li>
       <li>Eco-conçu</li>
     </ul>
-  </div>
-  <div class='priceCard'>
-    <div class='header'>
-      <h3>Page builder (option)</h3>
-      <span class='price'>+ 2000€ minimum</span>
-    </div>
     <hr />
-    <p class='content'>Concevez vous-mêmes vos pages ...</p>
-  </div>
-  <div class='priceCard'>
     <div class='header'>
-      <h3>Animations (option)</h3>
-      <span class='price'>sur devis</span>
+      <h3>Packs options</h3>
     </div>
-    <hr />
-    <p class='content'>
-      Ajouter de la vie à votre site avec des animations performantes et
-      impactantes
-    </p>
+    <div class="options">
+      <div class='option'>
+        <div class='header'>
+          <h3>Page builder</h3>
+        </div>
+        <p class='content'>Modifiez vous-mêmes les pages de votre site à votre convenance.</p>
+      </div>
+      <div class='option'>
+        <div class='header'>
+          <h3>Animations (option)</h3>
+        </div>
+        <p class='content'>
+          Ajouter de la vie à votre site avec des animations performantes et
+          impactantes
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class='buttonContainer'>
+    <BorderedButton
+      addedClasses='pricesContactButton'
+      link='mailto:info.lanvink@gmail.com'
+    >
+      Contactez-moi !
+    </BorderedButton>
   </div>
   <h3 class='cardsTitle'>Mes partenaires</h3>
   <p class='description'>
@@ -49,31 +59,48 @@ import BorderedButton from "./BorderedButton.astro";
     </div>
     <hr />
     <ul class='content'>
-      <li>Identité visuelle</li>
-      <li>Logotype</li>
-      <li>Design système</li>
-      <li>Charte graphique</li>
-      <li>
-        Je travaille en partenariat avec des freelances graphistes qui
-        réaliseront ces prestations
-      </li>
+      <li>Création de logotype</li>
+      <li>Création de charte graphique</li>
+      <li>Autres supports graphiques</li>
     </ul>
-  </div>
-  <div class='priceCard'>
+    <hr />
     <div class='header'>
-      <h3>Maquettes UI/UX (option)</h3>
-      <span class='price'>A partir de 2000€</span>
+      <h3>UI Design</h3>
+      <span class='price'>A partir de 600€</span>
     </div>
     <hr />
     <ul class='content'>
-      <li>Maquettes</li>
-      <li>Wireframes</li>
+      <li>Création de maquettes graphiques responsive (mobile & desktop)</li>
+      <li>Création d'un kit UI / Design system</li>
+      <li>Création de pictogrammes</li>
+    </ul>
+    <hr />
+    <div class='header'>
+      <h3>UX Design</h3>
+      <span class='price'>A partir de 600€</span>
+    </div>
+    <hr />
+    <ul class='content'>
+      <li>Conception de maquettes utilisateurs</li>
+      <li>Création de wireframes (maquettes techniques)</li>
+      <li>Interviews utilisateurs</li>
       <li>Tests utilisateurs</li>
-      <li>Kit UI / Design system</li>
+    </ul>
+    <hr />
+    <div class='header'>
+      <h3>Illustration</h3>
+      <span class='price'>A partir de 300€</span>
+    </div>
+    <hr />
+    <ul class='content'>
+      <li>Création d'illustrations</li>
     </ul>
   </div>
   <div class='buttonContainer'>
-    <BorderedButton addedClasses='pricesContactButton' link="mailto:info.lanvink@gmail.com">
+    <BorderedButton
+      addedClasses='pricesContactButton'
+      link='mailto:info.lanvink@gmail.com'
+    >
       Contactez-moi !
     </BorderedButton>
   </div>
@@ -121,8 +148,8 @@ import BorderedButton from "./BorderedButton.astro";
       text-shadow:
         0px 0px 20px #000000aa,
         0px 0px 0.2em #000000aa;
-      margin-top: 5rem;
       z-index: 2;
+      margin-top: 3rem;
     }
     .description {
       color: white;
@@ -131,12 +158,27 @@ import BorderedButton from "./BorderedButton.astro";
       text-shadow:
         0px 0px 20px #000000aa,
         0px 0px 0.2em #000000aa;
-      margin-bottom: 2rem;
       text-align: center;
+    }
+    .options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      .option {
+        padding: 1rem;
+        border: 1px solid #ffffff80;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        h3 {
+          font-size: 1rem;
+        }
+      }
     }
     .priceCard {
       align-self: center;
-      width: max(80%, 1000px);
+      width: max(75%, 1000px);
       backdrop-filter: blur(10px);
       background: linear-gradient(
         225deg,
@@ -156,10 +198,10 @@ import BorderedButton from "./BorderedButton.astro";
         justify-content: space-between;
       }
       .price {
-        font-weight: bold;
+        font-weight: lighter;
       }
       hr {
-        border-top: 1px solid #fff;
+        border-top: 1px solid #ffffff80;
       }
       ul {
         list-style: none;
@@ -193,7 +235,6 @@ import BorderedButton from "./BorderedButton.astro";
         transform: translateX(70%) rotate(540deg);
       }
     }
-
   }
   @media screen and (max-width: 600px) {
     .prices {
