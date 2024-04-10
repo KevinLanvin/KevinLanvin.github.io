@@ -1,30 +1,100 @@
 <section class='allTechnologies'>
-  <h2 class="subtitle">Mes technologies</h2>
-  <svg viewBox='0 0 264 140' class='svg-11'>
-    <path
-      d='M206 53.9998C256.294 -3 105 -29.0002 10.0001 53.9997C-37 95.0629 101 173 206 53.9998Z'
-      fill='url(#tamere)'></path>
-    <defs>
-      <linearGradient id='tamere' x1='0' y1='0' x2='1' y2='1'>
-        <stop stop-color='#060A1900'></stop>
-        <stop offset='1' stop-color='#00BC84'></stop>
-      </linearGradient>
-    </defs>
-  </svg>
+  <h2 class='subtitle'>Mes technologies</h2>
+  <h3>Mes technologies</h3>
+  <p>Phrase sur les technos</p>
+  <div class='technoGrid'>
+    <div class='technoCard'>
+      <h3>Front-end</h3>
+      <hr />
+      <ul>
+        <li>Svelte</li>
+        <li>React, Redux</li>
+        <li>Vue, Vuex, Nuxt</li>
+        <li>Pinia</li>
+      </ul>
+    </div>
+    <div class='technoCard'>
+      <h3>Back-end</h3>
+      <hr />
+      <ul>
+        <li>Decap, Strapi, Tina</li>
+        <li>NodeJS, Express, Loopback, NestJS</li>
+      </ul>
+    </div>
+    <div class='technoCard'>
+      <h3>CI / CD</h3>
+      <hr />
+      <ul>
+        <li>Gihub actions</li>
+        <li>Docker</li>
+        <li>Kubernetes</li>
+      </ul>
+    </div>
+    <div class='technoCard'>
+      <h3>Tests</h3>
+      <hr />
+      <ul>
+        <li>TDD, Tests Unitaires, Tests d'Intégration, Tests Fonctionnels</li>
+        <li>Jest</li>
+        <li>Clean Architecture</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
 <style lang='scss'>
   .allTechnologies {
+    padding: 0 12%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    background: url("/images/bubbles.webp");
+    gap: 2rem;
+    background: url("/images/technologies.webp");
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center top;
+    position: relative;
+    color: white;
+    padding-bottom: 10rem;
     h2 {
       position: relative;
-      text-align: center;
+      left: -16%;
+      text-align: left;
+    }
+    h3 {
+      font-size: 2rem;
+    }
+    .technoGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+      grid-template-rows: repeat(auto-fit, 1fr);
+      align-items: stretch;
+      gap: 2rem;
+      .technoCard {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 2rem;
+        background: linear-gradient(
+          225deg,
+          rgba(255, 255, 255, 0.3) 1.22%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        border: 1px solid #ffffff80;
+        border-radius: 1rem;
+        backdrop-filter: blur(10px);
+        h3 {
+          font-size: 1.25rem;
+        }
+        hr {
+          border-top: 1px solid #fff;
+        }
+        ul {
+          list-style-type: none;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
     }
   }
 </style>
