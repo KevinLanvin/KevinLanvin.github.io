@@ -42,7 +42,7 @@ import BorderedButton from "./BorderedButton.astro";
     display: flex;
     flex-direction: column;
     gap: 8rem;
-    padding-top: 20rem;
+    padding-top: 35rem;
     h2 {
       align-self: flex-end;
       z-index: 12;
@@ -72,6 +72,7 @@ import BorderedButton from "./BorderedButton.astro";
     .gridImage {
       flex: 1;
       min-width: 0;
+      z-index: 10;
       :global(img) {
         width: 100%;
         height: 100%;
@@ -84,7 +85,7 @@ import BorderedButton from "./BorderedButton.astro";
   @media screen and (max-width: 600px) {
     .lastWork {
       padding: 0 1rem;
-      padding-top: 10rem;
+      padding-top: 35rem;
       gap: 5rem;
       h2 {
         font-size: 3rem;
@@ -108,6 +109,9 @@ import BorderedButton from "./BorderedButton.astro";
         p {
           width: 100%;
           font-size: 1rem;
+        }
+        ul {
+          margin-left: 1rem;
         }
       }
       .gridImage {
