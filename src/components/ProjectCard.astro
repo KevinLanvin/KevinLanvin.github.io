@@ -14,7 +14,7 @@ const {
 
 <div class=`projectCard ${className}`>
   <div class='mockup'>
-    <img src={mockup} alt={mockupName} />
+    <img src={mockup} alt={mockupName} width="2755" height="1800" />
   </div>
   <div class='description'>
     <h2>{clientName}</h2>
@@ -32,6 +32,7 @@ const {
       min-height: 0;
       flex-shrink: 1;
       display: flex;
+      width: inherit;
     }
     :global(img) {
       object-fit: contain;
