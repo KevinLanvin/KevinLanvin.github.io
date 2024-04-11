@@ -5,7 +5,9 @@ import BorderedButton from "./BorderedButton.astro";
 <section class='prices'>
   <h2 class='subtitle'>Services web</h2>
   <h3 class='cardsTitle'>Mes services web</h3>
-  <p class='description'>Retrouvez mes tarifs adaptés aux petits comme aux grands budgets.</p>
+  <p class='description'>
+    Retrouvez mes tarifs adaptés aux petits comme aux grands budgets.
+  </p>
   <div class='priceCard'>
     <div class='header'>
       <h3>Développement de site web</h3>
@@ -22,12 +24,15 @@ import BorderedButton from "./BorderedButton.astro";
     <div class='header'>
       <h3>Packs options</h3>
     </div>
-    <div class="options">
+    <div class='options'>
       <div class='option'>
         <div class='header'>
           <h3>Page builder</h3>
         </div>
-        <p class='content'>Ajoutez et modifiez vous-mêmes simplement et sans effort les pages de votre site à votre convenance.</p>
+        <p class='content'>
+          Ajoutez et modifiez vous-mêmes simplement et sans effort les pages de
+          votre site à votre convenance.
+        </p>
       </div>
       <div class='option'>
         <div class='header'>
@@ -40,16 +45,16 @@ import BorderedButton from "./BorderedButton.astro";
       </div>
     </div>
   </div>
-  <div class='buttonContainer'>
-    <BorderedButton
-      addedClasses='pricesContactButton'
-      link='mailto:info.lanvink@gmail.com'
-    >
-      Contactez-moi pour un projet web
-    </BorderedButton>
-  </div>
+  <BorderedButton
+    addedClasses='pricesContactButton'
+    link='mailto:info.lanvink@gmail.com'
+  >
+    Contactez-moi pour un projet web
+  </BorderedButton>
   <h3 class='cardsTitle'>Mes partenaires</h3>
-  <p class='description'>Je m'entoure de freelances pour mener vos projets web à bon port.</p>
+  <p class='description'>
+    Je m'entoure de freelances pour mener vos projets web à bon port.
+  </p>
   <div class='priceCard'>
     <div class='header'>
       <h3>Identité visuelle</h3>
@@ -94,14 +99,12 @@ import BorderedButton from "./BorderedButton.astro";
       <li>Création d'illustrations</li>
     </ul>
   </div>
-  <div class='buttonContainer'>
-    <BorderedButton
-      addedClasses='pricesContactButton'
-      link='mailto:info.lanvink@gmail.com'
-    >
-      Contactez-moi pour la partie graphique
-    </BorderedButton>
-  </div>
+  <BorderedButton
+    addedClasses='pricesContactButton'
+    link='mailto:info.lanvink@gmail.com'
+  >
+    Contactez-moi pour la partie graphique
+  </BorderedButton>
   <svg
     class='circle'
     viewBox='0 0 800 800'
@@ -204,9 +207,7 @@ import BorderedButton from "./BorderedButton.astro";
         gap: 2rem;
       }
     }
-    .buttonContainer {
-      align-self: center;
-      position: relative;
+    :global(.pricesContactButton) {
       z-index: 2;
     }
     .circle {
