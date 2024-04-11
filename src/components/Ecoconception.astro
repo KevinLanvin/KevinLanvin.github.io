@@ -1,3 +1,7 @@
+---
+import BorderedButton from "./BorderedButton.astro";
+---
+
 <section class='ecoconception' id='ecoconception'>
   <h2 class='subtitle'>Eco-conception</h2>
   <div class='content'>
@@ -24,6 +28,7 @@
         l'environnement.
       </li>
     </ul>
+    <BorderedButton link="/services">Découvrir qui je suis</BorderedButton>
   </div>
   <div class='peacock'>
     <img src='/images/peacock.webp' alt='Peacock' width='747' height='783' />
@@ -62,10 +67,13 @@
     .content {
       display: flex;
       flex-direction: column;
+      align-items: flex-start;
       gap: 2rem;
       color: white;
       width: 50%;
       padding-bottom: 2rem;
+      z-index: 1;
+      position: relative;
       h3 {
         color: white;
         font-size: 2rem;

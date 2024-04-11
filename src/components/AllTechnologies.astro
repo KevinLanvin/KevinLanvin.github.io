@@ -1,3 +1,7 @@
+---
+import BorderedButton from "./BorderedButton.astro";
+---
+
 <section class='allTechnologies'>
   <h2 class='subtitle'>Mes technologies</h2>
   <h3>Mes technologies</h3>
@@ -40,6 +44,9 @@
       </ul>
     </div>
   </div>
+  <BorderedButton link='/portfolio' addedClasses='centeredButton'
+    >Voir mes réalisations</BorderedButton
+  >
 </section>
 
 <style lang='scss'>
@@ -47,6 +54,7 @@
     padding: 0 12%;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 2rem;
     background: url("/images/technologies.webp");
     background-size: cover;
@@ -63,10 +71,14 @@
     h3 {
       font-size: 2rem;
     }
+    :global(.centeredButton) {
+      align-self: center;
+    }
     .technoGrid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
       grid-template-rows: repeat(auto-fit, 1fr);
+      align-self: stretch;
       align-items: stretch;
       gap: 2rem;
       .technoCard {
@@ -101,9 +113,13 @@
   @media screen and (max-width: 600px) {
     .allTechnologies {
       padding: 5rem 1rem 12rem 1rem;
+      background: url("/images/technologies.webp");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center top;
       h2 {
         left: -1rem;
       }
-    } 
+    }
   }
 </style>
