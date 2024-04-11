@@ -1,28 +1,10 @@
 <section class='simpleSection'>
   <div class='sectionContent'>
-    <div class='incomingArrow'>
-      <svg height='0' width='0'>
-        <defs>
-          <clipPath
-            id='incomingArrowSvg'
-            clipPathUnits='objectBoundingBox'
-            transform='scale(0.0048076923076923, 0.0015105740181269)'
-          >
-            <path
-              d='M203.5 416.097V0H208.5V416.097C208.5 432.39 195.292 445.597 179 445.597H30C16.469 445.597 5.5 456.566 5.5 470.097V662H0.5V470.097C0.5 453.805 13.7076 440.597 30 440.597H179C192.531 440.597 203.5 429.628 203.5 416.097Z'
-              clip-rule='evenodd'
-              fill-rule='evenodd'
-            ></path>
-          </clipPath>
-        </defs>
-      </svg>
-    </div>
     <div class='border-container'>
       <div class='borderLeft'></div>
       <div class='borderRight'></div>
-      <p>J'interviens sur toute votre stack Javascript, Typescript au sein de votre équipe de développeurs agiles</p>
+      <p>La performance au coeur de l'expérience</p>
     </div>
-    <div class='leavingArrow'></div>
   </div>
 </section>
 
@@ -35,64 +17,9 @@
     justify-content: center;
     padding: 10rem calc(12% - 10px);
     box-shadow: 0px -100px 100px 50px #0e0e0e;
-    min-height: 100vh;
     position: relative;
     .sectionContent {
       position: relative;
-    }
-    .incomingArrow {
-      clip-path: url(#incomingArrowSvg);
-      height: 30rem;
-      aspect-ratio: 208 / 662;
-      max-width: 208px;
-      position: absolute;
-      bottom: 100%;
-      left: 50%;
-      z-index: 1;
-      overflow: hidden;
-      &::after {
-        content: "";
-        width: 662px;
-        height: 662px;
-        background: conic-gradient(
-          from 90deg at 100% 100%,
-          #ffffff00 49%,
-          #ffffff 50%,
-          #ffffff00 53%
-        );
-        position: absolute;
-        right: -70%;
-        bottom: 0;
-        transform-origin: 100% 100%;
-        animation: rotateArrow 5s linear infinite;
-      }
-    }
-    .leavingArrow {
-      clip-path: path("M0 0H5L2.50024 350L0 0Z");
-      width: 5px;
-      height: 350px;
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1;
-      &::before {
-        content: "";
-        width: 600px;
-        height: 600px;
-        background: conic-gradient(
-          from 90deg at 100% 50%,
-          #ffffff00 49%,
-          #ffffff 50%,
-          #ffffff00 53%
-        );
-        position: absolute;
-        right: -200px;
-        top: O;
-        transform: translateY(-50%);
-        transform-origin: 100% 50%;
-        animation: rotateLeavingArrow 5s linear infinite;
-      }
     }
     .border-container {
       padding: 5px;
@@ -123,7 +50,7 @@
           z-index: -1;
           top: 50%;
           right: 0;
-          animation: rotateBorderLeft 5s linear infinite;
+          animation: rotateBorderLeft 2s linear infinite;
           transform: translate(50%, -50%);
         }
       }
@@ -150,7 +77,7 @@
           z-index: -1;
           top: 50%;
           left: 0;
-          animation: rotateBorderRight 5s linear infinite;
+          animation: rotateBorderRight 2s linear infinite;
           transform: translate(-50%, -50%);
         }
       }
@@ -171,18 +98,6 @@
     0% {
       transform: translate(-50%, -50%) rotate(-5deg);
     }
-    31% {
-      transform: translate(-50%, -50%) rotate(-5deg);
-    }
-    33% {
-      transform: translate(-50%, -50%) rotate(0deg);
-    }
-    66% {
-      transform: translate(-50%, -50%) rotate(180deg);
-    }
-    68% {
-      transform: translate(-50%, -50%) rotate(200deg);
-    }
     100% {
       transform: translate(-50%, -50%) rotate(200deg);
     }
@@ -192,47 +107,8 @@
     0% {
       transform: translate(50%, -50%) rotate(5deg);
     }
-    31% {
-      transform: translate(50%, -50%) rotate(5deg);
-    }
-    33% {
-      transform: translate(50%, -50%) rotate(0deg);
-    }
-    66% {
-      transform: translate(50%, -50%) rotate(-180deg);
-    }
-    68% {
-      transform: translate(50%, -50%) rotate(-200deg);
-    }
     100% {
       transform: translate(50%, -50%) rotate(-200deg);
-    }
-  }
-
-  @keyframes rotateArrow {
-    0% {
-      transform: rotate(90deg);
-    }
-    33% {
-      transform: rotate(0deg);
-    }
-    40% {
-      transform: rotate(-20deg);
-    }
-    100% {
-      transform: rotate(-20deg);
-    }
-  }
-
-  @keyframes rotateLeavingArrow {
-    0% {
-      transform: translateY(-50%) rotate(90deg);
-    }
-    66% {
-      transform: translateY(-50%) rotate(0deg);
-    }
-    100% {
-      transform: translateY(-50%) rotate(-90deg);
     }
   }
 

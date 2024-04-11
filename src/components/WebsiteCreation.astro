@@ -4,58 +4,76 @@ import SquareHammer from "./SquareHammer.astro";
 
 <section class='websiteCreation'>
   <h2 class='subtitle'>Création de sites web</h2>
-  <div class='text'>
-    <h3>Création de sites web</h3>
-    <p>
-      Je réalise des <strong>sites web sur mesure</strong>, faciles à prendre en
-      main.<br />Vous pourrez choisir entre <strong>un site statique</strong> pour
-      les petis budgets ou <strong>un site clé en main</strong> qui vous permettra
-      de créer et administrer vous-mêmes votre contenu.<br />Tous mes sites sont <a
-        href='creation-site-web#ecoconception'>éco-conçus</a
-      >, optimisés pour mobiles, accessibles et performants.
-    </p>
-    <a href='creation-site-web' class='services'>Découvrir mes services </a>
-    <svg
-      class='circle'
-      viewBox='0 0 800 800'
-      fill='none'
-      xmlns='http://www.w3.org/2000/svg'
-    >
-      <defs>
-        <radialGradient id='circleGradient' cx='0' cy='50%' r='25%'>
-          <stop offset='0%' stop-color='#ffffff'></stop>
-          <stop offset='100%' stop-color='#ffffff00'></stop>
-        </radialGradient>
-      </defs>
-      <circle
-        cx='400'
-        cy='400'
-        r='396'
-        stroke-width='4'
-        stroke='url(#circleGradient)'></circle>
-    </svg>
-  </div>
-  <div class='bigSquare'>
-    <SquareHammer class='squareHammer' />
+  <div class='content'>
+    <div class='text'>
+      <h3>Création de sites web</h3>
+      <p>
+        Je réalise des <strong>sites web sur mesure</strong>, faciles à prendre
+        en main.<br />Vous pourrez choisir entre <strong
+          >un site statique</strong
+        > pour les petis budgets ou <strong>un site clé en main</strong> qui vous
+        permettra de créer et administrer vous-mêmes votre contenu.<br />Tous
+        mes sites sont <a href='creation-site-web#ecoconception'>éco-conçus</a>,
+        optimisés pour mobiles, accessibles et performants.
+      </p>
+      <a href='creation-site-web' class='services'>Découvrir mes services </a>
+      <svg
+        class='circle'
+        viewBox='0 0 800 800'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
+        <defs>
+          <radialGradient id='circleGradient' cx='0' cy='50%' r='25%'>
+            <stop offset='0%' stop-color='#ffffff'></stop>
+            <stop offset='100%' stop-color='#ffffff00'></stop>
+          </radialGradient>
+        </defs>
+        <circle
+          cx='400'
+          cy='400'
+          r='396'
+          stroke-width='4'
+          stroke='url(#circleGradient)'></circle>
+      </svg>
+    </div>
+    <div class='bigSquare'>
+      <SquareHammer class='squareHammer' />
+    </div>
   </div>
 </section>
 
 <style lang='scss'>
   .websiteCreation {
-    background-color: #ccd6e8;
-    box-shadow: 0 150px 150px 150px #cdd6e8;
     position: relative;
     display: flex;
+    flex-direction: column;
     gap: 5rem;
     padding: 0 12%;
     padding-top: 15rem;
     z-index: 1;
     min-height: 0;
-    height: 25rem;
-    h2 {
+    height: 100%;
+    margin-bottom: -25rem;
+    &::after {
+      content: "";
       position: absolute;
+      width: 100%;
+      height: calc(100% - 25rem);
       top: 0;
-      margin-left: -12%;
+      left: 0;
+      background-color: #ccd6e8;
+      box-shadow: 0 150px 150px 150px #cdd6e8;
+      z-index: -1;
+    }
+    .content {
+      position: relative;
+      display: flex;
+      gap: 5rem;
+    }
+    h2 {
+      position: relative;
+      margin-left: -16%;
     }
     .text {
       color: #4f4f4f;
@@ -65,6 +83,7 @@ import SquareHammer from "./SquareHammer.astro";
       gap: 2rem;
       h3 {
         font-size: 2rem;
+        line-height: 0.9;
       }
       .services {
         font-weight: bold;
@@ -114,10 +133,12 @@ import SquareHammer from "./SquareHammer.astro";
       display: flex;
       flex-direction: column;
       gap: 2rem;
-      padding: 15rem 1rem 0 1rem;
-      height: 35rem;
+      padding: 10rem 1rem 0 1rem;
+      margin-bottom: -35rem;
+      .content {
+        flex-direction: column;
+      }
       h2 {
-        margin-top: 5rem;
         margin-left: -1rem;
       }
       p {
