@@ -1,9 +1,24 @@
+---
+import BorderedButton from "./BorderedButton.astro";
+---
+
 <section class='simpleSection'>
   <div class='sectionContent'>
     <div class='border-container'>
       <div class='borderLeft'></div>
       <div class='borderRight'></div>
-      <p>La performance au coeur de l'expérience</p>
+      <div class='content'>
+        <p>La performance au coeur de l'expérience</p>
+        <img
+          srcset='/images/muchas-glacias-mobile.svg 600w, /images/muchas-glacias.svg 800w'
+          sizes='(max-width: 600px) 600px, 800px'
+          src='/images/muchas-glacias.svg'
+          alt='Muchas glacias performances'
+        />
+        <BorderedButton link='' addedClasses='centeredButton'
+          >Découvrir la note du site web</BorderedButton
+        >
+      </div>
     </div>
   </div>
 </section>
@@ -44,8 +59,8 @@
             transparent 30%,
             transparent
           );
-          width: 400%;
-          padding-top: 400%;
+          width: 800%;
+          padding-top: 800%;
           position: absolute;
           z-index: -1;
           top: 50%;
@@ -71,8 +86,8 @@
             transparent 76%,
             transparent
           );
-          width: 400%;
-          padding-top: 400%;
+          width: 800%;
+          padding-top: 800%;
           position: absolute;
           z-index: -1;
           top: 50%;
@@ -82,16 +97,25 @@
         }
       }
     }
-    p {
-      color: white;
-      font-weight: bold;
-      font-size: 5rem;
-      line-height: 5rem;
-      text-align: center;
-      padding: 10rem;
-      border-radius: 5rem;
-      position: relative;
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5rem;
+      padding: 5rem;
       background-color: #0e0e0e;
+      border-radius: 5rem;
+      p {
+        color: white;
+        font-weight: bold;
+        font-size: 5rem;
+        line-height: 5rem;
+        text-align: center;
+        position: relative;
+      }
+      img {
+        width: 80%;
+      }
     }
   }
 
@@ -116,11 +140,14 @@
   @media screen and (max-width: 600px) {
     .simpleSection {
       padding: 5rem 1rem;
-      p {
+      .content {
         padding: 2rem;
-        font-size: 1.5rem;
-        line-height: 2rem;
         border-radius: 2rem;
+        gap: 2rem;
+        p {
+          font-size: 3rem;
+          line-height: 3rem;
+        }
       }
       .border-container {
         border-radius: 2rem;
