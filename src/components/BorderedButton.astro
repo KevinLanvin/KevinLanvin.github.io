@@ -1,11 +1,11 @@
 ---
-const { addedClasses = "", link = "" } = Astro.props;
+const { addedClasses = "", link = "", newTab = false } = Astro.props;
 ---
 
 <div class=`buttonContainer ${addedClasses}`>
   <div class='square square1'></div>
   <div class='square square2'></div>
-  <a class='borderedButton' href={link}>
+  <a class='borderedButton' href={link} target={newTab ? "_blank" : "_self"}>
     <slot />
   </a>
 </div>
