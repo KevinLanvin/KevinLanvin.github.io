@@ -18,35 +18,64 @@ import AlacriteWhite from "./PartnerLogos/alacrite-white.astro";
 const { inverted = false, title = true } = Astro.props;
 ---
 
-<section class="partnersSection">
-  {title && <h2>Ils m'ont fait confiance</h2> }
-  <div class='partners'>
-    {
-    inverted ? (
-      <>
-        <DaltWhite />
-        <LamieWhite />
-        <SpreadtheliveWhite />
-        <LabanquiseWhite />
-        <InriaWhite />
-        <PaulineWhite />
-        <AdeoWhite />
-        <AlacriteWhite />
-      </>
-    ) : (
-      <>
-        <Dalt />
-        <Lamie />
-        <Spreadthelive />
-        <Labanquise />
-        <Inria />
-        <Pauline />
-        <Adeo />
-        <Alacrite />
-        </>
+<section class='partnersSection'>
+  {title && <h2>Ils m'ont fait confiance</h2>}
+  <div class='partnersContainer'>
+    <div class='partners'>
+      {
+        inverted ? (
+          <>
+            <DaltWhite />
+            <LamieWhite />
+            <SpreadtheliveWhite />
+            <LabanquiseWhite />
+            <InriaWhite />
+            <PaulineWhite />
+            <AdeoWhite />
+            <AlacriteWhite />
+          </>
+        ) : (
+          <>
+            <Dalt />
+            <Lamie />
+            <Spreadthelive />
+            <Labanquise />
+            <Inria />
+            <Pauline />
+            <Adeo />
+            <Alacrite />
+          </>
         )
       }
-</div>
+    </div>
+    <div class='partners partnersMobile'>
+      {
+        inverted ? (
+          <>
+            <DaltWhite />
+            <LamieWhite />
+            <SpreadtheliveWhite />
+            <LabanquiseWhite />
+            <InriaWhite />
+            <PaulineWhite />
+            <AdeoWhite />
+            <AlacriteWhite />
+          </>
+        ) : (
+          <>
+            <Dalt />
+            <Lamie />
+            <Spreadthelive />
+            <Labanquise />
+            <Inria />
+            <Pauline />
+            <Adeo />
+            <Alacrite />
+          </>
+        )
+      }
+    </div>
+  </div>
 </section>
 
 <style lang='scss'>
@@ -61,6 +90,10 @@ const { inverted = false, title = true } = Astro.props;
     color: #4f4f4f;
     font-size: 2rem;
   }
+  .partnersContainer {
+    display: flex;
+    gap: 2rem;
+  }
   .partners {
     display: flex;
     justify-content: center;
@@ -72,6 +105,9 @@ const { inverted = false, title = true } = Astro.props;
       height: 50px;
     }
   }
+  .partnersMobile {
+    display: none;
+  }
   @media screen and (max-width: 600px) {
     .partnersSection {
       padding: 2rem 1rem;
@@ -80,23 +116,30 @@ const { inverted = false, title = true } = Astro.props;
     h2 {
       font-size: 1.25rem;
     }
+    .partnersContainer {
+      animation: scrollPartners 10s infinite linear;
+      width: fit-content;
+      justify-content: space-around;
+    }
     .partners {
-      padding-left: 100vw;
       gap: 2rem;
       row-gap: 2rem;
       flex-wrap: nowrap;
       width: max-content;
-      animation: scrollPartners 20s infinite linear;
+      justify-content: space-around;
       :global(svg) {
         height: 30px;
       }
+    }
+    .partnersMobile {
+      display: flex;
     }
     @keyframes scrollPartners {
       from {
         transform: translateX(0);
       }
       to {
-        transform: translateX(-100%);
+        transform: translateX(calc(-50% - 1rem));
       }
     }
   }
