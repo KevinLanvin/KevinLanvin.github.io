@@ -1,0 +1,163 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title='Kevin Lanvin'>
+  <main>
+    <h1>Contact</h1>
+    <div class='contactCard'>
+      <h2 id='title'>
+        Explorons <em>ensemble</em> de <strong>nouveaux horizons</strong>
+      </h2>
+      <p class='baseline'>
+        Vous souhaitez une création ou une refonte de site web ?<br />Besoin
+        d'un devis ? Une question en tête ?
+      </p>
+      <div class='contacts'>
+        <div>
+          <h3>Par mail</h3>
+          <p>
+            <a href='mailto:info.lanvink@gmail.com'>info.lanvink@gmail.com</a>
+          </p>
+        </div>
+        <div>
+          <h3>Par téléphone</h3>
+          <p>06.37.04.50.62</p>
+        </div>
+        <div>
+          <h3>Via les réseaux</h3>
+          <div class='reseaux'>
+            <a
+              target='_blank'
+              href='https://www.malt.fr/profile/kevinlanvin?overview'
+              ><img src='/images/malt.svg' alt='Malt' /></a
+            >
+            <a
+              target='_blank'
+              href='https://www.linkedin.com/in/kevin-lanvin-0208281b5'
+              ><img src='/images/linkedin.svg' alt='LinkedIn' /></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style lang='scss'>
+  main {
+    width: 100%;
+    min-height: 100vh;
+    background: url("/images/mongolfier.webp"), black;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      background: radial-gradient(closest-side, #0e0e0e00, #0e0e0e);
+    }
+    h1 {
+      color: rgba(255, 255, 255, 0.4);
+      font-weight: bold;
+      line-height: 0.9;
+      z-index: 20;
+      position: absolute;
+      top: 8rem;
+      right: 0;
+      font-size: 6rem;
+      text-align: right;
+      background: unset;
+    }
+    .contactCard {
+      max-width: min(70rem, 80%);
+      position: relative;
+      z-index: 30;
+      border: 1px solid white;
+      border-radius: 1rem;
+      padding: 3rem;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(
+        225deg,
+        rgba(255, 255, 255, 0.3) 1.22%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      h2 {
+        font-size: 4rem;
+        font-family: Poppins;
+        font-weight: 500;
+        line-height: 1.125em;
+        margin: 0;
+        padding: 1rem 0;
+        color: #ffffff;
+        text-align: center;
+        strong {
+          font-weight: 900;
+        }
+        em {
+          font-weight: 100;
+        }
+      }
+      .baseline {
+        font-weight: bold;
+        font-size: 1.25rem;
+        text-align: center;
+      }
+      .contacts {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2rem;
+        align-items: stretch;
+        width: 100%;
+        > div {
+          border: 1px solid white;
+          border-radius: 1rem;
+          padding: 1rem;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+        .reseaux {
+          display: flex;
+          gap: 1rem;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    main {
+      padding-top: 12rem;
+      h1 {
+        top: 5rem;
+        right: 0;
+        font-size: 3rem
+      }
+      .contactCard {
+        width: calc(100% - 2rem);
+        margin: auto;
+        margin-bottom: 15rem;
+        padding: 1rem;
+        h2 {
+          font-size: 2rem;
+        }
+        .contacts {
+          grid-template-columns: 1fr;
+        }
+      }
+    } 
+  }
+</style>
