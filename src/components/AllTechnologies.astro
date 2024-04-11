@@ -48,7 +48,7 @@ import Partners from "./Partners.astro";
   <BorderedButton link='/portfolio' addedClasses='centeredButton'
     >Voir mes réalisations</BorderedButton
   >
-  <Partners inverted title={ false }></Partners>
+  <Partners inverted title={false} />
 </section>
 
 <style lang='scss'>
@@ -79,7 +79,6 @@ import Partners from "./Partners.astro";
     .technoGrid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-      grid-template-rows: repeat(auto-fit, 1fr);
       align-self: stretch;
       align-items: stretch;
       gap: 2rem;
@@ -121,6 +120,9 @@ import Partners from "./Partners.astro";
       background-position: center top;
       h2 {
         left: -1rem;
+      }
+      .technoGrid {
+        grid-template-columns: 1fr;
       }
     }
   }
