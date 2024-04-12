@@ -77,7 +77,10 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
 </PortfolioLayout>
 
 <script>
+  const gap = window.innerHeight;
+  document.body.style.setProperty('--gap', `${gap}`);
   document.addEventListener("scroll", (event) => {
+    console.log(window.scrollY);
     const sceneElement = document.querySelector(".scene") as HTMLElement;
     if (!!sceneElement) {
       sceneElement.style.transform = `translateZ(${window.scrollY}px)`;
@@ -86,7 +89,7 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
     descriptions.forEach((node) => ((node as HTMLElement).style.opacity = "0"));
   });
   document.addEventListener("scrollend", () => {
-    const displayedCardNumber = Math.floor(window.scrollY / 1000) + 1;
+    const displayedCardNumber = Math.floor(window.scrollY / gap) + 1;
     const currentProjectCardDescription = document.querySelector(
       `.scene > .projectCard:nth-child(${displayedCardNumber}) > .description`
     ) as HTMLElement;
@@ -97,14 +100,13 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
 
 <style lang='scss'>
   :root {
-    --gap: 1000;
     --nbElements: 4;
   }
   :global(body) {
     height: calc(var(--gap) * (var(--nbElements)) * 1px);
   }
   main {
-    perspective: 1000px;
+    perspective: calc(var(--gap) * 1px);
     perspective-origin: 70% 50%;
     position: fixed;
     top: 0;
