@@ -4,11 +4,11 @@ import Partners from "./Partners.astro";
 ---
 
 <section class='allTechnologies'>
-  <h2 class='subtitle'>Mes bagages</h2>
-  <h3>Mes technologies favorites</h3>
-  <p>Ces technologies modernes et éprouvées sont la clé pour développer vos projets web en un minimum de temps et un minimum de coûts.</p>
+  <h2 class='subtitle animatedScrollContent'>Mes bagages</h2>
+  <h3 class="animatedScrollContent">Mes technologies favorites</h3>
+  <p class="animatedScrollContent">Ces technologies modernes et éprouvées sont la clé pour développer vos projets web en un minimum de temps et un minimum de coûts.</p>
   <div class='technoGrid'>
-    <div class='technoCard'>
+    <div class='technoCard animatedScrollContent'>
       <h3>Front-end</h3>
       <hr />
       <ul>
@@ -18,7 +18,7 @@ import Partners from "./Partners.astro";
         <li>Pinia</li>
       </ul>
     </div>
-    <div class='technoCard'>
+    <div class='technoCard animatedScrollContent'>
       <h3>Back-end</h3>
       <hr />
       <ul>
@@ -26,7 +26,7 @@ import Partners from "./Partners.astro";
         <li>NodeJS, Express, Loopback, NestJS</li>
       </ul>
     </div>
-    <div class='technoCard'>
+    <div class='technoCard animatedScrollContent'>
       <h3>CI / CD</h3>
       <hr />
       <ul>
@@ -35,7 +35,7 @@ import Partners from "./Partners.astro";
         <li>Kubernetes</li>
       </ul>
     </div>
-    <div class='technoCard'>
+    <div class='technoCard animatedScrollContent'>
       <h3>Tests</h3>
       <hr />
       <ul>
@@ -45,7 +45,7 @@ import Partners from "./Partners.astro";
       </ul>
     </div>
   </div>
-  <BorderedButton link='/portfolio' addedClasses='centeredButton'
+  <BorderedButton link='/portfolio' addedClasses='centeredButton animatedScrollContent'
     >Voir mes réalisations</BorderedButton
   >
   <Partners inverted title={false} />
@@ -64,7 +64,7 @@ import Partners from "./Partners.astro";
     background-position: center top;
     position: relative;
     color: white;
-    padding-bottom: 10rem;
+    padding-bottom: 5rem;
     h2 {
       position: relative;
       right: -16%;

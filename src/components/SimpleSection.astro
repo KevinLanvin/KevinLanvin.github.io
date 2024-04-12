@@ -8,13 +8,14 @@ import BorderedButton from "./BorderedButton.astro";
       <div class='borderLeft'></div>
       <div class='borderRight'></div>
       <div class='content'>
-        <p>La performance au coeur de l'expérience</p>
+        <p class="animatedScrollContent">La performance au coeur de l'expérience</p>
         <img
           srcset='/images/muchas-glacias-mobile.svg 600w, /images/muchas-glacias.svg'
           src='/images/muchas-glacias.svg'
           alt='Muchas glacias performances'
+          class="animatedScrollContent"
         />
-        <BorderedButton link='#' addedClasses='centeredButton' newTab
+        <BorderedButton link='#' addedClasses='centeredButton animatedScrollContent' newTab
           >Découvrez la note du site</BorderedButton
         >
       </div>

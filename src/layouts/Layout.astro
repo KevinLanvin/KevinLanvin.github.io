@@ -37,6 +37,27 @@ import Footer from "../components/Footer.astro";
       title.style.backgroundPositionX = `${xOffset}px`;
     });
   }
+
+  const scrollOptions = {
+    rootMargin: "0px",
+    threshold: 0.1,
+  };
+
+  const scrollEnter = (
+    entries: IntersectionObserverEntry[],
+    observer: IntersectionObserver
+  ) => {
+    entries.forEach((entry) => {
+      if(entry.isIntersecting) {
+        console.log(entry)
+        entry.target.classList.add("animatedScrollContentIntersecting");
+      }
+  });
+  };
+  const observer = new IntersectionObserver(scrollEnter, scrollOptions);
+
+  const scrollElements = document.querySelectorAll(".animatedScrollContent");
+  scrollElements.forEach((scrollElement) => observer.observe(scrollElement));
 </script>
 
 <style is:global>
@@ -114,10 +135,8 @@ import Footer from "../components/Footer.astro";
       rgb(var(--accent-light)) 30%,
       white 60%
     );
-    --text-shadow: 
-        0px 0px 10px #000000aa,
-        0px 0px 30px #000000,
-        0px 0px 50px #000000;
+    --text-shadow: 0px 0px 10px #000000aa, 0px 0px 30px #000000,
+      0px 0px 50px #000000;
   }
   * {
     box-sizing: border-box;
@@ -189,6 +208,15 @@ import Footer from "../components/Footer.astro";
     cursor: pointer;
     color: inherit;
     text-decoration: underline;
+  }
+
+  .animatedScrollContent {
+    transform: translateY(5rem);
+    transition: transform .5s;
+  }
+
+  .animatedScrollContent.animatedScrollContentIntersecting {
+    transform: translateY(0);
   }
 
   @media screen and (max-width: 600px) {
