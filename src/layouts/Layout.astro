@@ -49,7 +49,6 @@ import Footer from "../components/Footer.astro";
   ) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        console.log(entry);
         entry.target.classList.add("animatedScrollContentIntersecting");
       }
     });
@@ -59,6 +58,7 @@ import Footer from "../components/Footer.astro";
   const scrollElements = document.querySelectorAll(".animatedScrollContent");
   scrollElements.forEach((scrollElement) => observer.observe(scrollElement));
 </script>
+<script>document.addEventListener("touchstart", function() {},false);</script>
 
 <style is:global>
   @font-face {

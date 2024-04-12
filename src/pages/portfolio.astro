@@ -80,7 +80,6 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
   const gap = window.innerHeight;
   document.body.style.setProperty('--gap', `${gap}`);
   document.addEventListener("scroll", (event) => {
-    console.log(window.scrollY);
     const sceneElement = document.querySelector(".scene") as HTMLElement;
     if (!!sceneElement) {
       sceneElement.style.transform = `translateZ(${window.scrollY}px)`;
