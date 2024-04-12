@@ -79,21 +79,24 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
 <script>
   const gap = window.innerHeight;
   document.body.style.setProperty('--gap', `${gap}`);
-  document.addEventListener("scroll", (event) => {
-    const sceneElement = document.querySelector(".scene") as HTMLElement;
-    if (!!sceneElement) {
-      sceneElement.style.transform = `translateZ(${window.scrollY}px)`;
-    }
-    const descriptions = document.querySelectorAll(".description");
-    descriptions.forEach((node) => ((node as HTMLElement).style.opacity = "0"));
-  });
-  document.addEventListener("scrollend", () => {
+  const scrollEndCallback = () => {
     const displayedCardNumber = Math.floor(window.scrollY / gap) + 1;
     const currentProjectCardDescription = document.querySelector(
       `.scene > .projectCard:nth-child(${displayedCardNumber}) > .description`
     ) as HTMLElement;
     if (currentProjectCardDescription)
       currentProjectCardDescription.style.opacity = "1";
+  }
+  let isScrolling;
+  document.addEventListener("scroll", (event) => {
+    window.clearTimeout( isScrolling );
+    const sceneElement = document.querySelector(".scene") as HTMLElement;
+    if (!!sceneElement) {
+      sceneElement.style.transform = `translateZ(${window.scrollY}px)`;
+    }
+    const descriptions = document.querySelectorAll(".description");
+    descriptions.forEach((node) => ((node as HTMLElement).style.opacity = "0"));
+    isScrolling = setTimeout(scrollEndCallback, 120);
   });
 </script>
 
@@ -496,7 +499,7 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
 
   @media screen and (max-width: 600px) {
     main {
-      perspective-origin: 50% 200%;
+      perspective-origin: 50% 175%;
       &::before {
         background: radial-gradient(
           closest-side,
