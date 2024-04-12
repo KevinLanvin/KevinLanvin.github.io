@@ -84,4 +84,10 @@ const { addedClasses = "", link = "", newTab = false } = Astro.props;
     text-decoration: none;
     text-align: center;
   }
+
+  @media screen and (max-width: 600px) {
+    .borderedButton {
+      pointer-events: none;
+    } 
+  }
 </style>
