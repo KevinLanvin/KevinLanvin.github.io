@@ -140,7 +140,6 @@ import BorderedButton from "./BorderedButton.astro";
     padding-top: 20rem;
     h2 {
       z-index: 2;
-      margin-left: -15.79%;
     }
     .cardsTitle {
       color: white;
@@ -176,6 +175,7 @@ import BorderedButton from "./BorderedButton.astro";
     .priceCard {
       align-self: center;
       width: max(75%, 1000px);
+      max-width: 100%;
       backdrop-filter: blur(10px);
       background: linear-gradient(
         225deg,
@@ -236,15 +236,11 @@ import BorderedButton from "./BorderedButton.astro";
     .prices {
       margin: 0;
       padding: 0 1rem;
-      padding-top: 10rem;
+      padding-top: 5rem;
       h2 {
         font-size: 3rem;
         margin: 0;
         margin-left: -1rem;
-        margin-bottom: 0;
-      }
-      .subtitle {
-        margin-top: 5rem;
       }
       .description {
         width: calc(100% - 2rem);

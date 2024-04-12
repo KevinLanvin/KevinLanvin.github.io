@@ -48,11 +48,11 @@ import Footer from "../components/Footer.astro";
     observer: IntersectionObserver
   ) => {
     entries.forEach((entry) => {
-      if(entry.isIntersecting) {
-        console.log(entry)
+      if (entry.isIntersecting) {
+        console.log(entry);
         entry.target.classList.add("animatedScrollContentIntersecting");
       }
-  });
+    });
   };
   const observer = new IntersectionObserver(scrollEnter, scrollOptions);
 
@@ -197,7 +197,8 @@ import Footer from "../components/Footer.astro";
     font-weight: bold;
     font-size: 6rem;
     line-height: 0.9;
-    max-width: 60vw;
+    width: 76vw;
+    max-width: none;
     margin: 0;
   }
 
@@ -212,7 +213,7 @@ import Footer from "../components/Footer.astro";
 
   .animatedScrollContent {
     transform: translateY(5rem);
-    transition: transform .5s;
+    transition: transform 0.5s;
   }
 
   .animatedScrollContent.animatedScrollContentIntersecting {

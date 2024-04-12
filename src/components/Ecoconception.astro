@@ -3,8 +3,8 @@ import BorderedButton from "./BorderedButton.astro";
 ---
 
 <section class='ecoconception' id='ecoconception'>
-  <h2 class='subtitle animatedScrollContent'>Au pays de l'éco-conception</h2>
   <div class='content'>
+    <h2 class='subtitle animatedScrollContent'>Au pays de l'éco-conception</h2>
     <h3 class='animatedScrollContent'>
       Faisons le tour des idées reçues,<br />ce qu'un site éco-conçu N'est PAS :
     </h3>
@@ -54,6 +54,9 @@ import BorderedButton from "./BorderedButton.astro";
     padding: 0 12%;
     padding-bottom: 191px;
     padding-top: 10rem;
+    display: flex;
+    align-items: flex-end;
+    gap: 5rem;
     &::before {
       content: "";
       position: absolute;
@@ -71,8 +74,6 @@ import BorderedButton from "./BorderedButton.astro";
     }
     h2 {
       z-index: 2;
-      margin-left: -15.79%;
-      margin-bottom: 10rem;
       position: relative;
     }
     .content {
@@ -97,11 +98,9 @@ import BorderedButton from "./BorderedButton.astro";
       }
     }
     .peacock {
-      position: absolute;
-      bottom: 191px;
-      right: 12%;
-      height: 50vh;
       overflow: hidden;
+      position: relative;
+      aspect-ratio: 747 / 783;
       &::before {
         content: "";
         position: absolute;
@@ -120,23 +119,25 @@ import BorderedButton from "./BorderedButton.astro";
       img {
         height: 100%;
         width: 100%;
-        object-fit: cover;
+        object-fit: contain;
+        object-position: right bottom;
       }
     }
   }
 
   @media screen and (max-width: 600px) {
     .ecoconception {
-      padding: 10rem 1rem;
+      padding: 5rem 1rem;
       padding-bottom: 145px;
-      gap: 5rem;
+      flex-direction: column;
       h2 {
         font-size: 3rem;
-        margin-bottom: 5rem;
+        margin-bottom: 2rem;
         margin-left: -1rem;
       }
       .content {
         width: 100%;
+        padding: 0;
         h3 {
           font-size: 1.5rem;
         }
