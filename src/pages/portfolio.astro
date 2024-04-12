@@ -80,7 +80,7 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
   document.addEventListener("scroll", (event) => {
     const sceneElement = document.querySelector(".scene") as HTMLElement;
     if (!!sceneElement) {
-      sceneElement.style.transform = `translateZ(${Math.min(3000, window.scrollY)}px)`;
+      sceneElement.style.transform = `translateZ(${window.scrollY}px)`;
     }
     const descriptions = document.querySelectorAll(".description");
     descriptions.forEach((node) => ((node as HTMLElement).style.opacity = "0"));
@@ -484,6 +484,7 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
     color: white;
     h2 {
       font-size: 2rem;
+      text-align: center;
     }
     p {
       text-shadow: 0px 0px 50px #000000;
