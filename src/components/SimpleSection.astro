@@ -15,8 +15,8 @@ import BorderedButton from "./BorderedButton.astro";
           alt='Muchas glacias performances'
           class="animatedScrollContent"
         />
-        <BorderedButton link='#' addedClasses='centeredButton animatedScrollContent' newTab
-          >Découvrez la note du site</BorderedButton
+        <BorderedButton link='https://www.ecoindex.fr/' addedClasses='centeredButton animatedScrollContent' newTab
+          >Testez votre site</BorderedButton
         >
       </div>
     </div>
@@ -65,7 +65,7 @@ import BorderedButton from "./BorderedButton.astro";
           z-index: -1;
           top: 50%;
           right: 0;
-          animation: rotateBorderLeft 2s linear infinite;
+          animation: rotateBorderLeft 3s linear infinite;
           transform: translate(50%, -50%);
         }
       }
@@ -92,7 +92,7 @@ import BorderedButton from "./BorderedButton.astro";
           z-index: -1;
           top: 50%;
           left: 0;
-          animation: rotateBorderRight 2s linear infinite;
+          animation: rotateBorderRight 3s linear infinite;
           transform: translate(-50%, -50%);
         }
       }
@@ -123,6 +123,9 @@ import BorderedButton from "./BorderedButton.astro";
     0% {
       transform: translate(-50%, -50%) rotate(-5deg);
     }
+    60% {
+      transform: translate(-50%, -50%) rotate(200deg);
+    }
     100% {
       transform: translate(-50%, -50%) rotate(200deg);
     }
@@ -131,6 +134,9 @@ import BorderedButton from "./BorderedButton.astro";
   @keyframes rotateBorderLeft {
     0% {
       transform: translate(50%, -50%) rotate(5deg);
+    }
+    60% {
+      transform: translate(50%, -50%) rotate(-200deg);
     }
     100% {
       transform: translate(50%, -50%) rotate(-200deg);
