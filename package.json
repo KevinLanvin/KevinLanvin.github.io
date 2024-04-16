@@ -10,7 +10,6 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@playform/compress": "^0.0.3",
     "astro": "^4.3.5"
   },
   "devDependencies": {
